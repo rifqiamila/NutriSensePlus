@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<VBox spacing="12" alignment="CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="com.nutrisense.controllers.LoginController" stylesheets="/css/nutrisense.css">
+    <Label text="NutriSense+" styleClass="app-title"/>
+    <ComboBox fx:id="roleBox" prefWidth="320"/>
+    <TextField fx:id="userField" promptText="Username (user)"/>
+    <PasswordField fx:id="passwordField" promptText="Password (1234)"/>
+    <HBox spacing="8">
+        <Button text="Login" onAction="#onLogin" styleClass="btn-primary"/>
+        <Button text="Register" onAction="#onRegister" styleClass="btn-default"/>
+    </HBox>
+    <Label fx:id="statusLabel" />
+</VBox>

@@ -1,0 +1,5 @@
+[
+  {"id":"user","name":"User Umum Demo","role":"UMUM","password":"1234"},
+  {"id":"test_student","name":"Siswa Demo","role":"SISWA","password":"test"},
+  {"id":"test_kitchen","name":"Dapur Demo","role":"DAPUR","password":"test"}
+]

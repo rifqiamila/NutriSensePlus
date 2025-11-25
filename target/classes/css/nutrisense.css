@@ -1,0 +1,148 @@
+/* ===============================
+   FONT LOADING (JavaFX Compatible)
+   =============================== */
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Playfair";
+    src: url("../fonts/PlayfairDisplay-Regular.ttf");
+}
+
+/* ROOT */
+.root {
+    -fx-font-family: "Inter";
+    -fx-background-color: #FFFFFF;
+}
+
+/* ===============================
+   APP TITLE
+   =============================== */
+.app-title {
+    -fx-font-family: "Poppins";
+    -fx-font-size: 28px;
+    -fx-text-fill: linear-gradient(from 0% 0% to 100% 0%, #6322A1, #C727FF, #FF9A2D);
+}
+
+/* ===============================
+   SIDEBAR
+   =============================== */
+.sidebar {
+    -fx-padding: 24;
+    -fx-pref-width: 220;
+    -fx-background-color: linear-gradient(to bottom, #6322A1, #C727FF, #FF9A2D);
+}
+
+.sidebar-logo {
+    -fx-text-fill: white;
+    -fx-font-family: "Poppins";
+    -fx-font-size: 20px;
+    -fx-padding: 8 0 18 0;
+}
+
+.menu-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-pref-width: 180;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 8 12;
+}
+
+.menu-btn:hover {
+    -fx-background-color: rgba(255,255,255,0.12);
+}
+
+/* ===============================
+   TOPBAR
+   =============================== */
+.topbar {
+    -fx-padding: 14 18;
+}
+
+.title {
+    -fx-font-family: "Poppins";
+    -fx-font-size: 16px;
+    -fx-text-fill: #332A3A;
+}
+
+/* ===============================
+   CARD / PANEL
+   =============================== */
+.card {
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 12;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 4);
+}
+
+/* ===============================
+   BUTTONS
+   =============================== */
+.btn-primary {
+    -fx-background-color: linear-gradient(to right, #C727FF, #FF9A2D);
+    -fx-text-fill: white;
+    -fx-background-radius: 18;
+    -fx-padding: 8 14;
+}
+
+.btn-primary:hover {
+    -fx-opacity: 0.85;
+}
+
+.btn-default {
+    -fx-background-color: transparent;
+    -fx-border-color: #DDD;
+    -fx-background-radius: 10;
+    -fx-padding: 6 12;
+}
+
+.signout-btn {
+    -fx-background-color: rgba(255,255,255,0.15);
+    -fx-text-fill: white;
+}
+
+/* ===============================
+   INPUTS (TextField, ComboBox)
+   =============================== */
+.text-field, .combo-box {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #ECECEC;
+    -fx-padding: 6;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.combo-box .list-cell:hover {
+    -fx-background-color: rgba(199,39,255,0.15);
+}
+
+/* ===============================
+   TEXTAREA
+   =============================== */
+.text-area {
+    -fx-border-color: #E9E9E9;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+}
+
+/* ===============================
+   TABLE
+   =============================== */
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to right, #C727FF, #FF9A2D);
+}
+
+.table-row-cell:selected {
+    -fx-background-color: rgba(199,39,255,0.12);
+}

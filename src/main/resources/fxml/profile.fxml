@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<VBox spacing="8" xmlns:fx="http://javafx.com/fxml" fx:controller="com.nutrisense.controllers.ProfileController" stylesheets="/css/nutrisense.css">
+    <Label text="Profile" styleClass="section-title"/>
+    <Label fx:id="nameLabel" styleClass="card-value"/>
+    <Button text="Back" onAction="#onBack" styleClass="btn-default"/>
+</VBox>
