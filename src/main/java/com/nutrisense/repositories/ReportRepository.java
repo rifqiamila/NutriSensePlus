@@ -8,7 +8,7 @@ import com.nutrisense.models.report.Report;
 
 public class ReportRepository {
 
-    private static final String FILE_PATH = "src/main/resources/data/reports.json";
+    private static final String FILE_PATH = "src/main/resources/data/reports.json";  // bisa disesuain lagi entar path nya
     private List<Report> reports;
 
     public ReportRepository() {

@@ -8,7 +8,7 @@ import com.nutrisense.models.user.User;
 
 public class UserRepository {
 
-    private static final String FILE_PATH = "src/main/resources/data/users.json";
+    private static final String FILE_PATH = "src/main/resources/data/users.json"; // bisa disesuain entar path nya
     private List<User> users;
 
     public UserRepository() {
