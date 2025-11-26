@@ -1,4 +1,5 @@
-package com.nutrisense.report;
+package com.nutrisense.models.report;
+
 
 import java.util.List;
 

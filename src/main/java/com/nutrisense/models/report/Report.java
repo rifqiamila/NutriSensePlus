@@ -1,4 +1,4 @@
-package com.nutrisense.report;
+package com.nutrisense.models.report;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
