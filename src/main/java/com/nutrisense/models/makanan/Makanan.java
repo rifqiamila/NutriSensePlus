@@ -2,7 +2,7 @@ package com.nutrisense.models.makanan;
 
 public class Makanan {
     private String nama;
-    private double kalori;
+    private double kalori; // kandungan per 100 gram
     private double protein;
     private double karbohidrat;
     private double lemak;

@@ -1,39 +1,74 @@
 package com.nutrisense.models.report;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.time.LocalDate;
+import java.util.List;
 
 import com.nutrisense.models.makanan.GiziResult;
-import com.nutrisense.models.makanan.MenuMBG;
 
+/**
+ * Menyimpan laporan gizi harian berdasarkan menu yang dipilih user.
+ * Termasuk status, catatan kekurangan gizi, dan izin melanjutkan proses.
+ */
 public class Report {
 
-    private MenuMBG menu;
-    private GiziResult giziResult;
-    private IndicatorStatus indicatorStatus;
-    private String timestamp;
+    private String userId;
+    private LocalDate tanggal;
 
-    public Report(MenuMBG menu, GiziResult giziResult, IndicatorStatus indicatorStatus) {
-        this.menu = menu;
+    private GiziResult giziResult;        // total gizi harian
+    private IndicatorStatus status;       // HIJAU / KUNING / MERAH
+
+    private List<String> notes;           // penjelasan apa yang kurang/lebih
+    private boolean allowedToProceed;     // false jika status = MERAH
+
+    public Report(String userId,
+                  GiziResult giziResult,
+                  IndicatorStatus status,
+                  List<String> notes) {
+
+        this.userId = userId;
+        this.tanggal = LocalDate.now();
+
         this.giziResult = giziResult;
-        this.indicatorStatus = indicatorStatus;
-        this.timestamp = LocalDateTime.now()
-                .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        this.status = status;
+
+        this.notes = notes;
+        this.allowedToProceed = (status != IndicatorStatus.MERAH);
     }
 
-    public MenuMBG getMenu() {
-        return menu;
+    // Getters
+    public String getUserId() {
+        return userId;
+    }
+
+    public LocalDate getTanggal() {
+        return tanggal;
     }
 
     public GiziResult getGiziResult() {
         return giziResult;
     }
 
-    public IndicatorStatus getIndicatorStatus() {
-        return indicatorStatus;
+    public IndicatorStatus getStatus() {
+        return status;
     }
 
-    public String getTimestamp() {
-        return timestamp;
+    public List<String> getNotes() {
+        return notes;
+    }
+
+    public boolean isAllowedToProceed() {
+        return allowedToProceed;
+    }
+
+    @Override
+    public String toString() {
+        return "Report{" +
+                "userId='" + userId + '\'' +
+                ", tanggal=" + tanggal +
+                ", giziResult=" + giziResult +
+                ", status=" + status +
+                ", notes=" + notes +
+                ", allowedToProceed=" + allowedToProceed +
+                '}';
     }
 }
