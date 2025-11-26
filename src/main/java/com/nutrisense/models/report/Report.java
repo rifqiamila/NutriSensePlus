@@ -13,25 +13,30 @@ public class Report {
 
     private String userId;
     private LocalDate tanggal;
+    private String namaMenu;
 
     private GiziResult giziResult;        // total gizi harian
     private IndicatorStatus status;       // HIJAU / KUNING / MERAH
 
-    private List<String> notes;           // penjelasan apa yang kurang/lebih
+    private List<String> recommendations; // rekomendasi
+    private String warningMessage;           // penjelasan apa yang kurang/lebih
     private boolean allowedToProceed;     // false jika status = MERAH
 
     public Report(String userId,
+                  String namaMenu,
                   GiziResult giziResult,
                   IndicatorStatus status,
-                  List<String> notes) {
+                  List<String> recommendations,
+                  String warningMessage) {
 
         this.userId = userId;
+        this.namaMenu = namaMenu;
         this.tanggal = LocalDate.now();
 
         this.giziResult = giziResult;
         this.status = status;
-
-        this.notes = notes;
+        this.recommendations = recommendations;
+        this.warningMessage = warningMessage;
         this.allowedToProceed = (status != IndicatorStatus.MERAH);
     }
 
@@ -52,8 +57,16 @@ public class Report {
         return status;
     }
 
-    public List<String> getNotes() {
-        return notes;
+    public String getNamaMenu() {
+        return namaMenu;
+    }
+
+    public List<String> getRecommendations() {
+        return recommendations;
+    }
+
+    public String getWarningMessage() {
+        return warningMessage;
     }
 
     public boolean isAllowedToProceed() {
@@ -67,7 +80,8 @@ public class Report {
                 ", tanggal=" + tanggal +
                 ", giziResult=" + giziResult +
                 ", status=" + status +
-                ", notes=" + notes +
+                ", recommendations=" + recommendations +
+                ", warningMessage=" + warningMessage +
                 ", allowedToProceed=" + allowedToProceed +
                 '}';
     }

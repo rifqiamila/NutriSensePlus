@@ -1,5 +1,13 @@
 package com.nutrisense.services;
 
+import java.time.LocalDate;
+
+import com.nutrisense.models.makanan.GiziResult;
+import com.nutrisense.models.makanan.MenuMBG;
+import com.nutrisense.models.report.IndicatorStatus;
+import com.nutrisense.models.report.Report;
+import com.nutrisense.repositories.ReportRepository;
+
 public class ReportService {
 
     private final GiziAnalyzer analyzer = new GiziAnalyzer();
@@ -26,8 +34,7 @@ public class ReportService {
         // 5. buat report
         Report report = new Report(
                 username,
-                LocalDate.now(),
-                menu,
+                menu.getNamaMenu(),
                 gizi,
                 status,
                 recommendations,
@@ -35,7 +42,7 @@ public class ReportService {
         );
 
         // 6. simpan ke repository
-        repo.saveReport(report);
+        repo.save(report);
 
         return report;
     }
