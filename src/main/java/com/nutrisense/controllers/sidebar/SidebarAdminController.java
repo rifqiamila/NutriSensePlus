@@ -1,31 +1,32 @@
 package com.nutrisense.controllers.sidebar;
 
-import com.nutrisense.controllers.layout.Router;
+import com.nutrisense.controllers.main.MainController;
 
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 
-public class SidebarAdminController {  // Superadmin
+public class SidebarAdminController implements SidebarBaseController {
 
-    @FXML private HBox dashboardBtn;
-    @FXML private HBox requestBtn;
-    @FXML private HBox siswaBtn;
-    @FXML private HBox dapurBtn;
-    @FXML private HBox logoutBtn;
+    private MainController main;
 
-    @FXML
-    private void initialize() {
-        setupNav(dashboardBtn);
-        setupNav(requestBtn);
-        setupNav(siswaBtn);
-        setupNav(dapurBtn);
-        setupNav(logoutBtn);
+    @Override
+    public void setMainController(MainController controller) {
+        this.main = controller;
     }
 
-    private void setupNav(HBox box) {
-        box.addEventHandler(MouseEvent.MOUSE_CLICKED, e ->
-                Router.navigate(box.getAccessibleText())
-        );
+    @FXML
+    private void homeClicked() {
+        main.loadPage("/fxml/admin/admin_dashboard.fxml");
+    }
+
+    @FXML
+    private void onMenuClicked(MouseEvent event) {
+        // Ambil HBox yang diklik
+        javafx.scene.layout.HBox hbox = (javafx.scene.layout.HBox) event.getSource();
+        String fxmlPath = hbox.getAccessibleText();
+
+        if (main != null && fxmlPath != null) {
+            main.loadPage(fxmlPath);
+        }
     }
 }

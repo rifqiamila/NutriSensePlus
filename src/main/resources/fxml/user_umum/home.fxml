@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.TextAlignment?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/8" 
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.nutrisense.controllers.user_umum.HomeController"
+           stylesheets="@/css/home.css"
+           fitToWidth="true"
+           hbarPolicy="NEVER"
+           vbarPolicy="AS_NEEDED">
+    
+    <content>
+        <VBox styleClass="home-container" spacing="0">
+            
+            <!-- ===== HERO SECTION ===== -->
+            <StackPane styleClass="hero-section">
+                <children>
+                    <!-- Background Shape -->
+                    <Rectangle styleClass="hero-bg" />
+                    
+                    <!-- Hero Content -->
+                    <VBox styleClass="hero-content" spacing="20" alignment="CENTER">
+                        <Label text="NUTRISENSE+" styleClass="hero-title" />
+                        <Label text="Smart Nutrition Monitoring" styleClass="hero-tagline" />
+                        <Label text="Sistem Cerdas Pemantauan Gizi dan Keamanan Makanan untuk Dapur Sekolah" 
+                               styleClass="hero-subtitle" 
+                               wrapText="true" 
+                               textAlignment="CENTER" />
+                        <Button text="Coba Food Analyzer" 
+                                styleClass="cta-primary" />
+                    </VBox>
+                </children>
+            </StackPane>
+
+            <!-- ===== PROBLEM SOLUTION SECTION ===== -->
+            <VBox styleClass="section" spacing="30">
+                <Label text="Tantangan yang Diatasi" styleClass="section-title" />
+                
+                <HBox styleClass="card-container" spacing="20">
+                    <!-- Card 1 -->
+                    <VBox styleClass="problem-card">
+                        <Label text="📊" styleClass="card-icon" />
+                        <Label text="Analisis Gizi Manual" styleClass="card-title" />
+                        <Label text="Kesulitan menganalisis kandungan gizi secara akurat dengan metode konvensional" 
+                               styleClass="card-desc" 
+                               wrapText="true" />
+                        <Label text="→ Solusi: Food Analyzer Digital" styleClass="solution-text" />
+                    </VBox>
+                    
+                    <!-- Card 2 -->
+                    <VBox styleClass="problem-card">
+                        <Label text="🚨" styleClass="card-icon" />
+                        <Label text="Risiko Keamanan Makanan" styleClass="card-title" />
+                        <Label text="Potensi keracunan makanan dan ketidakseimbangan nutrisi pada menu harian" 
+                               styleClass="card-desc" 
+                               wrapText="true" />
+                        <Label text="→ Solusi: Safety Alert System" styleClass="solution-text" />
+                    </VBox>
+                    
+                    <!-- Card 3 -->
+                    <VBox styleClass="problem-card">
+                        <Label text="📈" styleClass="card-icon" />
+                        <Label text="Laporan Tidak Terstruktur" styleClass="card-title" />
+                        <Label text="Kesulitan membuat dokumentasi dan laporan gizi yang terstruktur dan visual" 
+                               styleClass="card-desc" 
+                               wrapText="true" />
+                        <Label text="→ Solusi: Smart Reporting" styleClass="solution-text" />
+                    </VBox>
+                </HBox>
+            </VBox>
+
+            <!-- ===== FEATURES SECTION ===== -->
+            <VBox styleClass="section features-section" spacing="30">
+                <Label text="Fitur Unggulan" styleClass="section-title" />
+                
+                <HBox styleClass="features-grid" spacing="15">
+                    <!-- Feature 1 -->
+                    <VBox styleClass="feature-card">
+                        <Label text="🍽" styleClass="feature-icon" />
+                        <Label text="Food Analyzer" styleClass="feature-title" />
+                        <Label text="Analisis kandungan gizi makanan berdasarkan nama dan berat secara akurat" 
+                               styleClass="feature-desc" 
+                               wrapText="true" />
+                    </VBox>
+                    
+                    <!-- Feature 2 -->
+                    <VBox styleClass="feature-card">
+                        <Label text="⚖️" styleClass="feature-icon" />
+                        <Label text="Gizi Balance Tracker" styleClass="feature-title" />
+                        <Label text="Pantau keseimbangan gizi dengan indikator warna hijau/kuning/merah" 
+                               styleClass="feature-desc" 
+                               wrapText="true" />
+                    </VBox>
+                    
+                    <!-- Feature 3 -->
+                    <VBox styleClass="feature-card">
+                        <Label text="🚨" styleClass="feature-icon" />
+                        <Label text="Food Safety Alert" styleClass="feature-title" />
+                        <Label text="Peringatan dini untuk risiko keamanan makanan seperti lemak jenuh tinggi" 
+                               styleClass="feature-desc" 
+                               wrapText="true" />
+                    </VBox>
+                    
+                    <!-- Feature 4 -->
+                    <VBox styleClass="feature-card">
+                        <Label text="📊" styleClass="feature-icon" />
+                        <Label text="Smart Reporting" styleClass="feature-title" />
+                        <Label text="Laporan gizi mingguan terstruktur dengan grafik visual dan export JSON" 
+                               styleClass="feature-desc" 
+                               wrapText="true" />
+                    </VBox>
+                </HBox>
+            </VBox>
+
+            <!-- ===== STATS SECTION ===== -->
+            <StackPane styleClass="stats-section">
+                <children>
+                    <Rectangle styleClass="stats-bg" />
+                    <HBox styleClass="stats-container" spacing="50">
+                        <VBox styleClass="stat-item" spacing="5">
+                            <Label text="50+" styleClass="stat-number" />
+                            <Label text="Dapur Terdaftar" styleClass="stat-label" />
+                        </VBox>
+                        <VBox styleClass="stat-item" spacing="5">
+                            <Label text="200+" styleClass="stat-number" />
+                            <Label text="Menu Dianalisis" styleClass="stat-label" />
+                        </VBox>
+                        <VBox styleClass="stat-item" spacing="5">
+                            <Label text="100%" styleClass="stat-number" />
+                            <Label text="Gizi Terpantau" styleClass="stat-label" />
+                        </VBox>
+                    </HBox>
+                </children>
+            </StackPane>
+
+            <!-- ===== FINAL CTA SECTION ===== -->
+            <VBox styleClass="section final-cta-section" spacing="20">
+                <Label text="Siap Mengoptimalkan Gizi di Sekolah Anda?" styleClass="cta-title" />
+                <Label text="Bergabung dengan NutriSense+ untuk memastikan setiap hidangan aman dan bergizi seimbang" 
+                       styleClass="cta-subtitle" 
+                       wrapText="true" 
+                       textAlignment="CENTER" />
+                <HBox spacing="15">
+                    <Button text="Mulai Sekarang" styleClass="cta-primary" />
+                    <Button text="Pelajari Lebih Lanjut" styleClass="cta-secondary" />
+                </HBox>
+            </VBox>
+
+        </VBox>
+    </content>
+</ScrollPane> 

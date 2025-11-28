@@ -6,27 +6,29 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+<VBox xmlns="http://javafx.com/javafx/8"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.nutrisense.controllers.sidebar.SidebarDapurController"
       spacing="8.0" styleClass="sidebar" prefWidth="280.0">
 
     <padding>
-        <Insets top="10" right="10" bottom="10" left="10" />
+        <Insets top="10" right="10" bottom="10" left="10"/>
     </padding>
 
     <children>
 
         <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="sidebar-item"
-              prefHeight="48.0" maxWidth="Infinity"
-              accessibleText="/fxml/admin_dashboard.fxml">
+              accessibleText="/fxml/admin/admin_dashboard.fxml"
+              onMouseClicked="#onMenuClicked">
             <children>
-                <Label text="📊" style="-fx-font-size:18px; -fx-padding:0 6 0 0;" />
+                <Label text="📊" style="-fx-font-size:18px;" />
                 <Label text="Dashboard" style="-fx-font-size:14px; -fx-font-weight:600;" />
             </children>
         </HBox>
 
         <Accordion>
             <panes>
-                <TitledPane text="Kelola Menu Harian" styleClass="sidebar-item" animated="false">
+                <TitledPane text="Kelola Menu Harian" animated="false">
                     <content>
                         <VBox spacing="6.0">
                             <padding>
@@ -34,29 +36,34 @@
                             </padding>
 
                             <children>
+
                                 <HBox alignment="CENTER_LEFT" spacing="8.0" styleClass="sidebar-item"
-                                      accessibleText="/fxml/admin_menu_today.fxml">
+                                      accessibleText="/fxml/admin/admin_menu_today.fxml"
+                                      onMouseClicked="#onMenuClicked">
                                     <children>
-                                        <Label text="📅" style="-fx-font-size:14px; -fx-padding:0 6 0 0;" />
+                                        <Label text="📅" style="-fx-font-size:14px;" />
                                         <Label text="Lihat Menu Hari Ini" style="-fx-font-size:13px;" />
                                     </children>
                                 </HBox>
 
                                 <HBox alignment="CENTER_LEFT" spacing="8.0" styleClass="sidebar-item"
-                                      accessibleText="/fxml/admin_menu_generate.fxml">
+                                      accessibleText="/fxml/admin/admin_menu_generate.fxml"
+                                      onMouseClicked="#onMenuClicked">
                                     <children>
-                                        <Label text="&#x2699;" style="-fx-font-size:14px; -fx-padding:0 6 0 0;" />
+                                        <Label text="⚙" style="-fx-font-size:14px;" />
                                         <Label text="Generate Menu Otomatis" style="-fx-font-size:13px;" />
                                     </children>
                                 </HBox>
 
                                 <HBox alignment="CENTER_LEFT" spacing="8.0" styleClass="sidebar-item"
-                                      accessibleText="/fxml/admin_menu_edit.fxml">
+                                      accessibleText="/fxml/admin/admin_menu_edit.fxml"
+                                      onMouseClicked="#onMenuClicked">
                                     <children>
-                                        <Label text="&#x270F;&#xFE0F;" style="-fx-font-size:14px; -fx-padding:0 6 0 0;" />
+                                        <Label text="✏" style="-fx-font-size:14px;" />
                                         <Label text="Edit Menu Sendiri" style="-fx-font-size:13px;" />
                                     </children>
                                 </HBox>
+
                             </children>
                         </VBox>
                     </content>
@@ -65,45 +72,49 @@
         </Accordion>
 
         <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="sidebar-item"
-              prefHeight="48.0" accessibleText="/fxml/admin_food_safety.fxml">
+              accessibleText="/fxml/admin/admin_food_safety.fxml"
+              onMouseClicked="#onMenuClicked">
             <children>
-                <Label text="🚨" style="-fx-font-size:18px; -fx-padding:0 6 0 0;" />
-                <Label text="Food Safety Alerts" style="-fx-font-size:14px; -fx-font-weight:600;" />
+                <Label text="🚨" style="-fx-font-size:18px;" />
+                <Label text="Food Safety Alerts" style="-fx-font-size:14px;" />
             </children>
         </HBox>
 
         <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="sidebar-item"
-              prefHeight="48.0" accessibleText="/fxml/admin_report.fxml">
+              accessibleText="/fxml/admin/admin_report.fxml"
+              onMouseClicked="#onMenuClicked">
             <children>
-                <Label text="📈" style="-fx-font-size:18px; -fx-padding:0 6 0 0;" />
-                <Label text="Laporan Gizi Mingguan" style="-fx-font-size:14px; -fx-font-weight:600;" />
+                <Label text="📈" style="-fx-font-size:18px;" />
+                <Label text="Laporan Gizi Mingguan" style="-fx-font-size:14px;" />
             </children>
         </HBox>
 
         <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="sidebar-item"
-              prefHeight="48.0" accessibleText="/fxml/admin_feedback.fxml">
+              accessibleText="/fxml/admin/admin_feedback.fxml"
+              onMouseClicked="#onMenuClicked">
             <children>
-                <Label text="💬" style="-fx-font-size:18px; -fx-padding:0 6 0 0;" />
-                <Label text="Feedback Siswa" style="-fx-font-size:14px; -fx-font-weight:600;" />
+                <Label text="💬" style="-fx-font-size:18px;" />
+                <Label text="Feedback Siswa" style="-fx-font-size:14px;" />
             </children>
         </HBox>
 
         <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="sidebar-item"
-              prefHeight="48.0" accessibleText="/fxml/admin_data_siswa.fxml">
+              accessibleText="/fxml/admin/admin_data_siswa.fxml"
+              onMouseClicked="#onMenuClicked">
             <children>
-                <Label text="👥" style="-fx-font-size:18px; -fx-padding:0 6 0 0;" />
-                <Label text="Data Siswa Terdaftar" style="-fx-font-size:14px; -fx-font-weight:600;" />
+                <Label text="👥" style="-fx-font-size:18px;" />
+                <Label text="Data Siswa Terdaftar" style="-fx-font-size:14px;" />
             </children>
         </HBox>
 
         <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="sidebar-item"
-              prefHeight="48.0" accessibleText="/fxml/login.fxml">
+              accessibleText="/fxml/login.fxml"
+              onMouseClicked="#onMenuClicked">
             <children>
-                <Label text="🔓" style="-fx-font-size:18px; -fx-padding:0 6 0 0;" />
-                <Label text="Log Out" style="-fx-font-size:14px; -fx-font-weight:600;" />
+                <Label text="🔓" style="-fx-font-size:18px;" />
+                <Label text="Log Out" style="-fx-font-size:14px;" />
             </children>
         </HBox>
 
     </children>
-
 </VBox>

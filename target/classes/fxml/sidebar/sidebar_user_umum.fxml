@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" 
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.nutrisense.controllers.sidebar.SidebarUserUmumController"
+            prefHeight="600.0" 
+            prefWidth="70.0"
+            style="-fx-background-color: transparent;"
+            stylesheets="@/css/sidebar.css">
+    
+    <children>
+        <!-- Rail Sidebar Container -->
+        <VBox fx:id="sidebarPane"
+              spacing="0" 
+              styleClass="rail-sidebar"
+              prefWidth="70.0"
+              AnchorPane.topAnchor="0.0" 
+              AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="0.0">
+
+            <!-- Header dengan toggle button -->
+            <HBox styleClass="rail-header" prefHeight="60.0">
+                <children>
+                    <Button fx:id="btnToggle" 
+                            text="≡" 
+                            styleClass="rail-toggle-btn"
+                            onAction="#handleToggleClick"/>
+                </children>
+            </HBox>
+
+            <!-- Menu Items -->
+            <VBox styleClass="rail-menu-items" spacing="2">
+                <children>
+                    <HBox fx:id="menuHome"
+                          styleClass="rail-item" 
+                          accessibleText="/fxml/user_umum/home.fxml"
+                          onMouseClicked="#onMenuClicked">
+                        <children>
+                            <Label text="🏠" styleClass="rail-icon" />
+                            <Label text="Home" styleClass="rail-text" />
+                        </children>
+                    </HBox>
+
+                    <HBox fx:id="menuAnalyzer"
+                          styleClass="rail-item" 
+                          accessibleText="/fxml/user_umum/food_analyzer.fxml"
+                          onMouseClicked="#onMenuClicked">
+                        <children>
+                            <Label text="🍽" styleClass="rail-icon" />
+                            <Label text="Analyzer" styleClass="rail-text" />
+                        </children>
+                    </HBox>
+
+                    <HBox fx:id="menuAKG"
+                          styleClass="rail-item" 
+                          accessibleText="/fxml/user_umum/info_akg.fxml"
+                          onMouseClicked="#onMenuClicked">
+                        <children>
+                            <Label text="ℹ" styleClass="rail-icon" />
+                            <Label text="AKG Info" styleClass="rail-text" />
+                        </children>
+                    </HBox>
+
+                    <HBox fx:id="menuListMBG"
+                          styleClass="rail-item" 
+                          accessibleText="/fxml/user_umum/menu_list.fxml"
+                          onMouseClicked="#onMenuClicked">
+                        <children>
+                            <Label text="📋" styleClass="rail-icon" />
+                            <Label text="Menu MBG" styleClass="rail-text" />
+                        </children>
+                    </HBox>
+
+                    <HBox fx:id="menuLogin"
+                          styleClass="rail-item" 
+                          accessibleText="/fxml/login.fxml"
+                          onMouseClicked="#onMenuClicked">
+                        <children>
+                            <Label text="🔑" styleClass="rail-icon" />
+                            <Label text="Login" styleClass="rail-text" />
+                        </children>
+                    </HBox>
+                </children>
+            </VBox>
+        </VBox>
+    </children>
+</AnchorPane>

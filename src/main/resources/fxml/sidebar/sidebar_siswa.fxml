@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/8"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.nutrisense.controllers.sidebar.SidebarSiswaController"
+      spacing="8.0" styleClass="sidebar" prefWidth="260.0">
+
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+
+    <children>
+
+        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="sidebar-item"
+              accessibleText="/fxml/siswa/siswa_dashboard.fxml"
+              onMouseClicked="#onMenuClicked">
+            <children>
+                <Label text="📊" style="-fx-font-size:18px;" />
+                <Label text="Dashboard" style="-fx-font-size:14px; -fx-font-weight:600;" />
+            </children>
+        </HBox>
+
+        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="sidebar-item"
+              accessibleText="/fxml/food_analyzer.fxml"
+              onMouseClicked="#onMenuClicked">
+            <children>
+                <Label text="🍽" style="-fx-font-size:18px;" />
+                <Label text="Food Analyzer" style="-fx-font-size:14px;" />
+            </children>
+        </HBox>
+
+        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="sidebar-item"
+              accessibleText="/fxml/siswa/siswa_gizi_status.fxml"
+              onMouseClicked="#onMenuClicked">
+            <children>
+                <Label text="🤒" style="-fx-font-size:18px;" />
+                <Label text="Gizi Status" style="-fx-font-size:14px;" />
+            </children>
+        </HBox>
+
+        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="sidebar-item"
+              accessibleText="/fxml/siswa/siswa_feedback.fxml"
+              onMouseClicked="#onMenuClicked">
+            <children>
+                <Label text="✉" style="-fx-font-size:18px;" />
+                <Label text="Kirim Feedback" style="-fx-font-size:14px;" />
+            </children>
+        </HBox>
+
+        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="sidebar-item"
+              accessibleText="/fxml/siswa/siswa_riwayat.fxml"
+              onMouseClicked="#onMenuClicked">
+            <children>
+                <Label text="🕘" style="-fx-font-size:18px;" />
+                <Label text="Riwayat Laporan" style="-fx-font-size:14px;" />
+            </children>
+        </HBox>
+
+        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="sidebar-item"
+              accessibleText="/fxml/login.fxml"
+              onMouseClicked="#onMenuClicked">
+            <children>
+                <Label text="🔓" style="-fx-font-size:18px;" />
+                <Label text="Log Out" style="-fx-font-size:14px;" />
+            </children>
+        </HBox>
+
+    </children>
+
+</VBox>

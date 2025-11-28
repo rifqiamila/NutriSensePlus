@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.nutrisense.controllers.siswa.SiswaDashboardController">
+
+    <children>
+        <Label text="SISWA DASHBOARD"
+               layoutX="40" layoutY="40"
+               style="-fx-font-size:24px; -fx-font-weight:bold;" />
+    </children>
+</AnchorPane>

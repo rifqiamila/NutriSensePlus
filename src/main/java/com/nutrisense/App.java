@@ -1,8 +1,11 @@
 package com.nutrisense;
 
+import com.nutrisense.controllers.main.MainController;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -12,8 +15,12 @@ public class App extends Application {
     public void start(Stage stage) throws Exception {
         SceneSwitcher.setStage(stage);
         // FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/common/sidebar_admin.fxml"));
-        Scene scene = new Scene(loader.load());
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main/MainLayout.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        MainController controller = loader.getController();
+        controller.init("umum");
+
         scene.getStylesheets().add(getClass().getResource("/css/nutrisense.css").toExternalForm());
         stage.setTitle("NutriSense+");
         stage.setScene(scene);

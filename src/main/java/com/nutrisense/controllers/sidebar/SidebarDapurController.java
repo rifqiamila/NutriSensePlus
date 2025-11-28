@@ -1,37 +1,32 @@
 package com.nutrisense.controllers.sidebar;
 
-import com.nutrisense.controllers.layout.Router;
+import com.nutrisense.controllers.main.MainController;
 
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 
-public class SidebarDapurController {
+public class SidebarDapurController implements SidebarBaseController {
 
-    @FXML private HBox dashboardBtn;
-    @FXML private HBox menuTodayBtn;
-    @FXML private HBox menuGenerateBtn;
-    @FXML private HBox menuEditBtn;
-    @FXML private HBox foodSafetyBtn;
-    @FXML private HBox reportBtn;
-    @FXML private HBox feedbackBtn;
-    @FXML private HBox dataSiswaBtn;
-    @FXML private HBox logoutBtn;
+    private MainController main;
 
-    @FXML
-    private void initialize() {
-        setupNav(dashboardBtn);
-        setupNav(menuTodayBtn);
-        setupNav(menuGenerateBtn);
-        setupNav(menuEditBtn);
-        setupNav(foodSafetyBtn);
-        setupNav(reportBtn);
-        setupNav(feedbackBtn);
-        setupNav(dataSiswaBtn);
-        setupNav(logoutBtn);
+    @Override
+    public void setMainController(MainController controller) {
+        this.main = controller;
     }
 
-    private void setupNav(HBox box) {
-        box.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> Router.navigate(box.getAccessibleText()));
+    @FXML
+    private void homeClicked() {
+        main.loadPage("/fxml/dapur/dapur_dashboard.fxml");
+    }
+
+    @FXML
+    private void onMenuClicked(MouseEvent event) {
+        // Ambil HBox yang diklik
+        javafx.scene.layout.HBox hbox = (javafx.scene.layout.HBox) event.getSource();
+        String fxmlPath = hbox.getAccessibleText();
+
+        if (main != null && fxmlPath != null) {
+            main.loadPage(fxmlPath);
+        }
     }
 }

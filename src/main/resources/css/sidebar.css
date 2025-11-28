@@ -1,0 +1,79 @@
+/* ===== RAIL SIDEBAR STYLES ===== */
+.rail-sidebar {
+    -fx-background-color: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+    -fx-transition: all 0.3s ease;
+}
+
+.rail-sidebar.expanded {
+    -fx-pref-width: 200px;
+}
+
+.rail-header {
+    -fx-background-color: #2c3e50;
+    -fx-alignment: CENTER;
+    -fx-padding: 0 0 0 15;
+}
+
+.rail-toggle-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 8 12;
+    -fx-border-radius: 4;
+}
+
+.rail-toggle-btn:hover {
+    -fx-background-color: rgba(255,255,255,0.1);
+}
+
+.rail-menu-items {
+    -fx-padding: 15 0;
+}
+
+.rail-item {
+    -fx-padding: 12 15;
+    -fx-alignment: CENTER_LEFT;
+    -fx-spacing: 15;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 0 3;
+}
+
+.rail-item:hover {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #3498db;
+}
+
+.rail-item.active {
+    -fx-background-color: #e3f2fd;
+    -fx-border-color: #2196f3;
+}
+
+.rail-icon {
+    -fx-font-size: 18px;
+    -fx-min-width: 24px;
+    -fx-alignment: CENTER;
+}
+
+.rail-text {
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #2c3e50;
+    -fx-opacity: 0;
+    -fx-transition: opacity 0.2s ease;
+}
+
+.rail-sidebar.expanded .rail-text {
+    -fx-opacity: 1;
+}
+
+/* Tooltip style untuk collapsed state */
+.rail-item .tooltip {
+    -fx-font-size: 12px;
+    -fx-background-color: #2c3e50;
+    -fx-text-fill: white;
+    -fx-padding: 8 12;
+}

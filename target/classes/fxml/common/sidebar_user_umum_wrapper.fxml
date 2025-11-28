@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Region?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.nutrisense.controllers.sidebar.SidebarToggleController"
+      spacing="6.0" styleClass="sidebar-wrapper" prefWidth="280.0">
+
+    <children>
+        <HBox spacing="6.0" style="-fx-alignment: CENTER_RIGHT; -fx-padding: 6 8 6 8;">
+            <children>
+                <Region HBox.hgrow="ALWAYS" />
+                <ToggleButton fx:id="btnToggle" text="☰" />
+            </children>
+        </HBox>
+
+        <!-- include the actual sidebar (icons + labels) -->
+        <fx:include fx:id="sidebarRoot" source="sidebar_user_umum.fxml" />
+    </children>
+
+</VBox>
