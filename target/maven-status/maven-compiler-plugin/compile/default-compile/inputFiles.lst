@@ -1,11 +1,16 @@
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\App.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\controllers\DashboardController.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\controllers\FoodAnalyzerController.java
+D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\controllers\layout\Router.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\controllers\LoginController.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\controllers\ProfileController.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\controllers\RecommendationController.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\controllers\RegisterController.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\controllers\ReportController.java
+D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\controllers\sidebar\SidebarAdminController.java
+D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\controllers\sidebar\SidebarDapurController.java
+D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\controllers\sidebar\SidebarSiswaController.java
+D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\controllers\sidebar\SidebarUmumController.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\exceptions\DataNotFoundException.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\exceptions\InvalidUserException.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\exceptions\ValidationException.java
@@ -15,7 +20,9 @@ D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\mod
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\models\makanan\MenuMBG.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\models\report\IndicatorStatus.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\models\report\Report.java
+D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\models\sekolah\Sekolah.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\models\User.java
+D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\models\user\Admin.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\models\user\DapurMBG.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\models\user\Siswa.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\models\user\User.java

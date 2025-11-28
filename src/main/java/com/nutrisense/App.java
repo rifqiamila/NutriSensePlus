@@ -11,7 +11,8 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         SceneSwitcher.setStage(stage);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
+        // FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/common/sidebar_admin.fxml"));
         Scene scene = new Scene(loader.load());
         scene.getStylesheets().add(getClass().getResource("/css/nutrisense.css").toExternalForm());
         stage.setTitle("NutriSense+");
