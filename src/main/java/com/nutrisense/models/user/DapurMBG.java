@@ -1,63 +1,40 @@
 package com.nutrisense.models.user;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class DapurMBG {
-    private String nama;
-    private String password;
-    private String username;
-    private List<String> penanggungJawab = new ArrayList<>();
-    private List<Siswa> daftarSiswa = new ArrayList<>();
-    private List<String> daftarSekolah = new ArrayList<>();
+public class DapurMBG extends User {
 
-    public DapurMBG(String nama, String password, String username) {
-        this.nama = nama;
-        this.password = password;
-        this.username = username;
-        this.daftarSiswa = new ArrayList<>();
-        this.daftarSekolah = new ArrayList<>();
-        this.penanggungJawab = new ArrayList<>();
+    private String namaDapur;
+    private List<String> penanggungJawab;
+    private List<String> sekolahIds; // hanya ID sekolah
+
+    public DapurMBG(String id, String username, String password,
+                    String namaDapur, List<String> penanggungJawab,
+                    List<String> sekolahIds) {
+
+        super(id, username, password, "DAPUR");
+        this.namaDapur = namaDapur;
+        this.penanggungJawab = penanggungJawab;
+        this.sekolahIds = sekolahIds;
     }
 
-    public void tambahSiswa(Siswa s) {
-        daftarSiswa.add(s);
-    }
+    public String getNamaDapur() { return namaDapur; }
+    public void setNamaDapur(String namaDapur) { this.namaDapur = namaDapur; }
 
-    public int hitungSiswa() {
-        return daftarSiswa.size();
-    }
+    public List<String> getPenanggungJawab() { return penanggungJawab; }
+    public void setPenanggungJawab(List<String> penanggungJawab) { this.penanggungJawab = penanggungJawab; }
 
-    public void tambahSekolah(String sekolah) {
-        daftarSekolah.add(sekolah);
-    }
+    public List<String> getSekolahIds() { return sekolahIds; }
+    public void setSekolahIds(List<String> sekolahIds) { this.sekolahIds = sekolahIds; }
 
-    public void tambahPenanggungJawab(String penanggungJawab) {
-        this.penanggungJawab.add(penanggungJawab);
-    }
-
-    public void tampilkanSekolah() {
-        System.out.println("=== Daftar Sekolah ===");
-        for (String sekolah : daftarSekolah) {
-            System.out.println(sekolah);
-        }
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void tampilkanPenanggungJawab() {
-        System.out.println("=== Daftar Penanggung Jawab ===");
-        for (String pj : penanggungJawab) {
-            System.out.println(pj);
-        }
-    }
-
-    public void tampilkanSemua() {
-        System.out.println("=== Daftar Siswa ===");
-        for (Siswa s : daftarSiswa) {
-            System.out.println(s);
-        }
+    @Override
+    public String toString() {
+        return "DapurMBG{" +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", namaDapur='" + namaDapur + '\'' +
+                ", sekolahIds=" + sekolahIds +
+                ", penanggungJawab=" + penanggungJawab +
+                '}';
     }
 }

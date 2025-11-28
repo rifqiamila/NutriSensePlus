@@ -20,6 +20,7 @@ D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\mod
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\models\user\Siswa.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\models\user\User.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\repositories\DatabaseJSON.java
+D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\repositories\MealPlanRepository.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\repositories\MenuRepository.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\repositories\ReportRepository.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\repositories\UserRepository.java
