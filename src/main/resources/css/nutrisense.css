@@ -139,10 +139,50 @@
 /* ===============================
    TABLE
    =============================== */
-.table-view .column-header-background {
-    -fx-background-color: linear-gradient(to right, #C727FF, #FF9A2D);
+/* Table Styling */
+.table-view {
+    -fx-font-size: 13px;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+.table-view .column-header {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
 }
 
 .table-row-cell:selected {
     -fx-background-color: rgba(199,39,255,0.12);
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+}
+
+.table-view .table-row-cell:even {
+    -fx-background-color: #f8f9fa;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: white;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #e3f2fd;
+}
+
+/* Button with emoji */
+.button {
+    -fx-font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", "Segoe UI", sans-serif;
+}
+
+/* Delete button in table */
+.table-view .button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+}
+
+.table-view .button:hover {
+    -fx-background-color: #ffebee;
 }

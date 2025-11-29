@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.nutrisense.models.makanan.GiziResult;
-import com.nutrisense.repositories.MealPlanRepository;
+//import com.nutrisense.repositories.MealPlanRepository;
 
 public class SmartRecommendationEngine {
 
@@ -18,7 +18,7 @@ public class SmartRecommendationEngine {
     private static final int MIN_PROTEIN = 20;
     private static final int MAX_LEMAK = 30;
 
-    private final MealPlanRepository mealRepo = new MealPlanRepository();
+//    private final MealPlanRepository mealRepo = new MealPlanRepository();
 
     // REKOMENDASI HARIAN (biar ga merah)
     public List<String> recommend(GiziResult gizi) {
@@ -67,16 +67,16 @@ public class SmartRecommendationEngine {
             if (date.getDayOfWeek() == DayOfWeek.SUNDAY) continue;
 
             // ambil menu dari repository (jika ada)
-            List<String> storedMenu = mealRepo.getMenuForDate(date);
+        //    List<String> storedMenu = mealRepo.getMenuForDate(date);
 
-            if (storedMenu != null && !storedMenu.isEmpty()) {
+      //      if (storedMenu != null && !storedMenu.isEmpty()) {
                 // gunakan data lama
-                mealPlan.put(date, storedMenu);
-            } else {
+ //               mealPlan.put(date, storedMenu);
+     //       } else {
                 // tidak ada → generate baru
                 mealPlan.put(date, generateOptimizedMenu());
             }
-        }
+ //       }
 
         return mealPlan;
     }

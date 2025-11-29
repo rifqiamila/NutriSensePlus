@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/8" 
+           xmlns:fx="http://javafx.com/fxml/1" 
+           fx:controller="com.nutrisense.controllers.user_umum.FoodAnalyzerController"
+           stylesheets="/css/nutrisense.css"
+           fitToWidth="true"
+           hbarPolicy="NEVER"
+           vbarPolicy="AS_NEEDED">
+    
+    <content>
+        <VBox spacing="15">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            
+            <!-- Header -->
+            <Label text="Food Analyzer" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+            <Label text="Analisis kandungan gizi multiple makanan" style="-fx-text-fill: #7f8c8d;" />
+            
+            <Separator />
+            
+            <!-- Input Section -->
+            <VBox spacing="10" style="-fx-background-color: #f8f9fa; -fx-background-radius: 8;">
+                <padding>
+                    <Insets top="15" right="15" bottom="15" left="15"/>
+                </padding>
+                
+                <Label text="Tambah Makanan:" style="-fx-font-weight: bold;" />
+                
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <VBox spacing="5">
+                        <Label text="Pilih Makanan:" />
+                        <ComboBox fx:id="foodComboBox" 
+                                promptText="Ketik atau pilih dari dropdown..." 
+                                prefWidth="300" 
+                                editable="true"
+                                style="-fx-font-size: 13px;" />
+                        <Label text="* Ketik untuk mencari, gunakan ⬇️ untuk memilih" 
+                            style="-fx-text-fill: #7f8c8d; -fx-font-size: 11px;" />
+                    </VBox>
+                    
+                    <VBox spacing="5">
+                        <Label text="Berat (gram):" />
+                        <TextField fx:id="gramsField" text="100" prefWidth="120" 
+                                style="-fx-font-size: 13px;" />
+                        <Label text="* Default: 100g" style="-fx-text-fill: #7f8c8d; -fx-font-size: 11px;" />
+                    </VBox>
+                    
+                    <Button text="➕ Tambah" onAction="#onAddFood" 
+                            style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 15;"
+                            VBox.vgrow="NEVER" />
+                </HBox>
+                
+                <Label text="Tips: Tekan Enter setelah mengetik nama makanan, atau pilih dari dropdown" 
+                    style="-fx-text-fill: #3498db; -fx-font-size: 11px; -fx-font-style: italic;" />
+            </VBox>
+
+            <!-- Selected Foods List -->
+            <VBox spacing="8">
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="Makanan Terpilih:" style="-fx-font-weight: bold;" />
+                    <Label fx:id="selectedCountLabel" text="0 makanan" style="-fx-text-fill: #3498db;" />
+                </HBox>
+                
+                <TableView fx:id="foodsTableView" prefHeight="150" style="-fx-font-size: 12px;">
+                    <columns>
+                        <TableColumn text="Makanan" prefWidth="180" />
+                        <TableColumn text="Berat (g)" prefWidth="80" />
+                        <TableColumn text="Aksi" prefWidth="80" />
+                    </columns>
+                </TableView>
+                
+                <HBox spacing="10">
+                    <Button text="🗑️ Hapus Semua" onAction="#onClearAll" 
+                            style="-fx-background-color: #e74c3c; -fx-text-fill: white;" />
+                    <Button text="🔄 Reset" onAction="#onReset" 
+                            style="-fx-background-color: #f39c12; -fx-text-fill: white;" />
+                </HBox>
+            </VBox>
+
+            <!-- Action Buttons -->
+            <HBox spacing="15" alignment="CENTER">
+                <Button text="🧮 Analisis Gizi" onAction="#onAnalyze" 
+                        style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 16;"
+                        disable="true" fx:id="analyzeButton" />
+                <Button text="⬅ Kembali" onAction="#onBack" 
+                        style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-padding: 8 16;" />
+            </HBox>
+
+            <Separator />
+
+            <!-- Results Section -->
+            <VBox spacing="20" fx:id="resultsSection" visible="false">
+                <Label text="Hasil Analisis" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+                
+                <HBox spacing="30" alignment="TOP_CENTER">
+                    <!-- Pie Chart - Larger -->
+                    <VBox spacing="10" alignment="CENTER">
+                        <Label text="Distribusi Makronutrien" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+                        <PieChart fx:id="pieChart" prefWidth="350" prefHeight="350" />
+                    </VBox>
+                    
+                    <!-- Nutrition Details - Better organized -->
+                    <VBox spacing="15" prefWidth="250">
+                        <Label text="Detail Nutrisi" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+                        
+                        <VBox spacing="8" style="-fx-background-color: #f8f9fa; -fx-padding: 15; -fx-background-radius: 8;">
+                            <HBox spacing="10">
+                                <Label text="Kalori:" style="-fx-font-weight: bold; -fx-pref-width: 100;" />
+                                <Label fx:id="kaloriLabel" style="-fx-font-weight: bold; -fx-text-fill: #e74c3c;" />
+                            </HBox>
+                            <HBox spacing="10">
+                                <Label text="Protein:" style="-fx-pref-width: 100;" />
+                                <Label fx:id="proteinLabel" />
+                            </HBox>
+                            <HBox spacing="10">
+                                <Label text="Karbohidrat:" style="-fx-pref-width: 100;" />
+                                <Label fx:id="karbohidratLabel" />
+                            </HBox>
+                            <HBox spacing="10">
+                                <Label text="Lemak:" style="-fx-pref-width: 100;" />
+                                <Label fx:id="lemakLabel" />
+                            </HBox>
+                            <HBox spacing="10">
+                                <Label text="Serat:" style="-fx-pref-width: 100;" />
+                                <Label fx:id="seratLabel" />
+                            </HBox>
+                        </VBox>
+                    </VBox>
+                </HBox>
+                
+                <!-- Food Safety Alerts -->
+                <VBox fx:id="safetyAlertsSection" spacing="10" visible="false" 
+                    style="-fx-background-color: #fff3cd; -fx-padding: 15; -fx-background-radius: 8; -fx-border-color: #ffeaa7; -fx-border-width: 1;">
+                    <Label text="🚨 Peringatan Keamanan Makanan" style="-fx-font-weight: bold; -fx-text-fill: #856404; -fx-font-size: 14px;" />
+                    <VBox fx:id="alertsContainer" spacing="5" />
+                </VBox>
+            </VBox>
+        </VBox>
+    </content>
+</ScrollPane>

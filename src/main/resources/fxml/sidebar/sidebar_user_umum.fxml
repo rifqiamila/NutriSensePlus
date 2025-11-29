@@ -60,7 +60,7 @@
 
                     <HBox fx:id="menuAKG"
                           styleClass="rail-item" 
-                          accessibleText="/fxml/user_umum/info_akg.fxml"
+                          accessibleText="/fxml/user_umum/informasi_akg.fxml"
                           onMouseClicked="#onMenuClicked">
                         <children>
                             <Label text="ℹ" styleClass="rail-icon" />

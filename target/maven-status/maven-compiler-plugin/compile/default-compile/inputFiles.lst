@@ -18,6 +18,8 @@ D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\con
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\controllers\sidebar\SidebarSiswaController.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\controllers\sidebar\SidebarUserUmumController.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\controllers\siswa\SiswaDashboardController.java
+D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\controllers\user_umum\AKGController.java
+D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\controllers\user_umum\FoodAnalyzerController.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\controllers\user_umum\HomeController.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\exceptions\DataNotFoundException.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\exceptions\InvalidUserException.java
@@ -34,11 +36,7 @@ D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\mod
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\models\user\DapurMBG.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\models\user\Siswa.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\models\user\User.java
-D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\repositories\DatabaseJSON.java
-D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\repositories\MealPlanRepository.java
-D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\repositories\MenuRepository.java
-D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\repositories\ReportRepository.java
-D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\repositories\UserRepository.java
+D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\repositories\FoodJsonService.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\SceneSwitcher.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\services\FakeAuthService.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\services\FakeGiziService.java
@@ -46,7 +44,7 @@ D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\ser
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\services\FoodSafetyAlert.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\services\GiziAnalyzer.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\services\GiziBalanceTracker.java
-D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\services\ReportService.java
+D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\services\SimpleFoodAnalyzer.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\services\SmartRecommendationEngine.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\utils\FileManager.java
 D:\Kuliah\Semester 3\PBO\Project\NutriSensePlus\src\main\java\com\nutrisense\utils\Validation.java

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8" 
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.nutrisense.controllers.user_umum.AKGController"
+      spacing="20" 
+      style="-fx-background-color: #f8f9fa;"
+      stylesheets="/css/informasi_akg.css">
+   
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+   
+    <!-- Header Section -->
+    <HBox spacing="20" alignment="CENTER_LEFT">
+        <Button text="← Kembali" onAction="#onBack" 
+            style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        <VBox spacing="5">
+            <Label fx:id="judulLabel" text="Angka Kecukupan Gizi" 
+                style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+            <Label text="Standar Kebutuhan Gizi Harian berdasarkan Kelompok Usia" 
+                style="-fx-text-fill: #7f8c8d; -fx-font-size: 14px;"/>
+        </VBox>
+    </HBox>
+   
+    <Separator/>
+   
+    <!-- Filter Section -->
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <Label text="Pilih Kategori:" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+        <ComboBox fx:id="kategoriComboBox" prefWidth="250"/>
+        <Label text="* Berdasarkan Peraturan Menteri Kesehatan RI" 
+               style="-fx-text-fill: #e74c3c; -fx-font-size: 11px; -fx-font-style: italic;"/>
+    </HBox>
+   
+    <!-- Information Cards -->
+    <HBox spacing="15" alignment="TOP_CENTER">
+        <VBox style="-fx-background-color: #e8f4fd; -fx-background-radius: 8; -fx-padding: 15; -fx-pref-width: 200;">
+            <Label text="💡 Tips Gizi Seimbang" style="-fx-font-weight: bold; -fx-text-fill: #2980b9;"/>
+            <Label text="• Konsumsi beragam makanan" style="-fx-font-size: 12px; -fx-text-fill: #2c3e50;"/>
+            <Label text="• Batasi gula, garam, lemak" style="-fx-font-size: 12px; -fx-text-fill: #2c3e50;"/>
+            <Label text="• Minum air cukup" style="-fx-font-size: 12px; -fx-text-fill: #2c3e50;"/>
+            <Label text="• Aktivitas fisik teratur" style="-fx-font-size: 12px; -fx-text-fill: #2c3e50;"/>
+        </VBox>
+      
+        <VBox style="-fx-background-color: #f0f7e8; -fx-background-radius: 8; -fx-padding: 15; -fx-pref-width: 200;">
+            <Label text="⚡ Penting Diketahui" style="-fx-font-weight: bold; -fx-text-fill: #27ae60;"/>
+            <Label text="• AKG adalah angka kecukupan rata-rata" style="-fx-font-size: 12px; -fx-text-fill: #2c3e50;"/>
+            <Label text="• Kebutuhan individu dapat berbeda" style="-fx-font-size: 12px; -fx-text-fill: #2c3e50;"/>
+            <Label text="• Konsultasi ahli gizi jika perlu" style="-fx-font-size: 12px; -fx-text-fill: #2c3e50;"/>
+        </VBox>
+    </HBox>
+   
+    <!-- Table Section -->
+    <VBox spacing="10">
+        <Label text="Tabel Angka Kecukupan Gizi Harian" 
+                style="-fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-size: 16px;"/>
+      
+        <TableView fx:id="akgTableView" prefHeight="400" style="-fx-font-size: 12px;">
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+        </TableView>
+      
+        <Label text="Keterangan: L = Laki-laki, P = Perempuan, + = Tambahan untuk kondisi khusus" 
+                style="-fx-text-fill: #7f8c8d; -fx-font-size: 11px; -fx-font-style: italic;"/>
+    </VBox>
+   
+    <!-- Footer Note -->
+    <VBox style="-fx-background-color: #fff3cd; -fx-background-radius: 8; -fx-padding: 15; -fx-border-color: #ffeaa7; -fx-border-width: 1;">
+        <Label text="📚 Sumber Referensi:" style="-fx-font-weight: bold; -fx-text-fill: #856404;"/>
+        <Label text="• Peraturan Menteri Kesehatan RI No. 28 Tahun 2019 tentang Angka Kecukupan Gizi" 
+               style="-fx-text-fill: #856404; -fx-font-size: 12px;"/>
+        <Label text="• Penelitian Alpha-ketoglutarate (AKG) dan pengaruhnya terhadap metabolisme tubuh" 
+               style="-fx-text-fill: #856404; -fx-font-size: 12px;"/>
+    </VBox>
+   
+</VBox>
