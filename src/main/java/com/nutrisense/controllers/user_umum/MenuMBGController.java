@@ -14,8 +14,11 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -42,7 +45,27 @@ public class MenuMBGController implements Initializable {
     private SekolahRepository sekolahRepository;
     private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-    // Custom Gson builder untuk handle LocalDate
+    // BARU: Untuk support JSON baru (1 dapur → banyak sekolah)
+    private List<DapurWrapper> daftarDapurJson = new ArrayList<>();
+
+    // Inner class sementara biar gak ubah struktur
+    private static class DapurWrapper {
+        String dapurId;
+        String namaDapur;
+        Object sekolah; // bisa String atau List<String>
+        List<MenuHarian> menu7Hari;
+
+        static class MenuHarian {
+            String tanggal, hari;
+            List<String> menu;
+            Gizi gizi;
+            static class Gizi {
+                int kalori;
+                double protein, lemak, karbohidrat, serat;
+            }
+        }
+    }
+
     private Gson createGson() {
         return new GsonBuilder()
                 .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
@@ -57,7 +80,7 @@ public class MenuMBGController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         sekolahRepository = new SekolahRepository();
         loadSekolahData();
-        loadMenuData();
+        loadMenuData(); // sekarang bisa baca JSON baru
         setupSearch();
     }
 
@@ -67,24 +90,28 @@ public class MenuMBGController implements Initializable {
             for (Sekolah sekolah : semuaSekolah) {
                 sekolahMap.put(sekolah.getId(), sekolah.getNama());
             }
-            System.out.println("✅ Loaded " + sekolahMap.size() + " schools");
+            System.out.println("Loaded " + sekolahMap.size() + " schools");
         } catch (Exception e) {
-            e.printStackTrace();
-            showError("Gagal memuat data sekolah");
+        e.printStackTrace();
         }
     }
 
     private void loadMenuData() {
-        try (InputStream is = getClass().getResourceAsStream("/data/menus.json");
+        try (InputStream is = getClass().getResourceAsStream("/data/menu_mbg.json");
              InputStreamReader reader = new InputStreamReader(is, StandardCharsets.UTF_8)) {
 
-            semuaMenu = gson.fromJson(reader, new TypeToken<List<MenuMBG>>(){}.getType());
-            System.out.println("✅ Loaded " + semuaMenu.size() + " menus");
-            Platform.runLater(this::displayAllDapur);
+            // BACA JSON BARU: struktur dapur → banyak sekolah
+            daftarDapurJson = gson.fromJson(reader, new TypeToken<List<DapurWrapper>>(){}.getType());
+            System.out.println("BERHASIL LOAD " + daftarDapurJson.size() + " DAPUR DARI JSON BARU");
+
+            // Kalau mau tetap support menu lama dari DB, tinggal uncomment
+            // semuaMenu = gson.fromJson(reader, new TypeToken<List<MenuMBG>>(){}.getType());
+
+            Platform.runLater(this::tampilkanSemuaDapur);
 
         } catch (Exception e) {
             e.printStackTrace();
-            showError("Gagal memuat data menu MBG: " + e.getMessage());
+            showError("Gagal baca menu_mbg.json: " + e.getMessage());
         }
     }
 
@@ -92,180 +119,148 @@ public class MenuMBGController implements Initializable {
         searchField.textProperty().addListener((obs, old, newVal) -> {
             String query = newVal == null ? "" : newVal.toLowerCase().trim();
             if (query.isEmpty()) {
-                displayAllDapur();
+                tampilkanSemuaDapur();
             } else {
-                List<MenuMBG> filtered = semuaMenu.stream()
-                    .filter(menu -> {
-                        String namaSekolah = sekolahMap.getOrDefault(menu.getSekolahId(), "").toLowerCase();
-                        String dapurId = menu.getDapurId() != null ? menu.getDapurId().toLowerCase() : "";
-                        String namaMenu = menu.getNamaMenu() != null ? menu.getNamaMenu().toLowerCase() : "";
-                        
-                        return namaSekolah.contains(query) || 
-                               dapurId.contains(query) || 
-                               namaMenu.contains(query);
+                List<DapurWrapper> filtered = daftarDapurJson.stream()
+                    .filter(d -> {
+                        String namaDapur = (d.namaDapur != null ? d.namaDapur : d.dapurId).toLowerCase();
+                        String sekolahText = sekolahListToString(d.sekolah).toLowerCase();
+                        return namaDapur.contains(query) || sekolahText.contains(query);
                     })
                     .collect(Collectors.toList());
-                displayDapurList(filtered);
+                tampilkanDapurList(filtered);
             }
         });
     }
 
-    private void displayAllDapur() {
-        displayDapurList(semuaMenu);
+    private void tampilkanSemuaDapur() {
+        tampilkanDapurList(daftarDapurJson);
     }
 
-    private void displayDapurList(List<MenuMBG> menus) {
+    private void tampilkanDapurList(List<DapurWrapper> list) {
         dapurListContainer.getChildren().clear();
-        
-        if (menus.isEmpty()) {
-            Label noResult = new Label("Tidak ditemukan menu dengan kata kunci tersebut");
+        placeholder.setVisible(false);
+
+        if (list.isEmpty()) {
+            Label noResult = new Label("Tidak ditemukan dapur dengan kata kunci tersebut");
             noResult.setStyle("-fx-text-fill: #e74c3c; -fx-font-size: 14px;");
             dapurListContainer.getChildren().add(noResult);
             return;
         }
 
-        // Group by dapurId
-        Map<String, List<MenuMBG>> menusByDapur = menus.stream()
-            .filter(menu -> menu.getDapurId() != null)
-            .collect(Collectors.groupingBy(MenuMBG::getDapurId));
-
-        for (Map.Entry<String, List<MenuMBG>> entry : menusByDapur.entrySet()) {
-            String dapurId = entry.getKey();
-            List<MenuMBG> menusDapur = entry.getValue();
-            
-            VBox card = createDapurCard(dapurId, menusDapur);
+        for (DapurWrapper dapur : list) {
+            VBox card = buatCardDapur(dapur);
             dapurListContainer.getChildren().add(card);
         }
     }
 
-    private VBox createDapurCard(String dapurId, List<MenuMBG> menusDapur) {
-        VBox card = new VBox(12);
-        card.setPadding(new Insets(16));
-        card.setStyle("-fx-background-color: white; -fx-background-radius: 12; -fx-border-radius: 12; " +
-                      "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 4);");
-        card.setOnMouseClicked(e -> showMenuDetail(dapurId, menusDapur));
+    private VBox buatCardDapur(DapurWrapper dapur) {
+        VBox card = new VBox(14);
+        card.setPadding(new Insets(20));
+        card.setStyle("-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; " +
+                    "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 15, 0, 0, 6);");
+        card.setOnMouseClicked(e -> showDetailDapur(dapur));
+        card.setOnMouseEntered(e -> card.setStyle(card.getStyle() + "-fx-background-color: #f8f9fa;"));
+        card.setOnMouseExited(e -> card.setStyle(card.getStyle().replace("-fx-background-color: #f8f9fa;", "")));
 
-        // Get sekolah name from first menu
-        String sekolahId = menusDapur.get(0).getSekolahId();
-        String namaSekolah = sekolahMap.getOrDefault(sekolahId, "Sekolah Tidak Diketahui");
+        String namaDapur = dapur.namaDapur != null ? dapur.namaDapur : "Dapur MBG";
 
-        Label namaDapur = new Label("Dapur: " + dapurId);
-        namaDapur.setFont(Font.font("System", 16));
-        namaDapur.setStyle("-fx-font-weight: bold;");
+        Label lblDapur = new Label(namaDapur);
+        lblDapur.setStyle("-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;");
 
-        Label sekolah = new Label(namaSekolah);
-        sekolah.setStyle("-fx-text-fill: #7f8c8d;");
+        Label lblSekolah = new Label(sekolahListToString(dapur.sekolah));
+        lblSekolah.setStyle("-fx-font-size: 14px; -fx-text-fill: #7f8c8d;");
 
-        // Count unique dates and check if published
-        long hariCount = menusDapur.stream()
-            .filter(MenuMBG::isPublished)
-            .map(MenuMBG::getTanggal)
-            .distinct()
-            .count();
+        HBox infoBox = new HBox(15);
+        Label hariCount = new Label(dapur.menu7Hari.size() + " hari menu");
+        hariCount.setStyle("-fx-font-weight: bold; -fx-text-fill: #27ae60; -fx-background-color: #d5f4e6; -fx-padding: 6 12; -fx-background-radius: 20;");
 
-        Label count = new Label(hariCount + " hari menu tersedia");
-        count.setStyle("-fx-text-fill: #27ae60; -fx-font-weight: bold;");
+        Label status = new Label("Published");
+        status.setStyle("-fx-font-weight: bold; -fx-text-fill: #27ae60; -fx-background-color: #d5f4e6; -fx-padding: 6 12; -fx-background-radius: 20;");
 
-        // Show published status
-        Label status = new Label(menusDapur.stream().anyMatch(MenuMBG::isPublished) ? "✅ Published" : "⏳ Draft");
-        status.setStyle("-fx-text-fill: " + (menusDapur.stream().anyMatch(MenuMBG::isPublished) ? "#27ae60" : "#f39c12") + ";");
+        infoBox.getChildren().addAll(hariCount, status);
+        infoBox.setAlignment(Pos.CENTER_LEFT);
 
-        card.getChildren().addAll(namaDapur, sekolah, count, status);
+        card.getChildren().addAll(lblDapur, lblSekolah, infoBox);
         return card;
     }
 
-    private void showMenuDetail(String dapurId, List<MenuMBG> menusDapur) {
+    private String sekolahListToString(Object sekolahObj) {
+        if (sekolahObj == null) return "Sekolah Tidak Diketahui";
+        if (sekolahObj instanceof String) {
+            return (String) sekolahObj;
+        }
+        if (sekolahObj instanceof List) {
+            return String.join(" • ", (List<String>) sekolahObj);
+        }
+        return "Sekolah Tidak Diketahui";
+    }
+
+    private void showDetailDapur(DapurWrapper dapur) {
         placeholder.setVisible(false);
+        dapurListContainer.getChildren().clear();
 
-        VBox detail = new VBox(20);
-        detail.setPadding(new Insets(20));
-        detail.setStyle("-fx-background-color: #f0f7ff; -fx-background-radius: 12;");
+        String namaDapur = dapur.namaDapur != null ? dapur.namaDapur : "Dapur MBG";
+        String semuaSekolah = sekolahListToString(dapur.sekolah);
 
-        String sekolahId = menusDapur.get(0).getSekolahId();
-        String namaSekolah = sekolahMap.getOrDefault(sekolahId, "Sekolah Tidak Diketahui");
+        // HEADER MEWAH
+        Label title = new Label("Menu 7 Hari Minggu Ini");
+        title.setStyle("-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;");
 
-        Label title = new Label("Menu - " + dapurId + " (" + namaSekolah + ")");
-        title.setFont(Font.font(20));
-        title.setStyle("-fx-font-weight: bold; -fx-text-fill: #2c3e50;");
+        Label dapurName = new Label(namaDapur);
+        dapurName.setStyle("-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #27ae60;");
 
-        VBox menuBox = new VBox(14);
-        
-        // Filter only published menus and sort by date
-        List<MenuMBG> publishedMenus = menusDapur.stream()
-            .filter(MenuMBG::isPublished)
-            .sorted(Comparator.comparing(MenuMBG::getTanggal))
-            .collect(Collectors.toList());
+        Label sekolahLabel = new Label(semuaSekolah);
+        sekolahLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #7f8c8d; -fx-padding: 5 0 20 0;");
 
-        if (publishedMenus.isEmpty()) {
-            Label noMenu = new Label("Tidak ada menu yang dipublikasikan untuk dapur ini");
-            noMenu.setStyle("-fx-text-fill: #e74c3c; -fx-font-size: 14px; -fx-font-weight: bold;");
-            menuBox.getChildren().add(noMenu);
-        } else {
-            for (MenuMBG menu : publishedMenus) {
-                VBox hariBox = new VBox(8);
-                hariBox.setPadding(new Insets(16));
-                hariBox.setStyle("-fx-background-color: white; -fx-background-radius: 12; " +
-                                "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 2);");
+        VBox header = new VBox(8, title, dapurName, sekolahLabel);
+        header.setAlignment(Pos.CENTER);
+        header.setPadding(new Insets(20, 0, 30, 0));
 
-                // Menu name and date
-                Label menuLabel = new Label(menu.getNamaMenu() != null ? menu.getNamaMenu() : "Menu Harian");
-                menuLabel.setStyle("-fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-size: 16px;");
+        // KONTEN MENU
+        VBox content = new VBox(20);
+        content.setPadding(new Insets(10, 30, 30, 30));
 
-                Label tanggalLabel = new Label(menu.getTanggal().format(dateFormatter));
-                tanggalLabel.setStyle("-fx-text-fill: #7f8c8d; -fx-font-size: 14px;");
+        for (DapurWrapper.MenuHarian hari : dapur.menu7Hari) {
+            VBox hariBox = new VBox(10);
+            hariBox.setStyle("-fx-background-color: #f8f9fa; -fx-background-radius: 16; -fx-padding: 20; -fx-border-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 3);");
 
-                // Total Gizi
-                if (menu.getTotalGizi() != null) {
-                    var gizi = menu.getTotalGizi();
-                    Label giziLabel1 = new Label(
-                        "Kalori: " + String.format("%.1f", gizi.getTotalKalori()) + " kcal • " +
-                        "Protein: " + String.format("%.1f", gizi.getTotalProtein()) + "g • " + 
-                        "Lemak: " + String.format("%.1f", gizi.getTotalLemak()) + "g"
-                    );
-                    giziLabel1.setStyle("-fx-text-fill: #e67e22; -fx-font-weight: bold; -fx-font-size: 13px;");
+            // Hari & Tanggal
+            Label hariLabel = new Label(hari.hari + "  •  " + formatTanggal(hari.tanggal));
+            hariLabel.setStyle("-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;");
 
-                    Label giziLabel2 = new Label(
-                        "Karbohidrat: " + String.format("%.1f", gizi.getTotalKarbohidrat()) + "g • " +
-                        "Serat: " + String.format("%.1f", gizi.getTotalSerat()) + "g"
-                    );
-                    giziLabel2.setStyle("-fx-text-fill: #27ae60; -fx-font-weight: bold; -fx-font-size: 13px;");
-
-                    hariBox.getChildren().addAll(menuLabel, tanggalLabel, giziLabel1, giziLabel2);
-                } else {
-                    hariBox.getChildren().addAll(menuLabel, tanggalLabel);
-                }
-
-                // Food Items
-                VBox itemsBox = new VBox(4);
-                itemsBox.setPadding(new Insets(8, 0, 0, 12));
-                
-                if (menu.getItems() != null && !menu.getItems().isEmpty()) {
-                    Label itemsTitle = new Label("Makanan:");
-                    itemsTitle.setStyle("-fx-font-weight: bold; -fx-text-fill: #34495e; -fx-font-size: 14px;");
-                    itemsBox.getChildren().add(itemsTitle);
-                    
-                    for (MenuMakanan item : menu.getItems()) {
-                        Makanan makanan = item.getMakanan();
-                        if (makanan != null) {
-                            Label itemLabel = new Label("• " + makanan.getNama() + " (" + item.getBeratGram() + "g)");
-                            itemLabel.setStyle("-fx-text-fill: #34495e;");
-                            itemsBox.getChildren().add(itemLabel);
-                        }
-                    }
-                } else {
-                    Label noItems = new Label("• Tidak ada makanan terdaftar");
-                    noItems.setStyle("-fx-text-fill: #95a5a6; -fx-font-style: italic;");
-                    itemsBox.getChildren().add(noItems);
-                }
-
-                hariBox.getChildren().add(itemsBox);
-                menuBox.getChildren().add(hariBox);
+            // Daftar menu
+            VBox menuList = new VBox(6);
+            for (String menu : hari.menu) {
+                Label item = new Label("•  " + menu);
+                item.setStyle("-fx-font-size: 15px; -fx-text-fill: #34495e;");
+                menuList.getChildren().add(item);
             }
+
+            // Gizi — warna hijau mewah
+            Label gizi = new Label(String.format("Kalori: %,d kcal  •  Protein: %.1fg  •  Lemak: %.1fg  •  Karbo: %.1fg  •  Serat: %.1fg",
+                    hari.gizi.kalori, hari.gizi.protein, hari.gizi.lemak, hari.gizi.karbohidrat, hari.gizi.serat));
+            gizi.setStyle("-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #27ae60; -fx-background-color: #d5f4e6; -fx-padding: 10; -fx-background-radius: 12;");
+
+            hariBox.getChildren().addAll(hariLabel, menuList, gizi);
+            content.getChildren().add(hariBox);
         }
 
-        detail.getChildren().addAll(title, menuBox);
-        dapurListContainer.getChildren().clear();
-        dapurListContainer.getChildren().add(detail);
+        // Tambah scroll kalau panjang
+        ScrollPane scroll = new ScrollPane(content);
+        scroll.setFitToWidth(true);
+        scroll.setStyle("-fx-background: transparent; -fx-background-color: transparent;");
+
+        dapurListContainer.getChildren().addAll(header, scroll);
+    }
+
+    private String formatTanggal(String iso) {
+        try {
+            LocalDate date = LocalDate.parse(iso);
+            return date.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", new Locale("id", "ID")));
+        } catch (Exception e) {
+            return iso;
+        }
     }
 
     @FXML
@@ -273,12 +268,6 @@ public class MenuMBGController implements Initializable {
         if (mainController != null) {
             mainController.loadPage("/fxml/user_umum/home.fxml");
         }
-    }
-
-    @FXML
-    private void onRefresh() {
-        loadMenuData();
-        loadSekolahData();
     }
 
     private void showError(String msg) {

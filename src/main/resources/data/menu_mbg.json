@@ -1,8 +1,8 @@
 [
   {
     "dapurId": "dapur_smp01",
-    "namaDapur": "Dapur MBG SMPN 1 Jakarta",
-    "sekolah": "SMPN 1 Jakarta",
+    "namaDapur": "Dapur MBG Jakarta Pusat",
+    "sekolah": ["SMPN 1 Jakarta","SMPN 2 Jakarta"],
     "menu7Hari": [
       { "tanggal": "2025-11-24", "hari": "Senin", "menu": ["Nasi Putih 200g", "Ayam Goreng Lengkuas 80g", "Sayur Bayam Rebus", "Tempe Goreng 50g", "Pisang"], "gizi": { "kalori": 682, "protein": 28.5, "lemak": 26.8, "karbohidrat": 88.4, "serat": 9.1 } },
       { "tanggal": "2025-11-25", "hari": "Selasa", "menu": ["Nasi Merah 200g", "Ikan Kembung Bakar 100g", "Sayur Kolplay", "Telur Dadar 50g", "Semangka"], "gizi": { "kalori": 695, "protein": 32.1, "lemak": 24.3, "karbohidrat": 92.7, "serat": 10.2 } },
@@ -14,8 +14,8 @@
   },
   {
     "dapurId": "dapur_smp02",
-    "namaDapur": "Dapur MBG SMPN 2 Bandung",
-    "sekolah": "SMPN 2 Bandung",
+    "namaDapur": "Dapur MBG Bandung",
+    "sekolah": ["SMPN 1 Bandung","SMPN 2 Bandung","SMPN 3 Bandung"],
     "menu7Hari": [
       { "tanggal": "2025-11-24", "hari": "Senin", "menu": ["Nasi Putih", "Ayam Bakar Kecap", "Sayur Lodeh", "Tempe Bacem", "Pepaya"], "gizi": { "kalori": 678, "protein": 28.2, "lemak": 25.9, "karbohidrat": 89.5, "serat": 9.3 } },
       { "tanggal": "2025-11-25", "hari": "Selasa", "menu": ["Nasi Uduk", "Ikan Goreng Tepung", "Oseng Tempe", "Telur Rebus", "Pisang"], "gizi": { "kalori": 692, "protein": 29.8, "lemak": 27.1, "karbohidrat": 88.9, "serat": 8.7 } },
@@ -27,7 +27,7 @@
   },
   {
     "dapurId": "dapur_smp03",
-    "namaDapur": "Dapur MBG SMPN 3 Surabaya",
+    "namaDapur": "Dapur MBG Jawa Timur",
     "sekolah": "SMPN 3 Surabaya",
     "menu7Hari": [
       { "tanggal": "2025-11-24", "hari": "Senin", "menu": ["Nasi Putih", "Ayam Bakar Taliwang", "Plecing Kangkung", "Tempe Goreng", "Pisang"], "gizi": { "kalori": 689, "protein": 29.3, "lemak": 26.1, "karbohidrat": 90.2, "serat": 9.7 } },
@@ -40,7 +40,7 @@
   },
   {
     "dapurId": "dapur_smp04",
-    "namaDapur": "Dapur MBG SMPN 4 Medan",
+    "namaDapur": "Dapur MBG Medan",
     "sekolah": "SMPN 4 Medan",
     "menu7Hari": [
       { "tanggal": "2025-11-24", "hari": "Senin", "menu": ["Nasi Putih", "Ayam Gulai", "Daun Singkong Tumis", "Sambal Ijo", "Pisang"], "gizi": { "kalori": 691, "protein": 29.0, "lemak": 27.3, "karbohidrat": 88.9, "serat": 9.4 } },
@@ -53,7 +53,7 @@
   },
   {
     "dapurId": "dapur_smp05",
-    "namaDapur": "Dapur MBG SMPN 5 Bekasi",
+    "namaDapur": "Dapur MBG Bekasi Utara",
     "sekolah": "SMPN 5 Bekasi",
     "menu7Hari": [
       { "tanggal": "2025-11-24", "hari": "Senin", "menu": ["Nasi Putih", "Ayam Kremes", "Sayur Lodeh", "Tempe Bacem", "Pisang"], "gizi": { "kalori": 684, "protein": 28.7, "lemak": 26.5, "karbohidrat": 89.1, "serat": 9.2 } },
@@ -66,8 +66,8 @@
   },
   {
     "dapurId": "dapur_sma01",
-    "namaDapur": "Dapur MBG SMAN 1 Jakarta",
-    "sekolah": "SMAN 1 Jakarta",
+    "namaDapur": "Dapur MBG Solo Raya",
+    "sekolah": ["SMAN 1 Surakarta", "SMK 1 Surakarta"],
     "menu7Hari": [
       { "tanggal": "2025-11-24", "hari": "Senin", "menu": ["Nasi Putih 220g", "Ayam Bakar Madu 90g", "Sayur Asem", "Tempe Goreng", "Pisang"], "gizi": { "kalori": 732, "protein": 32.1, "lemak": 28.4, "karbohidrat": 94.2, "serat": 9.8 } },
       { "tanggal": "2025-11-25", "hari": "Selasa", "menu": ["Nasi Merah 220g", "Ikan Bakar Jimbaran 110g", "Tumis Kangkung", "Telur Dadar", "Semangka"], "gizi": { "kalori": 745, "protein": 34.8, "lemak": 27.1, "karbohidrat": 96.5, "serat": 10.5 } },
@@ -75,58 +75,6 @@
       { "tanggal": "2025-11-27", "hari": "Kamis", "menu": ["Nasi Kuning", "Ayam Rica-Rica 90g", "Sayur Sop", "Perkedel", "Apel"], "gizi": { "kalori": 719, "protein": 31.9, "lemak": 28.3, "karbohidrat": 93.1, "serat": 9.7 } },
       { "tanggal": "2025-11-28", "hari": "Jumat", "menu": ["Nasi Putih", "Gulai Ikan Kakap 110g", "Sayur Bayam", "Telur Balado", "Melon"], "gizi": { "kalori": 736, "protein": 33.5, "lemak": 28.9, "karbohidrat": 91.6, "serat": 9.4 } },
       { "tanggal": "2025-11-29", "hari": "Sabtu", "menu": ["Bubur Ayam Spesial", "Telur Rebus", "Sayur Asem", "Pisang"], "gizi": { "kalori": 698, "protein": 29.8, "lemak": 26.7, "karbohidrat": 94.3, "serat": 9.0 } }
-    ]
-  },
-  {
-    "dapurId": "dapur_sma02",
-    "namaDapur": "Dapur MBG SMAN 2 Bandung",
-    "sekolah": "SMAN 2 Bandung",
-    "menu7Hari": [
-      { "tanggal": "2025-11-24", "hari": "Senin", "menu": ["Nasi Putih", "Ayam Bakar Kecap", "Sayur Lodeh", "Tempe Mendoan", "Pepaya"], "gizi": { "kalori": 729, "protein": 32.4, "lemak": 28.1, "karbohidrat": 93.8, "serat": 9.9 } },
-      { "tanggal": "2025-11-25", "hari": "Selasa", "menu": ["Nasi Merah", "Ikan Gurame Bakar", "Tumis Buncis", "Telur Dadar", "Semangka"], "gizi": { "kalori": 741, "protein": 34.2, "lemak": 27.8, "karbohidrat": 95.1, "serat": 10.3 } },
-      { "tanggal": "2025-11-26", "hari": "Rabu", "menu": ["Nasi Uduk", "Ayam Goreng Kalasan", "Sambal", "Lalapan", "Jeruk"], "gizi": { "kalori": 735, "protein": 33.1, "lemak": 29.2, "karbohidrat": 92.4, "serat": 9.6 } },
-      { "tanggal": "2025-11-27", "hari": "Kamis", "menu": ["Nasi Putih", "Sate Ayam Madura", "Sayur Sop", "Tahu Goreng", "Apel"], "gizi": { "kalori": 722, "protein": 32.8, "lemak": 28.5, "karbohidrat": 91.9, "serat": 9.8 } },
-      { "tanggal": "2025-11-28", "hari": "Jumat", "menu": ["Nasi Kuning", "Rendang Ayam", "Bihun Goreng", "Telur Balado", "Melon"], "gizi": { "kalori": 738, "protein": 33.9, "lemak": 29.1, "karbohidrat": 93.2, "serat": 10.0 } },
-      { "tanggal": "2025-11-29", "hari": "Sabtu", "menu": ["Roti Gandum", "Susu Low Fat", "Telur Rebus", "Buah Potong"], "gizi": { "kalori": 695, "protein": 30.2, "lemak": 26.4, "karbohidrat": 96.1, "serat": 9.2 } }
-    ]
-  },
-  {
-    "dapurId": "dapur_sma03",
-    "namaDapur": "Dapur MBG SMAN 3 Surabaya",
-    "sekolah": "SMAN 3 Surabaya",
-    "menu7Hari": [
-      { "tanggal": "2025-11-24", "hari": "Senin", "menu": ["Nasi Putih", "Ayam Kecap Manis", "Sayur Asem", "Perkedel Kentang", "Pisang"], "gizi": { "kalori": 727, "protein": 31.9, "lemak": 27.8, "karbohidrat": 94.5, "serat": 9.7 } },
-      { "tanggal": "2025-11-25", "hari": "Selasa", "menu": ["Nasi Merah", "Ikan Bakar Rica-Rica", "Tumis Kangkung", "Tahu Goreng", "Semangka"], "gizi": { "kalori": 739, "protein": 34.1, "lemak": 28.3, "karbohidrat": 93.8, "serat": 10.4 } },
-      { "tanggal": "2025-11-26", "hari": "Rabu", "menu": ["Nasi Uduk", "Ayam Goreng Serundeng", "Sambal Tomat", "Lalapan", "Jeruk"], "gizi": { "kalori": 732, "protein": 32.7, "lemak": 28.9, "karbohidrat": 92.1, "serat": 9.5 } },
-      { "tanggal": "2025-11-27", "hari": "Kamis", "menu": ["Nasi Putih", "Sapi Kecap Lada Hitam", "Sayur Bayam", "Tempe Bacem", "Apel"], "gizi": { "kalori": 741, "protein": 34.5, "lemak": 29.4, "karbohidrat": 91.3, "serat": 10.1 } },
-      { "tanggal": "2025-11-28", "hari": "Jumat", "menu": ["Nasi Kuning", "Sate Ayam Ponorogo", "Bihun Goreng", "Sambal Kacang", "Melon"], "gizi": { "kalori": 736, "protein": 33.3, "lemak": 28.7, "karbohidrat": 94.0, "serat": 9.9 } },
-      { "tanggal": "2025-11-29", "hari": "Sabtu", "menu": ["Sereal Gandum", "Susu Tinggi Kalsium", "Telur Rebus", "Buah Potong"], "gizi": { "kalori": 692, "protein": 30.8, "lemak": 26.1, "karbohidrat": 95.7, "serat": 9.3 } }
-    ]
-  },
-  {
-    "dapurId": "dapur_sma04",
-    "namaDapur": "Dapur MBG SMAN 4 Medan",
-    "sekolah": "SMAN 4 Medan",
-    "menu7Hari": [
-      { "tanggal": "2025-11-24", "hari": "Senin", "menu": ["Nasi Putih", "Ikan Arsik", "Sayur Daun Singkong", "Sambal Andaliman", "Jeruk"], "gizi": { "kalori": 738, "protein": 33.8, "lemak": 28.6, "karbohidrat": 93.4, "serat": 10.2 } },
-      { "tanggal": "2025-11-25", "hari": "Selasa", "menu": ["Nasi Kuning", "Ayam Goreng Bumbu", "Perkedel", "Acar Kuning", "Semangka"], "gizi": { "kalori": 731, "protein": 32.5, "lemak": 28.2, "karbohidrat": 94.1, "serat": 9.8 } },
-      { "tanggal": "2025-11-26", "hari": "Rabu", "menu": ["Nasi Merah", "Telur Balado", "Tumis Kol Medan", "Tahu Goreng", "Apel"], "gizi": { "kalori": 719, "protein": 31.2, "lemak": 27.5, "karbohidrat": 92.8, "serat": 9.6 } },
-      { "tanggal": "2025-11-27", "hari": "Kamis", "menu": ["Nasi Putih", "Dendeng Batokok", "Sayur Bening", "Perkedel Kentang", "Pisang"], "gizi": { "kalori": 742, "protein": 34.1, "lemak": 29.3, "karbohidrat": 91.9, "serat": 10.0 } },
-      { "tanggal": "2025-11-28", "hari": "Jumat", "menu": ["Nasi Putih", "Ayam Pop", "Sayur Nangka", "Telur Dadar", "Melon"], "gizi": { "kalori": 728, "protein": 32.9, "lemak": 28.0, "karbohidrat": 93.5, "serat": 9.7 } },
-      { "tanggal": "2025-11-29", "hari": "Sabtu", "menu": ["Bubur Ayam Medan", "Kerupuk Kulit", "Teh Tarik"], "gizi": { "kalori": 699, "protein": 30.4, "lemak": 26.8, "karbohidrat": 95.2, "serat": 9.1 } }
-    ]
-  },
-  {
-    "dapurId": "dapur_sma05",
-    "namaDapur": "Dapur MBG SMAN 5 Bekasi",
-    "sekolah": "SMAN 5 Bekasi",
-    "menu7Hari": [
-      { "tanggal": "2025-11-24", "hari": "Senin", "menu": ["Nasi Kuning", "Sate Ayam", "Bihun Goreng", "Sambal Kacang", "Pisang"], "gizi": { "kalori": 735, "protein": 33.6, "lemak": 28.9, "karbohidrat": 93.7, "serat": 9.9 } },
-      { "tanggal": "2025-11-25", "hari": "Selasa", "menu": ["Nasi Putih", "Ikan Gurame Bakar", "Sayur Bening", "Tahu Goreng", "Semangka"], "gizi": { "kalori": 729, "protein": 32.3, "lemak": 27.7, "karbohidrat": 94.2, "serat": 9.6 } },
-      { "tanggal": "2025-11-26", "hari": "Rabu", "menu": ["Nasi Merah", "Ayam Bakar Taliwang", "Plecing Kangkung", "Tempe Goreng", "Jeruk"], "gizi": { "kalori": 741, "protein": 34.0, "lemak": 28.5, "karbohidrat": 92.9, "serat": 10.3 } },
-      { "tanggal": "2025-11-27", "hari": "Kamis", "menu": ["Nasi Uduk", "Telur Dadar Padang", "Sambal Ijo", "Acar", "Apel"], "gizi": { "kalori": 722, "protein": 31.8, "lemak": 28.1, "karbohidrat": 93.4, "serat": 9.4 } },
-      { "tanggal": "2025-11-28", "hari": "Jumat", "menu": ["Nasi Putih", "Sapi Lada Hitam", "Capcay", "Perkedel", "Melon"], "gizi": { "kalori": 738, "protein": 33.7, "lemak": 29.2, "karbohidrat": 91.8, "serat": 10.1 } },
-      { "tanggal": "2025-11-29", "hari": "Sabtu", "menu": ["Roti Gandum Isi", "Susu Tinggi Protein", "Buah Potong"], "gizi": { "kalori": 698, "protein": 30.9, "lemak": 26.5, "karbohidrat": 95.8, "serat": 9.3 } }
     ]
   }
 ]
