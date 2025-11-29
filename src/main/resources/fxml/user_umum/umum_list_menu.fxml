@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.nutrisense.controllers.user_umum.MenuMBGController"
+            fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED">
+
+    <content>
+        <VBox spacing="20" style="-fx-background-color: #f8f9fa;">
+            <padding>
+                <Insets top="20" right="30" bottom="30" left="30"/>
+            </padding>
+
+            <!-- Header -->
+            <VBox spacing="8">
+                <HBox alignment="CENTER_LEFT" spacing="15">
+                    <Button text="Kembali" onAction="#onBack"
+                            style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                    <Label text="Daftar Menu MBG Sekolah" style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                </HBox>
+                <Label text="Lihat menu mbg selama 7 hari terakhir dari dapur sekolah" style="-fx-text-fill: #7f8c8d;"/>
+            </VBox>
+
+            <Separator/>
+
+            <!-- Search Dapur / Sekolah -->
+            <VBox spacing="10">
+                <Label text="Cari Dapur / Sekolah:" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                <TextField fx:id="searchField" promptText="Ketik nama sekolah atau dapur" prefWidth="400"/>
+            </VBox>
+
+            <!-- Daftar Dapur -->
+            <VBox fx:id="dapurListContainer" spacing="15"/>
+
+            <!-- Placeholder jika belum ada pilihan -->
+            <VBox fx:id="placeholder" visible="true" spacing="20" alignment="CENTER">
+                <Label text="Pilih dapur dari daftar di atas untuk melihat menu 7 hari" style="-fx-font-size: 16px; -fx-text-fill: #95a5a6;"/>
+                <Label text="Atau gunakan kolom pencarian" style="-fx-text-fill: #7f8c8d;"/>
+            </VBox>
+
+        </VBox>
+    </content>
+</ScrollPane>

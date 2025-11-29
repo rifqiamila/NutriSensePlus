@@ -1,4 +1,233 @@
 [
-  {"date":"2025-11-01","menu":["Nasi+Ayam","Sayur A"],"calories":450},
-  {"date":"2025-11-02","menu":["Bubur+Telur","Sayur B"],"calories":420}
+  {
+    "sekolah": "SMPN 1 Jakarta",
+    "tipeSekolah": "SMP",
+    "menu7Hari": [
+      {
+        "tanggal": "2025-11-24",
+        "hari": "Senin",
+        "menu": ["Nasi Putih", "Ayam Goreng Lengkuas", "Sayur Bayam", "Tempe Goreng", "Pisang"],
+        "foto": "https://mbg-images.example.com/smp1-jkt/2025-11-24.jpg",
+        "gizi": {
+          "kalori": 682,
+          "protein": 28.5,
+          "lemak": 26.8,
+          "karbohidrat": 88.4,
+          "serat": 5.6
+        }
+      },
+      {
+        "tanggal": "2025-11-25",
+        "hari": "Selasa",
+        "menu": ["Nasi Merah", "Ikan Kembung Bakar", "Sayur Kolplay", "Telur Dadar", "Semangka"],
+        "foto": "https://mbg-images.example.com/smp1-jkt/2025-11-25.jpg",
+        "gizi": {
+          "kalori": 695,
+          "protein": 32.1,
+          "lemak": 24.3,
+          "karbohidrat": 92.7,
+          "serat": 6.9
+        }
+      },
+      {
+        "tanggal": "2025-11-26",
+        "hari": "Rabu",
+        "menu": ["Nasi Putih", "Rendang Sapi", "Sayur Asem", "Perkedel Kentang", "Jeruk"],
+        "foto": "https://mbg-images.example.com/smp1-jkt/2025-11-26.jpg",
+        "gizi": {
+          "kalori": 728,
+          "protein": 31.8,
+          "lemak": 32.4,
+          "karbohidrat": 86.2,
+          "serat": 5.8
+        }
+      },
+      {
+        "tanggal": "2025-11-27",
+        "hari": "Kamis",
+        "menu": ["Nasi Putih", "Ayam Rica-Rica", "Tumis Kangkung", "Tahu Goreng", "Apel"],
+        "foto": "https://mbg-images.example.com/smp1-jkt/2025-11-27.jpg",
+        "gizi": {
+          "kalori": 676,
+          "protein": 29.7,
+          "lemak": 27.1,
+          "karbohidrat": 84.5,
+          "serat": 6.2
+        }
+      },
+      {
+        "tanggal": "2025-11-28",
+        "hari": "Jumat",
+        "menu": ["Nasi Putih", "Gulai Ikan Patin", "Sayur Bening Bayam", "Telur Balado", "Melon"],
+        "foto": "https://mbg-images.example.com/smp1-jkt/2025-11-28.jpg",
+        "gizi": {
+          "kalori": 689,
+          "protein": 30.4,
+          "lemak": 25.9,
+          "karbohidrat": 90.1,
+          "serat": 5.4
+        }
+      },
+      {
+        "tanggal": "2025-11-29",
+        "hari": "Sabtu",
+        "menu": ["Bubur Ayam Spesial", "Tahu Isi", "Sayur Sop", "Pisang"],
+        "foto": "https://mbg-images.example.com/smp1-jkt/2025-11-29.jpg",
+        "gizi": {
+          "kalori": 642,
+          "protein": 26.8,
+          "lemak": 23.7,
+          "karbohidrat": 87.3,
+          "serat": 4.9
+        }
+      }
+    ]
+  },
+
+  {
+    "sekolah": "SMPN 2 Bandung",
+    "tipeSekolah": "SMP",
+    "menu7Hari": [
+      {
+        "tanggal": "2025-11-24",
+        "hari": "Senin",
+        "menu": ["Nasi Putih", "Ayam Kecap", "Sayur Lodeh", "Tempe Bacem", "Pepaya"],
+        "foto": "img/smp2-bdg/2025-11-24.jpg",
+        "gizi": { "kalori": 671, "protein": 27.9, "lemak": 25.6, "karbohidrat": 89.2, "serat": 6.1 }
+      },
+      {
+        "tanggal": "2025-11-25",
+        "hari": "Selasa",
+        "menu": ["Nasi Putih", "Ikan Tongkol Balado", "Tumis Buncis", "Telur Ceplok", "Anggur"],
+        "foto": "https://mbg-images.example.com/smp2-bdg/2025-11-25.jpg",
+        "gizi": { "kalori": 688, "protein": 31.5, "lemak": 26.8, "karbohidrat": 85.9, "serat": 5.7 }
+      },
+      {
+        "tanggal": "2025-11-26",
+        "hari": "Rabu",
+        "menu": ["Nasi Putih", "Daging Sapi Lada Hitam", "Capcay Sayur", "Tahu Goreng", "Jeruk Bali"],
+        "foto": "https://mbg-images.example.com/smp2-bdg/2025-11-26.jpg",
+        "gizi": { "kalori": 712, "protein": 33.2, "lemak": 29.4, "karbohidrat": 87.1, "serat": 6.3 }
+      },
+      {
+        "tanggal": "2025-11-27",
+        "hari": "Kamis",
+        "menu": ["Nasi Merah", "Ayam Bakar Taliwang", "Urap-Urap", "Tempe Mendoan", "Mangga"],
+        "foto": "https://mbg-images.example.com/smp2-bdg/2025-11-27.jpg",
+        "gizi": { "kalori": 698, "protein": 30.8, "lemak": 27.3, "karbohidrat": 91.5, "serat": 7.2 }
+      },
+      {
+        "tanggal": "2025-11-28",
+        "hari": "Jumat",
+        "menu": ["Nasi Putih", "Pepes Ikan Mas", "Sayur Asem", "Perkedel Jagung", "Semangka"],
+        "foto": "https://mbg-images.example.com/smp2-bdg/2025-11-28.jpg",
+        "gizi": { "kalori": 679, "protein": 29.6, "lemak": 24.9, "karbohidrat": 89.8, "serat": 5.9 }
+      },
+      {
+        "tanggal": "2025-11-29",
+        "hari": "Sabtu",
+        "menu": ["Nasi Uduk", "Ayam Goreng Lengkuas", "Telur Dadar", "Sambal Goreng Krecek", "Pisang"],
+        "foto": "https://mbg-images.example.com/smp2-bdg/2025-11-29.jpg",
+        "gizi": { "kalori": 705, "protein": 28.9, "lemak": 31.2, "karbohidrat": 88.6, "serat": 5.3 }
+      }
+    ]
+  },
+
+  {
+    "sekolah": "SMAN 8 Jakarta",
+    "tipeSekolah": "SMA",
+    "menu7Hari": [
+      {
+        "tanggal": "2025-11-24",
+        "hari": "Senin",
+        "menu": ["Nasi Putih", "Ayam Pop", "Sayur Daun Singkong", "Tempe Orek", "Pepaya"],
+        "foto": "https://mbg-images.example.com/sma8-jkt/2025-11-24.jpg",
+        "gizi": { "kalori": 692, "protein": 30.1, "lemak": 27.4, "karbohidrat": 90.3, "serat": 6.4 }
+      },
+      {
+        "tanggal": "2025-11-25",
+        "hari": "Selasa",
+        "menu": ["Nasi Merah", "Ikan Mujair Bakar", "Tumis Kangkung", "Telur Dadar", "Melon"],
+        "foto": "https://mbg-images.example.com/sma8-jkt/2025-11-25.jpg",
+        "gizi": { "kalori": 708, "protein": 33.7, "lemak": 25.8, "karbohidrat": 94.2, "serat": 7.1 }
+      },
+      {
+        "tanggal": "2025-11-26",
+        "hari": "Rabu",
+        "menu": ["Nasi Putih", "Semur Daging", "Sayur Asem", "Perkedel Kentang", "Jeruk"],
+        "foto": "https://mbg-images.example.com/sma8-jkt/2025-11-26.jpg",
+        "gizi": { "kalori": 735, "protein": 34.5, "lemak": 31.8, "karbohidrat": 88.9, "serat": 6.0 }
+      },
+      {
+        "tanggal": "2025-11-27",
+        "hari": "Kamis",
+        "menu": ["Nasi Putih", "Ayam Goreng Kalasan", "Sayur Kolplay", "Tahu Bacem", "Apel"],
+        "foto": "https://mbg-images.example.com/sma8-jkt/2025-11-27.jpg",
+        "gizi": { "kalori": 689, "protein": 31.2, "lemak": 28.6, "karbohidrat": 85.7, "serat": 5.8 }
+      },
+      {
+        "tanggal": "2025-11-28",
+        "hari": "Jumat",
+        "menu": ["Nasi Putih", "Gulai Tunjang", "Sayur Bening", "Telur Pindang", "Semangka"],
+        "foto": "https://mbg-images.example.com/sma8-jkt/2025-11-28.jpg",
+        "gizi": { "kalori": 714, "protein": 32.8, "lemak": 29.3, "karbohidrat": 91.5, "serat": 5.5 }
+      },
+      {
+        "tanggal": "2025-11-29",
+        "hari": "Sabtu",
+        "menu": ["Nasi Kuning", "Ayam Goreng", "Telur Balado", "Perkedel", "Pisang"],
+        "foto": "https://mbg-images.example.com/sma8-jkt/2025-11-29.jpg",
+        "gizi": { "kalori": 725, "protein": 30.4, "lemak": 33.1, "karbohidrat": 92.8, "serat": 5.7 }
+      }
+    ]
+  },
+
+  {
+    "sekolah": "SMAN 1 Bandung",
+    "tipeSekolah": "SMA",
+    "menu7Hari": [
+      {
+        "tanggal": "2025-11-24",
+        "hari": "Senin",
+        "menu": ["Nasi Putih", "Ayam Bakar Kecap", "Sayur Lodeh", "Tempe Goreng", "Mangga"],
+        "foto": "https://mbg-images.example.com/sma1-bdg/2025-11-24.jpg",
+        "gizi": { "kalori": 698, "protein": 29.8, "lemak": 28.2, "karbohidrat": 91.6, "serat": 6.5 }
+      },
+      {
+        "tanggal": "2025-11-25",
+        "hari": "Selasa",
+        "menu": ["Nasi Merah", "Ikan Gurame Bakar", "Tumis Genjer", "Telur Asin", "Jeruk"],
+        "foto": "https://mbg-images.example.com/sma1-bdg/2025-11-25.jpg",
+        "gizi": { "kalori": 712, "protein": 34.1, "lemak": 26.9, "karbohidrat": 93.4, "serat": 6.8 }
+      },
+      {
+        "tanggal": "2025-11-26",
+        "hari": "Rabu",
+        "menu": ["Nasi Putih", "Rendang Daging", "Sayur Nangka", "Tahu Telur", "Pepaya"],
+        "foto": "https://mbg-images.example.com/sma1-bdg/2025-11-26.jpg",
+        "gizi": { "kalori": 742, "protein": 35.6, "lemak": 33.7, "karbohidrat": 87.3, "serat": 6.2 }
+      },
+      {
+        "tanggal": "2025-11-27",
+        "hari": "Kamis",
+        "menu": ["Nasi Putih", "Ayam Goreng Mentega", "Capcay Goreng", "Tempe Mendoan", "Apel"],
+        "foto": "https://mbg-images.example.com/sma1-bdg/2025-11-27.jpg",
+        "gizi": { "kalori": 705, "protein": 32.4, "lemak": 30.1, "karbohidrat": 89.2, "serat": 5.9 }
+      },
+      {
+        "tanggal": "2025-11-28",
+        "hari": "Jumat",
+        "menu": ["Nasi Putih", "Ikan Kakap Asam Manis", "Sayur Asem", "Perkedel Ikan", "Melon"],
+        "foto": "https://mbg-images.example.com/sma1-bdg/2025-11-28.jpg",
+        "gizi": { "kalori": 694, "protein": 31.9, "lemak": 27.5, "karbohidrat": 90.8, "serat": 5.7 }
+      },
+      {
+        "tanggal": "2025-11-29",
+        "hari": "Sabtu",
+        "menu": ["Nasi Liwet", "Ayam Goreng", "Sambal Goreng Ati", "Telur Dadar", "Pisang"],
+        "foto": "https://mbg-images.example.com/sma1-bdg/2025-11-29.jpg",
+        "gizi": { "kalori": 732, "protein": 33.2, "lemak": 34.6, "karbohidrat": 93.1, "serat": 6.0 }
+      }
+    ]
+  }
 ]
