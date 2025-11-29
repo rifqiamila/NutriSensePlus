@@ -79,7 +79,7 @@
 
                     <HBox fx:id="menuListMBG"
                           styleClass="rail-item" 
-                          accessibleText="/fxml/user_umum/menu_explorer.fxml"
+                          accessibleText="/fxml/user_umum/umum_list_menu.fxml"
                           onMouseClicked="#onMenuClicked">
                         <children>
                             <Label text="📋" styleClass="rail-icon" />

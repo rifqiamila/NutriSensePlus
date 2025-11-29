@@ -1,10 +1,10 @@
+com\nutrisense\services\FoodSafetyAlert$1.class
+module-info.class
+com\nutrisense\services\UserService$1.class
+com\nutrisense\controllers\DashboardController.class
 com\nutrisense\SceneSwitcher.class
 com\nutrisense\App.class
 com\nutrisense\controllers\ProfileController.class
 com\nutrisense\services\MenuService$1.class
 com\nutrisense\controllers\main\LoginController$1.class
-com\nutrisense\services\FoodSafetyAlert$1.class
 com\nutrisense\repositories\UserRepository$1.class
-module-info.class
-com\nutrisense\services\UserService$1.class
-com\nutrisense\controllers\DashboardController.class
