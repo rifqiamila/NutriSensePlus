@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import com.nutrisense.controllers.sidebar.SidebarBaseController;
 import com.nutrisense.controllers.user_umum.HomeController;
+import com.nutrisense.models.user.User;
+import com.nutrisense.models.user.User.UserRole;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,9 +21,51 @@ public class MainController {
     private AnchorPane contentContainer;
 
     private String userRole;
+    private User currentUser;  // 🔥 NEW: Store current logged in user
 
+    // 🔥 NEW: Session management methods
+    public void setCurrentUser(User user) {
+        this.currentUser = user;
+        this.userRole = user.getRole().name();
+        
+        // Reload sidebar and content based on the actual user role
+        loadSidebar(this.userRole);
+        loadDefaultPage(this.userRole);
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    public String getUserRole() {
+        return userRole;
+    }
+
+    public boolean isLoggedIn() {
+        return currentUser != null;
+    }
+
+    public void logout() {
+        this.currentUser = null;
+        this.userRole = "UMUM";
+        loadSidebar("UMUM");
+        loadPage("/fxml/user_umum/home.fxml");
+    }
+
+    // 🔥 NEW: Enhanced init method that can handle User object
+    public void init(User user) {
+        if (user != null) {
+            setCurrentUser(user);
+        } else {
+            init("UMUM");
+        }
+    }
+
+    // Original init method (kept for compatibility)
     public void init(String role) {
         this.userRole = role;
+        this.currentUser = null; // No user logged in
+        
         loadSidebar(role);
         loadDefaultPage(role);
     }
@@ -31,7 +75,7 @@ public class MainController {
     private void loadSidebar(String role) {
         String sidebarPath = switch (role.toUpperCase()) {
             case "ADMIN" -> "/fxml/sidebar/sidebar_admin.fxml";
-            case "DAPUR" -> "/fxml/sidebar/sidebar_dapur.fxml";
+            case "DAPUR_MBG" -> "/fxml/sidebar/sidebar_dapur.fxml";  // 🔥 Updated to match UserRole
             case "SISWA" -> "/fxml/sidebar/sidebar_siswa.fxml";
             default -> "/fxml/sidebar/sidebar_user_umum.fxml";
         };
@@ -40,15 +84,19 @@ public class MainController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(sidebarPath));
             Node sidebar = loader.load();
 
-            // ambil controller sidebarnya
+            // Inject MainController to sidebar controller
             Object controller = loader.getController();
-            if (controller instanceof SidebarBaseController sidebarCtrl) {
+            if (controller instanceof SidebarController sidebarCtrl) {
                 sidebarCtrl.setMainController(this);
+                
+                // 🔥 NEW: Also pass current user info if needed
+                sidebarCtrl.setCurrentUser(currentUser);
             }
 
             setToAnchorPane(sidebarContainer, sidebar);
 
         } catch (IOException e) {
+            System.err.println("Error loading sidebar: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -58,7 +106,7 @@ public class MainController {
     private void loadDefaultPage(String role) {
         String page = switch (role.toUpperCase()) {
             case "ADMIN" -> "/fxml/admin/admin_dashboard.fxml";
-            case "DAPUR" -> "/fxml/dapur/dapur_dashboard.fxml";
+            case "DAPUR_MBG" -> "/fxml/dapur/dapur_dashboard.fxml";  // 🔥 Updated to match UserRole
             case "SISWA" -> "/fxml/siswa/siswa_dashboard.fxml";
             default -> "/fxml/user_umum/home.fxml";
         };
@@ -73,17 +121,41 @@ public class MainController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Node page = loader.load();
             
-            // Inject MainController ke page controller jika needed
+            // 🔥 ENHANCED: Inject MainController to various controllers
             Object controller = loader.getController();
+            
             if (controller instanceof HomeController homeCtrl) {
                 homeCtrl.setMainController(this);
             }
-            // Tambahkan else if untuk controller lain nanti
+            // Tambahkan injection untuk controller lain
+            else if (controller instanceof com.nutrisense.controllers.siswa.SiswaDashboardController siswaCtrl) {
+                siswaCtrl.setMainController(this);
+            }
+            else if (controller instanceof com.nutrisense.controllers.dapur.DapurDashboardController dapurCtrl) {
+                dapurCtrl.setMainController(this);
+            }
+            else if (controller instanceof com.nutrisense.controllers.admin.AdminDashboardController adminCtrl) {
+                adminCtrl.setMainController(this);
+            }
+            // 🔥 NEW: Also pass current user to controllers that need it
+            injectCurrentUserToController(controller);
             
             setToAnchorPane(contentContainer, page);
+            
         } catch (IOException e) {
-            System.out.println("Gagal load halaman: " + fxmlPath);
+            System.err.println("Gagal load halaman: " + fxmlPath);
             e.printStackTrace();
+        }
+    }
+
+    // 🔥 NEW: Helper method to inject current user to controllers
+    private void injectCurrentUserToController(Object controller) {
+        try {
+            // Use reflection to call setCurrentUser if the method exists
+            var method = controller.getClass().getMethod("setCurrentUser", User.class);
+            method.invoke(controller, currentUser);
+        } catch (Exception e) {
+            // Method doesn't exist, that's fine
         }
     }
 
@@ -96,5 +168,26 @@ public class MainController {
         AnchorPane.setRightAnchor(content, 0.0);
         AnchorPane.setBottomAnchor(content, 0.0);
         root.getChildren().add(content);
+    }
+
+    // 🔥 NEW: Utility methods for role-based access control
+    public boolean hasRole(UserRole role) {
+        return currentUser != null && currentUser.getRole() == role;
+    }
+
+    public boolean isAdmin() {
+        return hasRole(UserRole.ADMIN);
+    }
+
+    public boolean isSiswa() {
+        return hasRole(UserRole.SISWA);
+    }
+
+    public boolean isDapurMBG() {
+        return hasRole(UserRole.DAPUR_MBG);
+    }
+
+    public boolean isUmum() {
+        return currentUser == null || hasRole(UserRole.UMUM);
     }
 }
