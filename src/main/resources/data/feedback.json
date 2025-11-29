@@ -1,0 +1,52 @@
+[
+    {
+        "id": "FB001",
+        "siswaId": "SIS001001",
+        "menuId": "MENU001",
+        "dapurId": "DAP001",
+        "rating": 5,
+        "komentar": "Menu sangat enak dan bergizi! Ayam rebusnya empuk.",
+        "createdAt": "2025-11-24T12:30:00",
+        "isActive": true
+    },
+    {
+        "id": "FB002",
+        "siswaId": "SIS001002",
+        "menuId": "MENU001",
+        "dapurId": "DAP001",
+        "rating": 4,
+        "komentar": "Enak, tapi sayurnya agak kurang.",
+        "createdAt": "2025-11-24T13:15:00",
+        "isActive": true
+    },
+    {
+        "id": "FB003",
+        "siswaId": "SIS002001",
+        "menuId": "MENU002",
+        "dapurId": "DAP001",
+        "rating": 5,
+        "komentar": "Ikan bakarnya mantap! Gizi seimbang.",
+        "createdAt": "2025-11-25T12:45:00",
+        "isActive": true
+    },
+    {
+        "id": "FB004",
+        "siswaId": "SIS003001",
+        "menuId": "MENU003",
+        "dapurId": "DAP001",
+        "rating": 4,
+        "komentar": "Telur balado enak, tapi nasinya kebanyakan.",
+        "createdAt": "2025-11-26T13:00:00",
+        "isActive": true
+    },
+    {
+        "id": "FB005",
+        "siswaId": "SIS004001",
+        "menuId": "MENU004",
+        "dapurId": "DAP002",
+        "rating": 5,
+        "komentar": "Menu sehat banget! Sayur sopnya segar.",
+        "createdAt": "2025-11-24T12:20:00",
+        "isActive": true
+    }
+]

@@ -1,0 +1,146 @@
+/* Login Card - Responsive */
+.login-card {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+    -fx-padding: 40;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 25, 0, 0, 5);
+    -fx-alignment: CENTER;
+    -fx-min-width: 400;
+    -fx-max-width: 500;
+}
+
+/* ScrollPane styling */
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Typography */
+.login-icon {
+    -fx-font-size: 48;
+}
+
+.login-title {
+    -fx-font-size: 28;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.login-subtitle {
+    -fx-font-size: 14;
+    -fx-text-fill: #7f8c8d;
+}
+
+/* Form Styles */
+.form-container {
+    -fx-alignment: CENTER;
+    -fx-pref-width: 300;
+}
+
+.input-label {
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.text-field {
+    -fx-pref-height: 45;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #bdc3c7;
+    -fx-background-color: #f8f9fa;
+    -fx-padding: 0 15;
+    -fx-font-size: 14;
+}
+
+.text-field:focused {
+    -fx-border-color: #3498db;
+    -fx-background-color: white;
+}
+
+/* Buttons */
+.login-button {
+    -fx-pref-height: 50;
+    -fx-background-radius: 10;
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.login-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+.login-button:pressed {
+    -fx-background-color: #21618c;
+}
+
+.register-button {
+    -fx-pref-height: 40;
+    -fx-background-radius: 8;
+    -fx-background-color: #ecf0f1;
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 14;
+    -fx-cursor: hand;
+    -fx-pref-width: 120;
+}
+
+.register-button:hover {
+    -fx-background-color: #d5dbdb;
+}
+
+.back-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #7f8c8d;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-font-size: 12;
+}
+
+.back-button:hover {
+    -fx-text-fill: #3498db;
+}
+
+/* Error & Loading */
+.error-label {
+    -fx-font-size: 12;
+    -fx-text-fill: #e74c3c;
+    -fx-alignment: CENTER;
+}
+
+.loading-indicator {
+    -fx-padding: 10;
+}
+
+.loading-text {
+    -fx-font-size: 12;
+    -fx-text-fill: #7f8c8d;
+}
+
+/* Divider */
+/* Divider - FIXED untuk Pane */
+.divider-line {
+    -fx-background-color: #bdc3c7;
+    -fx-pref-height: 1;
+    -fx-pref-width: 100;
+}
+
+.divider-text {
+    -fx-font-size: 12;
+    -fx-text-fill: #95a5a6;
+    -fx-padding: 0 10;
+}
+
+.register-label {
+    -fx-font-size: 12;
+    -fx-text-fill: #7f8c8d;
+}
+
+.register-options {
+    -fx-alignment: CENTER;
+}

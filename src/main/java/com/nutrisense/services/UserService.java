@@ -30,20 +30,43 @@ public class UserService {
      * Main login method with auto-detection and auto-registration
      */
     public User login(String username, String password) {
-        // First, try to find existing user
-        User existingUser = userRepo.findByUsername(username);
-        
-        if (existingUser != null) {
-            // Verify password for existing user
-            if (PasswordUtil.verifyPassword(password, existingUser.getPassword()) && existingUser.isActive()) {
-                return existingUser;
+        try {
+            System.out.println("🔐 Login attempt for: " + username);
+            
+            // 🔥 DEBUG: Check repository
+            List<User> allUsers = userRepo.findAll();
+            System.out.println("📊 Total users in DB: " + allUsers.size());
+            
+            for (User user : allUsers) {
+                System.out.println("   👤 " + user.getUsername() + " | Role: " + user.getRole() + " | Active: " + user.isActive());
             }
-            return null; // Wrong password or inactive
+            
+            // 🔥 DEBUG: Check specific user
+            User user = userRepo.findByUsername(username);
+            System.out.println("🔍 User found: " + (user != null ? user.getUsername() + " | Role: " + user.getRole() : "NULL"));
+            
+            if (user == null) {
+                System.out.println("❌ User not found: " + username);
+                return null;
+            }
+            
+            // Check password
+            boolean passwordValid = PasswordUtil.verifyPassword(password, user.getPassword());
+            System.out.println("🔑 PasswordUtil verify: " + passwordValid);
+            
+            if (passwordValid) {
+                System.out.println("✅ Login SUCCESS for: " + username);
+                return user;
+            } else {
+                System.out.println("❌ Password mismatch for: " + username);
+                return null;
+            }
+            
+        } catch (Exception e) {
+            System.err.println("💥 Login error: " + e.getMessage());
+            e.printStackTrace();
+            return null;
         }
-        
-        // If user doesn't exist, auto-detect role and attempt auto-registration
-        UserRole detectedRole = detectRoleFromUsername(username);
-        return attemptAutoRegister(username, password, detectedRole);
     }
 
     /**
@@ -114,12 +137,22 @@ public class UserService {
                 return null;
             }
             
-            // Create new siswa
+            // Create new siswa dengan constructor yang benar
             String id = "SIS" + System.currentTimeMillis();
             String hashedPassword = PasswordUtil.hashPassword(password);
             String namaLengkap = "Siswa " + nisn; // Default name, can be updated later
             
-            Siswa siswa = new Siswa(id, username, hashedPassword, nisn, namaLengkap, sekolahId);
+            Siswa siswa = new Siswa();
+            siswa.setId(id);
+            siswa.setUsername(username);
+            siswa.setPassword(hashedPassword);
+            siswa.setNisn(nisn);
+            siswa.setNamaLengkap(namaLengkap);
+            siswa.setSekolahId(sekolahId);
+            siswa.setRole(UserRole.SISWA);
+            siswa.setActive(true);
+            siswa.setCreatedAt(LocalDateTime.now());
+            
             userRepo.save(siswa);
             
             System.out.println("Auto-registered siswa: " + username);
@@ -143,14 +176,22 @@ public class UserService {
                 return null;
             }
             
-            // Create new dapur
+            // Create new dapur dengan constructor yang benar
             String id = "DAP" + System.currentTimeMillis();
             String hashedPassword = PasswordUtil.hashPassword(password);
             String namaDapur = "Dapur " + getSekolahName(sekolahId);
             
-            DapurMBG dapur = new DapurMBG(id, username, hashedPassword, namaDapur, 
-                                          Arrays.asList("Petugas " + schoolCode), 
-                                          Arrays.asList(sekolahId));
+            DapurMBG dapur = new DapurMBG();
+            dapur.setId(id);
+            dapur.setUsername(username);
+            dapur.setPassword(hashedPassword);
+            dapur.setNamaDapur(namaDapur);
+            dapur.setPenanggungJawab(Arrays.asList("Petugas " + schoolCode));
+            dapur.setSekolahIds(Arrays.asList(sekolahId));
+            dapur.setRole(UserRole.DAPUR_MBG);
+            dapur.setActive(true);
+            dapur.setCreatedAt(LocalDateTime.now());
+            
             userRepo.save(dapur);
             
             System.out.println("Auto-registered dapur: " + username);
@@ -168,9 +209,15 @@ public class UserService {
             String id = "UMUM" + System.currentTimeMillis();
             String hashedPassword = PasswordUtil.hashPassword(password);
             
-            // Create simple User with UMUM role
-            User user = new User(id, username, hashedPassword, UserRole.UMUM) {};
+            // Create simple User dengan constructor yang benar
+            User user = new User();
+            user.setId(id);
+            user.setUsername(username);
+            user.setPassword(hashedPassword);
+            user.setRole(UserRole.UMUM);
+            user.setActive(true);
             user.setCreatedAt(LocalDateTime.now());
+            
             userRepo.save(user);
             
             System.out.println("Auto-registered umum: " + username);
@@ -200,10 +247,21 @@ public class UserService {
             return false;
         }
 
-        // Create new siswa
+        // Create new siswa dengan constructor yang benar
         String id = "SIS" + System.currentTimeMillis();
         String hashedPassword = PasswordUtil.hashPassword(password);
-        Siswa siswa = new Siswa(id, username, hashedPassword, nisn, namaLengkap, sekolahId);
+        
+        Siswa siswa = new Siswa();
+        siswa.setId(id);
+        siswa.setUsername(username);
+        siswa.setPassword(hashedPassword);
+        siswa.setNisn(nisn);
+        siswa.setNamaLengkap(namaLengkap);
+        siswa.setSekolahId(sekolahId);
+        siswa.setRole(UserRole.SISWA);
+        siswa.setActive(true);
+        siswa.setCreatedAt(LocalDateTime.now());
+        
         userRepo.save(siswa);
         return true;
     }
@@ -222,10 +280,21 @@ public class UserService {
             }
         }
 
-        // Create new dapur
+        // Create new dapur dengan constructor yang benar
         String id = "DAP" + System.currentTimeMillis();
         String hashedPassword = PasswordUtil.hashPassword(password);
-        DapurMBG dapur = new DapurMBG(id, username, hashedPassword, namaDapur, penanggungJawab, sekolahIds);
+        
+        DapurMBG dapur = new DapurMBG();
+        dapur.setId(id);
+        dapur.setUsername(username);
+        dapur.setPassword(hashedPassword);
+        dapur.setNamaDapur(namaDapur);
+        dapur.setPenanggungJawab(penanggungJawab);
+        dapur.setSekolahIds(sekolahIds);
+        dapur.setRole(UserRole.DAPUR_MBG);
+        dapur.setActive(true);
+        dapur.setCreatedAt(LocalDateTime.now());
+        
         userRepo.save(dapur);
         return true;
     }
@@ -267,7 +336,7 @@ public class UserService {
     // ==================== HELPER METHODS ====================
 
     private String findSekolahForSiswa(String nisn) {
-        List<Sekolah> sekolahList = sekolahRepo.findAktif();
+        List<Sekolah> sekolahList = sekolahRepo.findAll(); // 🔥 FIX: ganti findAktif() jadi findAll()
         if (sekolahList.isEmpty()) return null;
         
         // Simple logic: use NISN hash to assign sekolah
@@ -303,7 +372,7 @@ public class UserService {
     }
 
     public List<Sekolah> getAllSekolah() {
-        return sekolahRepo.findAll();
+        return sekolahRepo.findAll(); // 🔥 FIX: ganti findAktif() jadi findAll()
     }
 
     public Sekolah getSekolahById(String sekolahId) {

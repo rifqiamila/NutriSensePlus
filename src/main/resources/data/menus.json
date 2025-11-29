@@ -1,0 +1,551 @@
+[
+  {
+    "id": "MENU001",
+    "namaMenu": "Menu Sehat Senin Bergizi",
+    "dapurId": "DAP001",
+    "sekolahId": "SCH001",
+    "tanggal": "2025-11-24",
+    "items": [
+      {
+        "makanan": {
+          "nama": "Nasi Merah",
+          "kalori": 110,
+          "protein": 2.6,
+          "karbohidrat": 23.0,
+          "lemak": 0.9,
+          "serat": 0.8
+        },
+        "beratGram": 150
+      },
+      {
+        "makanan": {
+          "nama": "Ayam Rebus (Dada Tanpa Kulit)",
+          "kalori": 165,
+          "protein": 31.0,
+          "karbohidrat": 0.0,
+          "lemak": 3.6,
+          "serat": 0.0
+        },
+        "beratGram": 120
+      },
+      {
+        "makanan": {
+          "nama": "Tumis Kangkung",
+          "kalori": 35,
+          "protein": 3.0,
+          "karbohidrat": 5.0,
+          "lemak": 1.0,
+          "serat": 2.5
+        },
+        "beratGram": 100
+      },
+      {
+        "makanan": {
+          "nama": "Tahu Goreng",
+          "kalori": 130,
+          "protein": 10.0,
+          "karbohidrat": 2.0,
+          "lemak": 9.0,
+          "serat": 0.5
+        },
+        "beratGram": 80
+      }
+    ],
+    "isPublished": true,
+    "totalGizi": {
+      "totalKalori": 612.5,
+      "totalProtein": 51.12,
+      "totalKarbohidrat": 46.35,
+      "totalLemak": 18.28,
+      "totalSerat": 4.9
+    }
+  },
+  {
+    "id": "MENU002",
+    "namaMenu": "Menu Bergizi Selasa Seimbang",
+    "dapurId": "DAP001",
+    "sekolahId": "SCH002",
+    "tanggal": "2025-11-25",
+    "items": [
+      {
+        "makanan": {
+          "nama": "Nasi Putih",
+          "kalori": 130,
+          "protein": 2.7,
+          "karbohidrat": 28.2,
+          "lemak": 0.3,
+          "serat": 0.2
+        },
+        "beratGram": 160
+      },
+      {
+        "makanan": {
+          "nama": "Ikan Bakar",
+          "kalori": 162,
+          "protein": 25.0,
+          "karbohidrat": 1.5,
+          "lemak": 6.5,
+          "serat": 0.2
+        },
+        "beratGram": 130
+      },
+      {
+        "makanan": {
+          "nama": "Sayur Bayam",
+          "kalori": 23,
+          "protein": 2.2,
+          "karbohidrat": 3.6,
+          "lemak": 0.3,
+          "serat": 2.2
+        },
+        "beratGram": 120
+      },
+      {
+        "makanan": {
+          "nama": "Tempe Goreng",
+          "kalori": 150,
+          "protein": 12.0,
+          "karbohidrat": 8.0,
+          "lemak": 8.0,
+          "serat": 1.5
+        },
+        "beratGram": 70
+      }
+    ],
+    "isPublished": true,
+    "totalGizi": {
+      "totalKalori": 645.9,
+      "totalProtein": 52.47,
+      "totalKarbohidrat": 65.02,
+      "totalLemak": 19.76,
+      "totalSerat": 5.51
+    }
+  },
+  {
+    "id": "MENU003",
+    "namaMenu": "Menu Rabu Kaya Protein",
+    "dapurId": "DAP001",
+    "sekolahId": "SCH003",
+    "tanggal": "2025-11-26",
+    "items": [
+      {
+        "makanan": {
+          "nama": "Nasi Putih",
+          "kalori": 130,
+          "protein": 2.7,
+          "karbohidrat": 28.2,
+          "lemak": 0.3,
+          "serat": 0.2
+        },
+        "beratGram": 170
+      },
+      {
+        "makanan": {
+          "nama": "Telur Balado",
+          "kalori": 180,
+          "protein": 12.0,
+          "karbohidrat": 3.0,
+          "lemak": 13.0,
+          "serat": 1.0
+        },
+        "beratGram": 100
+      },
+      {
+        "makanan": {
+          "nama": "Capcay",
+          "kalori": 55,
+          "protein": 3.0,
+          "karbohidrat": 8.0,
+          "lemak": 1.5,
+          "serat": 3.0
+        },
+        "beratGram": 150
+      },
+      {
+        "makanan": {
+          "nama": "Pisang",
+          "kalori": 89,
+          "protein": 1.1,
+          "karbohidrat": 22.8,
+          "lemak": 0.3,
+          "serat": 2.6
+        },
+        "beratGram": 100
+      }
+    ],
+    "isPublished": true,
+    "totalGizi": {
+      "totalKalori": 698.5,
+      "totalProtein": 38.59,
+      "totalKarbohidrat": 91.84,
+      "totalLemak": 20.05,
+      "totalSerat": 9.32
+    }
+  },
+  {
+    "id": "MENU004",
+    "namaMenu": "Menu Sehat Wayne Senin",
+    "dapurId": "DAP002",
+    "sekolahId": "SCH004",
+    "tanggal": "2025-11-24",
+    "items": [
+      {
+        "makanan": {
+          "nama": "Nasi Merah",
+          "kalori": 110,
+          "protein": 2.6,
+          "karbohidrat": 23.0,
+          "lemak": 0.9,
+          "serat": 0.8
+        },
+        "beratGram": 140
+      },
+      {
+        "makanan": {
+          "nama": "Ikan Goreng",
+          "kalori": 208,
+          "protein": 22.0,
+          "karbohidrat": 2.0,
+          "lemak": 12.0,
+          "serat": 0.3
+        },
+        "beratGram": 110
+      },
+      {
+        "makanan": {
+          "nama": "Sayur Sop",
+          "kalori": 40,
+          "protein": 2.0,
+          "karbohidrat": 6.0,
+          "lemak": 1.0,
+          "serat": 2.0
+        },
+        "beratGram": 150
+      },
+      {
+        "makanan": {
+          "nama": "Apel",
+          "kalori": 52,
+          "protein": 0.3,
+          "karbohidrat": 14.0,
+          "lemak": 0.2,
+          "serat": 2.4
+        },
+        "beratGram": 100
+      }
+    ],
+    "isPublished": true,
+    "totalGizi": {
+      "totalKalori": 595.2,
+      "totalProtein": 40.34,
+      "totalKarbohidrat": 62.1,
+      "totalLemak": 18.48,
+      "totalSerat": 7.27
+    }
+  },
+  {
+    "id": "MENU005",
+    "namaMenu": "Menu Wayne Selasa Bergizi",
+    "dapurId": "DAP002",
+    "sekolahId": "SCH005",
+    "tanggal": "2025-11-25",
+    "items": [
+      {
+        "makanan": {
+          "nama": "Nasi Putih",
+          "kalori": 130,
+          "protein": 2.7,
+          "karbohidrat": 28.2,
+          "lemak": 0.3,
+          "serat": 0.2
+        },
+        "beratGram": 150
+      },
+      {
+        "makanan": {
+          "nama": "Ayam Goreng",
+          "kalori": 246,
+          "protein": 23.0,
+          "karbohidrat": 1.5,
+          "lemak": 16.0,
+          "serat": 0.2
+        },
+        "beratGram": 100
+      },
+      {
+        "makanan": {
+          "nama": "Tumis Buncis",
+          "kalori": 35,
+          "protein": 2.0,
+          "karbohidrat": 6.0,
+          "lemak": 0.5,
+          "serat": 2.5
+        },
+        "beratGram": 120
+      },
+      {
+        "makanan": {
+          "nama": "Jeruk",
+          "kalori": 47,
+          "protein": 0.9,
+          "karbohidrat": 11.8,
+          "lemak": 0.1,
+          "serat": 2.4
+        },
+        "beratGram": 100
+      }
+    ],
+    "isPublished": true,
+    "totalGizi": {
+      "totalKalori": 640.5,
+      "totalProtein": 40.65,
+      "totalKarbohidrat": 69.15,
+      "totalLemak": 20.46,
+      "totalSerat": 6.74
+    }
+  },
+  {
+    "id": "MENU006",
+    "namaMenu": "Menu Gotham Seimbang Rabu",
+    "dapurId": "DAP003",
+    "sekolahId": "SCH007",
+    "tanggal": "2025-11-26",
+    "items": [
+      {
+        "makanan": {
+          "nama": "Nasi Putih",
+          "kalori": 130,
+          "protein": 2.7,
+          "karbohidrat": 28.2,
+          "lemak": 0.3,
+          "serat": 0.2
+        },
+        "beratGram": 160
+      },
+      {
+        "makanan": {
+          "nama": "Rendang Sapi",
+          "kalori": 193,
+          "protein": 22.0,
+          "karbohidrat": 5.0,
+          "lemak": 9.0,
+          "serat": 1.2
+        },
+        "beratGram": 120
+      },
+      {
+        "makanan": {
+          "nama": "Sayur Asem",
+          "kalori": 45,
+          "protein": 2.0,
+          "karbohidrat": 8.0,
+          "lemak": 1.0,
+          "serat": 2.8
+        },
+        "beratGram": 150
+      },
+      {
+        "makanan": {
+          "nama": "Pepaya",
+          "kalori": 43,
+          "protein": 0.5,
+          "karbohidrat": 11.0,
+          "lemak": 0.3,
+          "serat": 1.8
+        },
+        "beratGram": 100
+      }
+    ],
+    "isPublished": true,
+    "totalGizi": {
+      "totalKalori": 675.3,
+      "totalProtein": 46.84,
+      "totalKarbohidrat": 81.02,
+      "totalLemak": 17.16,
+      "totalSerat": 8.56
+    }
+  },
+  {
+    "id": "MENU007",
+    "namaMenu": "Menu Haven Sehat Kamis",
+    "dapurId": "DAP004",
+    "sekolahId": "SCH010",
+    "tanggal": "2025-11-27",
+    "items": [
+      {
+        "makanan": {
+          "nama": "Nasi Merah",
+          "kalori": 110,
+          "protein": 2.6,
+          "karbohidrat": 23.0,
+          "lemak": 0.9,
+          "serat": 0.8
+        },
+        "beratGram": 150
+      },
+      {
+        "makanan": {
+          "nama": "Ikan Bakar",
+          "kalori": 162,
+          "protein": 25.0,
+          "karbohidrat": 1.5,
+          "lemak": 6.5,
+          "serat": 0.2
+        },
+        "beratGram": 130
+      },
+      {
+        "makanan": {
+          "nama": "Tumis Kangkung",
+          "kalori": 35,
+          "protein": 3.0,
+          "karbohidrat": 5.0,
+          "lemak": 1.0,
+          "serat": 2.5
+        },
+        "beratGram": 120
+      },
+      {
+        "makanan": {
+          "nama": "Tahu Goreng",
+          "kalori": 130,
+          "protein": 10.0,
+          "karbohidrat": 2.0,
+          "lemak": 9.0,
+          "serat": 0.5
+        },
+        "beratGram": 80
+      }
+    ],
+    "isPublished": true,
+    "totalGizi": {
+      "totalKalori": 612.5,
+      "totalProtein": 51.12,
+      "totalKarbohidrat": 46.35,
+      "totalLemak": 18.28,
+      "totalSerat": 4.9
+    }
+  },
+  {
+    "id": "MENU008",
+    "namaMenu": "Menu Kane Bergizi Jumat",
+    "dapurId": "DAP005",
+    "sekolahId": "SCH013",
+    "tanggal": "2025-11-28",
+    "items": [
+      {
+        "makanan": {
+          "nama": "Nasi Putih",
+          "kalori": 130,
+          "protein": 2.7,
+          "karbohidrat": 28.2,
+          "lemak": 0.3,
+          "serat": 0.2
+        },
+        "beratGram": 160
+      },
+      {
+        "makanan": {
+          "nama": "Ayam Rebus (Dada Tanpa Kulit)",
+          "kalori": 165,
+          "protein": 31.0,
+          "karbohidrat": 0.0,
+          "lemak": 3.6,
+          "serat": 0.0
+        },
+        "beratGram": 120
+      },
+      {
+        "makanan": {
+          "nama": "Capcay",
+          "kalori": 55,
+          "protein": 3.0,
+          "karbohidrat": 8.0,
+          "lemak": 1.5,
+          "serat": 3.0
+        },
+        "beratGram": 150
+      },
+      {
+        "makanan": {
+          "nama": "Pisang",
+          "kalori": 89,
+          "protein": 1.1,
+          "karbohidrat": 22.8,
+          "lemak": 0.3,
+          "serat": 2.6
+        },
+        "beratGram": 100
+      }
+    ],
+    "isPublished": true,
+    "totalGizi": {
+      "totalKalori": 668.5,
+      "totalProtein": 54.52,
+      "totalKarbohidrat": 84.2,
+      "totalLemak": 11.58,
+      "totalSerat": 8.92
+    }
+  },
+  {
+    "id": "MENU009",
+    "namaMenu": "Menu Sabtu Special",
+    "dapurId": "DAP001",
+    "sekolahId": "SCH001",
+    "tanggal": "2025-11-29",
+    "items": [
+      {
+        "makanan": {
+          "nama": "Nasi Putih",
+          "kalori": 130,
+          "protein": 2.7,
+          "karbohidrat": 28.2,
+          "lemak": 0.3,
+          "serat": 0.2
+        },
+        "beratGram": 180
+      },
+      {
+        "makanan": {
+          "nama": "Ikan Goreng",
+          "kalori": 208,
+          "protein": 22.0,
+          "karbohidrat": 2.0,
+          "lemak": 12.0,
+          "serat": 0.3
+        },
+        "beratGram": 140
+      },
+      {
+        "makanan": {
+          "nama": "Sayur Bayam",
+          "kalori": 23,
+          "protein": 2.2,
+          "karbohidrat": 3.6,
+          "lemak": 0.3,
+          "serat": 2.2
+        },
+        "beratGram": 150
+      },
+      {
+        "makanan": {
+          "nama": "Kerupuk",
+          "kalori": 450,
+          "protein": 2.0,
+          "karbohidrat": 60.0,
+          "lemak": 22.0,
+          "serat": 0.5
+        },
+        "beratGram": 20
+      }
+    ],
+    "isPublished": true,
+    "totalGizi": {
+      "totalKalori": 972.4,
+      "totalProtein": 49.96,
+      "totalKarbohidrat": 130.56,
+      "totalLemak": 37.04,
+      "totalSerat": 6.09
+    }
+  }
+]

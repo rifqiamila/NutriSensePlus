@@ -1,0 +1,107 @@
+[
+  {
+    "id": "SCH001",
+    "nama": "SD Negeri 05 Arkham Raya",
+    "alamat": "Jl. Arkham Raya No. 12, Kel. Arkham Timur, Kec. Gotham Selatan",
+    "tingkat": "SD",
+    "aktif": true
+  },
+  {
+    "id": "SCH002",
+    "nama": "SMP Negeri 14 Arkadia Mandiri", 
+    "alamat": "Jl. Arkadia Mandiri No. 4, Kel. Arkham Timur, Kec. Gotham Selatan",
+    "tingkat": "SMP",
+    "aktif": true
+  },
+  {
+    "id": "SCH003",
+    "nama": "SMA Negeri 05 Arkham Nusantara",
+    "alamat": "Jl. Nusantara Arkham No. 8, Kel. Arkham Timur, Kec. Gotham Selatan",
+    "tingkat": "SMA",
+    "aktif": true
+  },
+  {
+    "id": "SCH004",
+    "nama": "SD Negeri 12 Wayne Mulya",
+    "alamat": "Jl. Wayne Mulya No. 3, Kel. Wayne Heights, Kec. Gotham Utara", 
+    "tingkat": "SD",
+    "aktif": true
+  },
+  {
+    "id": "SCH005",
+    "nama": "SMP Negeri 22 Wayne Sejahtera",
+    "alamat": "Jl. Wayne Sejahtera No. 10, Kel. Wayne Heights, Kec. Gotham Utara",
+    "tingkat": "SMP",
+    "aktif": true
+  },
+  {
+    "id": "SCH006",
+    "nama": "SMA Negeri 07 Wayne Bhakti",
+    "alamat": "Jl. Bhakti Wayne No. 5, Kel. Wayne Heights, Kec. Gotham Utara",
+    "tingkat": "SMA",
+    "aktif": true
+  },
+  {
+    "id": "SCH007",
+    "nama": "SD Negeri 09 Gotham Jaya",
+    "alamat": "Jl. Gotham Jaya No. 9, Kel. Gotham Tengah, Kec. Gotham Pusat",
+    "tingkat": "SD", 
+    "aktif": true
+  },
+  {
+    "id": "SCH008",
+    "nama": "SMP Negeri 08 Gotham Utama",
+    "alamat": "Jl. Gotham Utama No. 2, Kel. Gotham Tengah, Kec. Gotham Pusat",
+    "tingkat": "SMP",
+    "aktif": true
+  },
+  {
+    "id": "SCH009",
+    "nama": "SMA Negeri 21 Gotham Harapan", 
+    "alamat": "Jl. Harapan Gotham No. 11, Kel. Gotham Tengah, Kec. Gotham Pusat",
+    "tingkat": "SMA",
+    "aktif": true
+  },
+  {
+    "id": "SCH010",
+    "nama": "SD Negeri 03 Dent Makmur",
+    "alamat": "Jl. Dent Makmur No. 6, Kel. Haven Barat, Kec. Blüdhaven",
+    "tingkat": "SD",
+    "aktif": true
+  },
+  {
+    "id": "SCH011",
+    "nama": "SMP Negeri 11 Blüdhaven Indah",
+    "alamat": "Jl. Haven Indah No. 15, Kel. Haven Barat, Kec. Blüdhaven", 
+    "tingkat": "SMP",
+    "aktif": true
+  },
+  {
+    "id": "SCH012",
+    "nama": "SMA Negeri 18 Grayson Cendekia",
+    "alamat": "Jl. Grayson Cendekia No. 5, Kel. Haven Barat, Kec. Blüdhaven",
+    "tingkat": "SMA",
+    "aktif": true
+  },
+  {
+    "id": "SCH013",
+    "nama": "SD Negeri 17 Nolan Asri",
+    "alamat": "Jl. Nolan Asri No. 7, Kel. Kane Satu, Kec. Gotham Barat",
+    "tingkat": "SD",
+    "aktif": true
+  },
+  {
+    "id": "SCH014",
+    "nama": "SMP Negeri 19 Drake Persada", 
+    "alamat": "Jl. Drake Persada No. 14, Kel. Kane Satu, Kec. Gotham Barat",
+    "tingkat": "SMP",
+    "aktif": true
+  },
+  {
+    "id": "SCH015",
+    "nama": "SMA Negeri 02 Kane Pratama",
+    "alamat": "Jl. Kane Pratama No. 1, Kel. Kane Satu, Kec. Gotham Barat",
+    "tingkat": "SMA",
+    "aktif": true
+  }
+]

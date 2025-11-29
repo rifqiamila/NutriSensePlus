@@ -2,15 +2,23 @@ package com.nutrisense.models.user;
 
 public class Siswa extends User {
     private String nisn;
-    private String namaLengkap;
     private String sekolahId;
+    private String namaLengkap;
 
-    public Siswa(String id, String username, String password, 
-                 String nisn, String namaLengkap, String sekolahId) {
-        super(id, username, password, UserRole.SISWA);
+    public Siswa() {
+        super();
+        this.role = UserRole.SISWA;
+        this.nisn = "";
+        this.sekolahId = "";
+        this.namaLengkap = "";
+    }
+
+    public Siswa(String nisn, String sekolahId, String nama) {
+        super();
+        this.role = UserRole.SISWA;
         this.nisn = nisn;
-        this.namaLengkap = namaLengkap;
         this.sekolahId = sekolahId;
+        this.namaLengkap = namaLengkap;
     }
 
     // Getters & Setters

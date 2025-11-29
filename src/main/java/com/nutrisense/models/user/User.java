@@ -2,13 +2,13 @@ package com.nutrisense.models.user;
 
 import java.time.LocalDateTime;
 
-public abstract class User {
+public class User {
     protected String id;
     protected String username;
     protected String password;
     protected UserRole role;
-    protected LocalDateTime createdAt;
     protected boolean isActive;
+    protected LocalDateTime createdAt;
 
     public enum UserRole {
         SISWA,
@@ -18,13 +18,20 @@ public abstract class User {
     }
 
     // Constructor
-    public User(String id, String username, String password, UserRole role) {
-        this.id = id;
+    public User() {
+        this.id = "";
+        this.username = "";
+        this.password = "";
+        this.role = UserRole.UMUM;
+        this.isActive = true;
+        this.createdAt = LocalDateTime.now();
+    }
+
+    public User(String username, String password, UserRole role) {
+        this();
         this.username = username;
         this.password = password;
         this.role = role;
-        this.createdAt = LocalDateTime.now();
-        this.isActive = true;
     }
 
     // Getters & Setters
