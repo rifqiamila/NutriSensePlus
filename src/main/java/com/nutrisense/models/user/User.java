@@ -1,16 +1,30 @@
 package com.nutrisense.models.user;
 
+import java.time.LocalDateTime;
+
 public abstract class User {
     protected String id;
     protected String username;
     protected String password;
-    protected String role; // "SISWA", "DAPUR", "ADMIN", "SUPERADMIN"
+    protected UserRole role;
+    protected LocalDateTime createdAt;
+    protected boolean isActive;
 
-    public User(String id, String username, String password, String role) {
+    public enum UserRole {
+        SISWA,
+        DAPUR_MBG, 
+        ADMIN,
+        UMUM
+    }
+
+    // Constructor
+    public User(String id, String username, String password, UserRole role) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.role = role;
+        this.createdAt = LocalDateTime.now();
+        this.isActive = true;
     }
 
     // Getters & Setters
@@ -23,11 +37,12 @@ public abstract class User {
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
 
-    public String getRole() { return role; }
-    public void setRole(String role) { this.role = role; }
+    public UserRole getRole() { return role; }
+    public void setRole(UserRole role) { this.role = role; }
 
-    @Override
-    public String toString() {
-        return "User{id='" + id + "', username='" + username + "', role='" + role + "'}";
-    }
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+
+    public boolean isActive() { return isActive; }
+    public void setActive(boolean active) { isActive = active; }
 }
