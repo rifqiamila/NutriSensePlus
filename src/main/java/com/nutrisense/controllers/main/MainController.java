@@ -2,7 +2,6 @@ package com.nutrisense.controllers.main;
 
 import java.io.IOException;
 
-import com.nutrisense.controllers.sidebar.SidebarBaseController;
 import com.nutrisense.controllers.user_umum.HomeController;
 import com.nutrisense.models.user.User;
 import com.nutrisense.models.user.User.UserRole;
@@ -105,9 +104,34 @@ public class MainController {
 
     private void loadDefaultPage(String role) {
         String page = switch (role.toUpperCase()) {
-            case "ADMIN" -> "/fxml/admin/admin_dashboard.fxml";
-            case "DAPUR_MBG" -> "/fxml/dapur/dapur_dashboard.fxml";  // 🔥 Updated to match UserRole
-            case "SISWA" -> "/fxml/siswa/siswa_dashboard.fxml";
+            case "ADMIN" -> {
+                // Cek dulu file admin dashboard, kalo ga ada fallback ke home
+                String adminPath = "/fxml/admin/dashboard.fxml";
+                if (getClass().getResource(adminPath) != null) {
+                    yield adminPath;
+                } else {
+                    System.out.println("⚠️ Admin dashboard not found, falling back to home");
+                    yield "/fxml/user_umum/home.fxml";
+                }
+            }
+            case "DAPUR_MBG" -> {
+                String dapurPath = "/fxml/dapur/dashboard.fxml";
+                if (getClass().getResource(dapurPath) != null) {
+                    yield dapurPath;
+                } else {
+                    System.out.println("⚠️ Dapur dashboard not found, falling back to home");
+                    yield "/fxml/user_umum/home.fxml";
+                }
+            }
+            case "SISWA" -> {
+                String siswaPath = "/fxml/siswa/dashboard.fxml";
+                if (getClass().getResource(siswaPath) != null) {
+                    yield siswaPath;
+                } else {
+                    System.out.println("⚠️ Siswa dashboard not found, falling back to home");
+                    yield "/fxml/user_umum/home.fxml";
+                }
+            }
             default -> "/fxml/user_umum/home.fxml";
         };
 
@@ -121,13 +145,16 @@ public class MainController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Node page = loader.load();
             
-            // 🔥 ENHANCED: Inject MainController to various controllers
+            // 🔥 ENHANCED: Inject MainController to ALL controllers
             Object controller = loader.getController();
             
             if (controller instanceof HomeController homeCtrl) {
                 homeCtrl.setMainController(this);
             }
-            // Tambahkan injection untuk controller lain
+            else if (controller instanceof LoginController loginCtrl) {
+                loginCtrl.setMainController(this); // 🔥 INI YANG PERLU DITAMBAH
+                System.out.println("🎯 Injected MainController into LoginController");
+            }
             else if (controller instanceof com.nutrisense.controllers.siswa.SiswaDashboardController siswaCtrl) {
                 siswaCtrl.setMainController(this);
             }
@@ -137,8 +164,6 @@ public class MainController {
             else if (controller instanceof com.nutrisense.controllers.admin.AdminDashboardController adminCtrl) {
                 adminCtrl.setMainController(this);
             }
-            // 🔥 NEW: Also pass current user to controllers that need it
-            injectCurrentUserToController(controller);
             
             setToAnchorPane(contentContainer, page);
             

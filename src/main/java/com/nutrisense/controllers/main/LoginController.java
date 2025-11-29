@@ -18,13 +18,13 @@ public class LoginController {
     @FXML private Label errorLabel;
     @FXML private VBox loadingIndicator;
     
-    public void setMainController(MainController mainController) {
-        this.mainController = mainController;
+    public LoginController() {
         this.userService = new UserService();
     }
     
     @FXML
     public void initialize() {
+        System.out.println("🔧 LoginController initialized");
         // Setup enter key to trigger login
         passwordField.setOnAction(e -> handleLogin());
         
@@ -33,10 +33,18 @@ public class LoginController {
         passwordField.textProperty().addListener((obs, oldVal, newVal) -> clearError());
     }
     
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
+        System.out.println("🎯 MainController set: " + (mainController != null));
+        // 🔥 UserService udah di-init di constructor, jadi ga perlu init lagi di sini
+    }
+    
     @FXML
     private void handleLogin() {
         String username = usernameField.getText().trim();
         String password = passwordField.getText();
+        
+        System.out.println("🔐 Attempting login: " + username); // 🔥 DEBUG
         
         if (username.isEmpty() || password.isEmpty()) {
             showError("Username dan password harus diisi");
@@ -49,6 +57,7 @@ public class LoginController {
         new Thread(() -> {
             try {
                 User user = userService.login(username, password);
+                System.out.println("📊 Login result: " + (user != null ? user.getRole() : "NULL")); // 🔥 DEBUG
                 
                 javafx.application.Platform.runLater(() -> {
                     showLoading(false);
@@ -61,6 +70,7 @@ public class LoginController {
                 });
                 
             } catch (Exception e) {
+                e.printStackTrace(); // 🔥 DEBUG - print full stack trace
                 javafx.application.Platform.runLater(() -> {
                     showLoading(false);
                     showError("Terjadi error: " + e.getMessage());

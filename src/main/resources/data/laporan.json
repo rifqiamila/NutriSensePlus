@@ -1,0 +1,53 @@
+[
+    {
+        "id": "RPT001",
+        "dapurId": "DAP001",
+        "sekolahId": "SCH001",
+        "periodeStart": "2025-11-24",
+        "periodeEnd": "2025-11-29",
+        "dataHarian": {
+            "2025-11-24": {
+                "totalKalori": 612.5,
+                "totalProtein": 51.12,
+                "totalKarbohidrat": 46.35,
+                "totalLemak": 18.28,
+                "totalSerat": 4.9
+            },
+            "2025-11-25": {
+                "totalKalori": 645.9,
+                "totalProtein": 52.47,
+                "totalKarbohidrat": 65.02,
+                "totalLemak": 19.76,
+                "totalSerat": 5.51
+            },
+            "2025-11-26": {
+                "totalKalori": 698.5,
+                "totalProtein": 38.59,
+                "totalKarbohidrat": 91.84,
+                "totalLemak": 20.05,
+                "totalSerat": 9.32
+            },
+            "2025-11-29": {
+                "totalKalori": 972.4,
+                "totalProtein": 49.96,
+                "totalKarbohidrat": 130.56,
+                "totalLemak": 37.04,
+                "totalSerat": 6.09
+            }
+        },
+        "rataRata": {
+            "totalKalori": 732.3,
+            "totalProtein": 48.04,
+            "totalKarbohidrat": 83.44,
+            "totalLemak": 23.78,
+            "totalSerat": 6.46
+        },
+        "statistikStatus": {
+            "HIJAU": 3,
+            "KUNING": 1,
+            "MERAH": 0
+        },
+        "jsonData": "{\"periode\":\"2025-11-24 to 2025-11-29\",\"totalMenu\":4,\"rataKalori\":732.3,\"status\":\"BAIK\"}",
+        "createdAt": "2025-11-30"
+    }
+]

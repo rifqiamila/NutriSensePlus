@@ -1,5 +1,6 @@
 package com.nutrisense.models.user;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DapurMBG extends User {
@@ -7,13 +8,20 @@ public class DapurMBG extends User {
     private List<String> penanggungJawab;
     private List<String> sekolahIds;
 
-    public DapurMBG(String id, String username, String password,
-                    String namaDapur, List<String> penanggungJawab, 
-                    List<String> sekolahIds) {
-        super(id, username, password, UserRole.DAPUR_MBG);
+    public DapurMBG() {
+        super();
+        this.role = UserRole.DAPUR_MBG;
+        this.namaDapur = "";
+        this.penanggungJawab = new ArrayList<>();
+        this.sekolahIds = new ArrayList<>();
+    }
+
+    public DapurMBG(String namaDapur, List<String> sekolahIds) {
+        super();
+        this.role = UserRole.DAPUR_MBG;
         this.namaDapur = namaDapur;
-        this.penanggungJawab = penanggungJawab;
         this.sekolahIds = sekolahIds;
+        this.penanggungJawab = new ArrayList<>();
     }
 
     // Getters & Setters
