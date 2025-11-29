@@ -1,11 +1,18 @@
 package com.nutrisense.controllers.admin;
 
-import javafx.fxml.FXML;
+import com.nutrisense.controllers.main.MainController;
+import com.nutrisense.models.user.User;
 
 public class AdminDashboardController {
-
-    @FXML
-    public void initialize() {
-        System.out.println("Admin dashboard loaded.");
+    
+    private MainController mainController;
+    private User currentUser;
+    
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
+    }
+    
+    public void setCurrentUser(User user) {
+        this.currentUser = user;
     }
 }
