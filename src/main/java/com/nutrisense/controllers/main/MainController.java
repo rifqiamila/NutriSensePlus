@@ -100,6 +100,10 @@ public class MainController {
         }
     }
 
+    public void updateContentPadding(int leftPadding) {
+    contentContainer.setStyle("-fx-padding: 0 0 0 " + leftPadding + ";");
+}
+
     // ------------------ LOAD DEFAULT PAGE BY ROLE ------------------
 
     private void loadDefaultPage(String role) {

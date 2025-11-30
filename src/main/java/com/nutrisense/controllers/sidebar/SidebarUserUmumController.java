@@ -2,6 +2,7 @@ package com.nutrisense.controllers.sidebar;
 
 import com.nutrisense.controllers.main.SidebarController;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -19,18 +20,14 @@ public class SidebarUserUmumController extends SidebarController {
     }
 
     @FXML
-    private void handleToggleClick() {
-        if (isExpanded) {
-            sidebarPane.setPrefWidth(70);
-            sidebarPane.getStyleClass().remove("expanded");
-        } else {
-            sidebarPane.setPrefWidth(200);
-            sidebarPane.getStyleClass().add("expanded");
-        }
-        isExpanded = !isExpanded;
+private void handleToggleClick() {
+    if (sidebarPane.getStyleClass().contains("expanded")) {
+        sidebarPane.getStyleClass().remove("expanded");
+    } else {
+        sidebarPane.getStyleClass().add("expanded");  // INI WAJIB ADA COY!!!
     }
+}
 
-    // 🔥 COPY METHOD DARI PARENT (kalo ga bisa access parent)
     @FXML
     private void onMenuClicked(MouseEvent event) {
         System.out.println("🎯 MENU CLICKED - Child class method");

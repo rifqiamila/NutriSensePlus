@@ -24,7 +24,7 @@
 .rail-toggle-btn {
     -fx-background-color: rgba(0, 255, 240, 0.12);
     -fx-text-fill: #00fff0;
-    -fx-font-size: 25px;
+    -fx-font-size: 22px;
     -fx-padding: 10 14;
     -fx-background-radius: 30;
     -fx-border-color: rgba(0, 255, 240, 0.4);
@@ -61,7 +61,7 @@
 
 /* Icon & text */
 .rail-icon {
-    -fx-font-size: 25px;
+    -fx-font-size: 25 px;
     -fx-text-fill: #00fff0;
     -fx-effect: dropshadow(gaussian, rgba(0, 255, 240, 0.4), 8, 0.4, 0, 0); 
     -fx-opacity: 1 !important;
@@ -129,21 +129,4 @@
 .rail-sidebar.expanded .menu-title {
     -fx-opacity: 1;
     -fx-translate-x: 0;
-}
-
-.rail-sidebar {
-    -fx-pref-width: 70px;
-    -fx-transition: pref-width 0.35s ease;
-}
-
-.rail-sidebar.expanded {
-    -fx-pref-width: 240px;
-}
-
-.main-layout .padding {
-    -fx-padding: 0 0 0 70; /* collapsed */
-}
-
-.main-layout .rail-sidebar.expanded ~ .padding {
-    -fx-padding: 0 0 0 240; /* expanded */
 }

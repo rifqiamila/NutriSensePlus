@@ -151,89 +151,45 @@ public class FoodAnalyzerController implements Initializable {
         return null;
     }
 
-    // private void setupTableView() {
-    //     foodsTableView.setItems(selectedFoods);
-        
-    //     // Clear existing columns
-    //     foodsTableView.getColumns().clear();
-        
-    //     // Setup columns
-    //     TableColumn<FoodEntry, String> namaCol = new TableColumn<>("Makanan");
-    //     namaCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNama()));
-    //     namaCol.setPrefWidth(200);
-        
-    //     TableColumn<FoodEntry, String> beratCol = new TableColumn<>("Berat (g)");
-    //     beratCol.setCellValueFactory(cellData -> new SimpleStringProperty(String.format("%.1f", cellData.getValue().getBerat())));
-    //     beratCol.setPrefWidth(100);
-        
-    //     TableColumn<FoodEntry, Button> aksiCol = new TableColumn<>("Aksi");
-    //     aksiCol.setCellValueFactory(cellData -> {
-    //         Button deleteBtn = new Button("❌");
-    //         deleteBtn.setStyle("-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand; -fx-font-family: 'Segoe UI Emoji';");
-    //         deleteBtn.setOnAction(e -> {
-    //             FoodEntry entry = cellData.getValue();
-    //             selectedFoods.remove(entry);
-    //             updateSelectedCount();
-    //         });
-    //         return new SimpleObjectProperty<>(deleteBtn);
-    //     });
-    //     aksiCol.setPrefWidth(80);
-    //     namaCol.setStyle("-fx-text-fill: #00807E; -fx-font-weight: bold; -fx-font-size: 14px;");
-    //     beratCol.setStyle("-fx-text-fill: #00807E; -fx-font-weight: bold; -fx-font-size: 14px;");
-    //     aksiCol.setStyle("-fx-text-fill: #00807E; -fx-font-weight: bold; -fx-font-size: 14px;");
-        
-    //     foodsTableView.skinProperty().addListener((obs, oldSkin, newSkin) -> {
-    //         if (newSkin != null) {
-    //             foodsTableView.lookupAll(".column-header .label").forEach(node -> {
-    //                 node.setStyle("-fx-text-fill: #00807E; -fx-font-weight: bold; -fx-font-size: 14px;");
-    //             });
-    //         }
-    //     });
-    // }
-
     private void setupTableView() {
-    foodsTableView.setItems(selectedFoods);
-    foodsTableView.getColumns().clear();
-
-    TableColumn<FoodEntry, String> namaCol = new TableColumn<>("Makanan");
-    namaCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNama()));
-    namaCol.setPrefWidth(220);
-
-    TableColumn<FoodEntry, String> beratCol = new TableColumn<>("Berat (g)");
-    beratCol.setCellValueFactory(cellData -> new SimpleStringProperty(String.format("%.1f", cellData.getValue().getBerat())));
-    beratCol.setPrefWidth(100);
-
-    TableColumn<FoodEntry, Button> aksiCol = new TableColumn<>("Aksi");
-    aksiCol.setCellValueFactory(cellData -> {
-        Button deleteBtn = new Button("❌");
-        deleteBtn.setStyle("""
-            -fx-background-color: #ffebee;
-            -fx-text-fill: #ed1414ff;
-            -fx-font-weight: bold;
-            -fx-font-size: 16px;
-            -fx-background-radius: 8;
-            -fx-padding: 4 10;
-            -fx-cursor: hand;
-            -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0, 0, 1);
-            """);
-        deleteBtn.setOnAction(e -> {
-            selectedFoods.remove(cellData.getValue());
-            updateSelectedCount();
-        });
-        return new SimpleObjectProperty<>(deleteBtn);
-    });
-    aksiCol.setPrefWidth(90);
-
-    foodsTableView.getColumns().addAll(namaCol, beratCol, aksiCol);
-
-    foodsTableView.skinProperty().addListener((obs, oldSkin, newSkin) -> {
-        if (newSkin != null) {
-            foodsTableView.lookupAll(".column-header .label").forEach(node -> {
-                node.setStyle("-fx-text-fill: #00807E; -fx-font-weight: bold; -fx-font-size: 14px;");
+        foodsTableView.setItems(selectedFoods);
+        
+        // Clear existing columns
+        foodsTableView.getColumns().clear();
+        
+        // Setup columns
+        TableColumn<FoodEntry, String> namaCol = new TableColumn<>("Makanan");
+        namaCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNama()));
+        namaCol.setPrefWidth(200);
+        
+        TableColumn<FoodEntry, String> beratCol = new TableColumn<>("Berat (g)");
+        beratCol.setCellValueFactory(cellData -> new SimpleStringProperty(String.format("%.1f", cellData.getValue().getBerat())));
+        beratCol.setPrefWidth(100);
+        
+        TableColumn<FoodEntry, Button> aksiCol = new TableColumn<>("Aksi");
+        aksiCol.setCellValueFactory(cellData -> {
+            Button deleteBtn = new Button("X");
+            deleteBtn.setStyle("-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand; -fx-font-family: 'Segoe UI Emoji';");
+            deleteBtn.setOnAction(e -> {
+                FoodEntry entry = cellData.getValue();
+                selectedFoods.remove(entry);
+                updateSelectedCount();
             });
-        }
-    });
-}
+            return new SimpleObjectProperty<>(deleteBtn);
+        });
+        aksiCol.setPrefWidth(80);
+        namaCol.setStyle("-fx-text-fill: #00807E; -fx-font-weight: bold; -fx-font-size: 14px;");
+        beratCol.setStyle("-fx-text-fill: #00807E; -fx-font-weight: bold; -fx-font-size: 14px;");
+        aksiCol.setStyle("-fx-text-fill: #00807E; -fx-font-weight: bold; -fx-font-size: 14px;");
+        
+        foodsTableView.skinProperty().addListener((obs, oldSkin, newSkin) -> {
+            if (newSkin != null) {
+                foodsTableView.lookupAll(".column-header .label").forEach(node -> {
+                    node.setStyle("-fx-text-fill: #00807E; -fx-font-weight: bold; -fx-font-size: 14px;");
+                });
+            }
+        });
+    }
 
     private void setupEventHandlers() {
         // Enable analyze button when foods are added

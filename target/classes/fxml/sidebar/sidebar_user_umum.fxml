@@ -23,27 +23,26 @@
               prefWidth="70.0"
               AnchorPane.topAnchor="0.0" 
               AnchorPane.bottomAnchor="0.0"
-              AnchorPane.leftAnchor="0.0"
-              AnchorPane.rightAnchor="0.0">
+              AnchorPane.leftAnchor="0.0">
 
-            <!-- HEADER DENGAN TOMBOL TOGGLE + TULISAN "Menu" (muncul pas expand) -->
-            <HBox styleClass="rail-header" prefHeight="70.0" alignment="CENTER_LEFT" spacing="12">
-                <children>
-                    <!-- Tombol Toggle -->
-                    <Button fx:id="btnToggle" 
-                            text="≡" 
-                            styleClass="rail-toggle-btn"
-                            onAction="#handleToggleClick"/>
+        <!-- HEADER DENGAN TOMBOL TOGGLE + TULISAN "Menu" (muncul pas expand) -->
+        <HBox styleClass="rail-header" prefHeight="70.0" alignment="CENTER_LEFT" spacing="12">
+            <children>
+                <!-- Tombol Toggle -->
+                <Button fx:id="btnToggle" 
+                        text="≡" 
+                        styleClass="rail-toggle-btn"
+                        onAction="#handleToggleClick"/>
 
-                    <!-- TULISAN "Menu" — MUNCUL CUMA PAS EXPAND -->
-                    <Label text="Menu" 
-                        styleClass="menu-title"
-                        style="-fx-text-fill: #00fff0; -fx-font-size: 16px; -fx-font-weight: 800;"/>
-                </children>
-                <padding>
-                    <Insets left="20" right="20"/>
-                </padding>
-            </HBox>
+                <!-- TULISAN "Menu" — MUNCUL CUMA PAS EXPAND -->
+                <Label text="Menu" 
+                    styleClass="menu-title"
+                    style="-fx-text-fill: #00fff0; -fx-font-size: 16px; -fx-font-weight: 800;"/>
+            </children>
+            <padding>
+                <Insets left="20" right="20"/>
+            </padding>
+        </HBox>
 
             <!-- Menu Items -->
             <VBox styleClass="rail-menu-items" spacing="2">
