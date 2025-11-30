@@ -17,20 +17,19 @@ public class HomeController {
     @FXML
     private void onTryAnalyzer() {
         if (mainController != null) {
-            mainController.loadPage("/fxml/food_analyzer.fxml");
+            mainController.loadPage("/fxml/user_umum/food_analyzer.fxml");
         }
     }
 
     @FXML
     private void onSeeMenuMBG() {
         if (mainController != null) {
-            mainController.loadPage("/fxml/umum_list_menu.fxml");
+            mainController.loadPage("/fxml/user_umum/umum_list_menu.fxml");
         }
     }
 
     @FXML
     private void onLearnMore() {
-        // Bisa navigasi ke about page atau buka dialog
         Alert info = new Alert(Alert.AlertType.INFORMATION);
         info.setTitle("Tentang NutriSense+");
         info.setHeaderText("NutriSense+ - Smart Nutrition Monitoring");

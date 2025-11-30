@@ -25,18 +25,25 @@
               AnchorPane.bottomAnchor="0.0"
               AnchorPane.leftAnchor="0.0">
 
-            <!-- Header dengan toggle button -->
-            <HBox styleClass="rail-header" prefHeight="60.0">
+            <!-- Header dengan logo dan toggle -->
+            <HBox styleClass="rail-header" prefHeight="70.0" alignment="CENTER_LEFT">
                 <children>
                     <Button fx:id="btnToggle" 
-                            text="≡" 
+                            text="☰" 
                             styleClass="rail-toggle-btn"
                             onAction="#handleToggleClick"/>
+                    <Label text="NutriSense+" 
+                           style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16;"
+                           visible="false"
+                           fx:id="lblLogo"/>
                 </children>
+                <padding>
+                    <Insets left="10" right="10" />
+                </padding>
             </HBox>
 
             <!-- Menu Items -->
-            <VBox styleClass="rail-menu-items" spacing="2">
+            <VBox styleClass="rail-menu-items" spacing="5">
                 <children>
                     <HBox fx:id="menuHome"
                           styleClass="rail-item" 
@@ -47,7 +54,7 @@
                             <Label text="Home" styleClass="rail-text" />
                         </children>
                         <padding>
-                            <Insets top="10.0" right="10.0" bottom="10.0" left="10.0" />
+                            <Insets top="12.0" right="15.0" bottom="12.0" left="15.0" />
                         </padding>
                     </HBox>
 
@@ -56,11 +63,11 @@
                           accessibleText="/fxml/user_umum/food_analyzer.fxml"
                           onMouseClicked="#onMenuClicked">
                         <children>
-                            <Label text="🍽" styleClass="rail-icon" />
+                            <Label text="🔍" styleClass="rail-icon" />
                             <Label text="Analyzer" styleClass="rail-text" />
                         </children>
                         <padding>
-                            <Insets top="10.0" right="10.0" bottom="10.0" left="10.0" />
+                            <Insets top="12.0" right="15.0" bottom="12.0" left="15.0" />
                         </padding>
                     </HBox>
 
@@ -69,11 +76,11 @@
                           accessibleText="/fxml/user_umum/informasi_akg.fxml"
                           onMouseClicked="#onMenuClicked">
                         <children>
-                            <Label text="ℹ" styleClass="rail-icon" />
+                            <Label text="📊" styleClass="rail-icon" />
                             <Label text="AKG Info" styleClass="rail-text" />
                         </children>
                         <padding>
-                            <Insets top="10.0" right="10.0" bottom="10.0" left="10.0" />
+                            <Insets top="12.0" right="15.0" bottom="12.0" left="15.0" />
                         </padding>
                     </HBox>
 
@@ -82,13 +89,16 @@
                           accessibleText="/fxml/user_umum/umum_list_menu.fxml"
                           onMouseClicked="#onMenuClicked">
                         <children>
-                            <Label text="📋" styleClass="rail-icon" />
+                            <Label text="🍽️" styleClass="rail-icon" />
                             <Label text="Menu MBG" styleClass="rail-text" />
                         </children>
                         <padding>
-                            <Insets top="10.0" right="10.0" bottom="10.0" left="10.0" />
+                            <Insets top="12.0" right="15.0" bottom="12.0" left="15.0" />
                         </padding>
                     </HBox>
+
+                    <!-- Spacer -->
+                    <VBox prefHeight="20" />
 
                     <HBox fx:id="menuLogin"
                           styleClass="rail-item" 
@@ -99,7 +109,7 @@
                             <Label text="Login" styleClass="rail-text" />
                         </children>
                         <padding>
-                            <Insets top="10.0" right="10.0" bottom="10.0" left="10.0" />
+                            <Insets top="12.0" right="15.0" bottom="12.0" left="15.0" />
                         </padding>
                     </HBox>
                 </children>
