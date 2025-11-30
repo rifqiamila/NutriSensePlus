@@ -32,6 +32,7 @@
     -fx-font-weight: 800;
     -fx-font-family: "Segoe UI", "Helvetica", "Arial", sans-serif;
     
+    /* Glow super halus & mahal — putih + sedikit cyan */
     -fx-effect: dropshadow(gaussian, rgba(200, 255, 255, 0.9), 40, 1, 0, 0);
 }
 
@@ -204,6 +205,7 @@
     -fx-font-weight: 600;
 }
 
+/* ===== FINAL CTA SECTION ===== */
 .final-cta-section {
     -fx-background-color: #512663;
     -fx-alignment: CENTER;
@@ -238,6 +240,7 @@
     -fx-background-color: rgba(0,128,126,0.15);
 }
 
+/* Fix scrolling and layout */
 ScrollPane {
     -fx-background-color: transparent;
     -fx-border-width: 0;
@@ -254,11 +257,14 @@ ScrollPane .viewport {
 }
 
 /* ===== FIX KONTRAS GLOBAL — TAMBAHIN DI BAWAH SEMUA ===== */
+
+/* Semua teks utama jadi putih bersih */
 Label, .label {
-    -fx-text-fill: #f0f8ff !important;   
+    -fx-text-fill: #f0f8ff !important;   /* Putih soft */
     -fx-font-weight: 600;
 }
 
+/* Judul besar lebih glowing */
 .hero-title, .section-title, .cta-title {
     -fx-text-fill: white !important;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 8, 0.3, 0, 2);
@@ -273,9 +279,12 @@ Label, .label {
 .card-desc, .feature-desc, .hero-subtitle, .cta-subtitle {
     -fx-text-fill: #b0e0e6 !important;
 }
-
+.table-view .column-header .label {
+    -fx-text-fill: #222; /* Warna teks header agar kontras */
+    -fx-font-weight: bold;
+}
 /* Tombol kembali, combo box, table header */
-.button, .combo-box, .table-view .column-header .label {
+.button, .combo-box {
     -fx-text-fill: white !important;
 }
 
@@ -359,7 +368,7 @@ Label, .label {
 .dapur-name {
     -fx-font-size: 26px;
     -fx-font-weight: bold;
-    -fx-text-fill: #7af5ed;
+    -fx-text-fill: #7af5eddc;
 }
 
 .sekolah-label {
@@ -381,7 +390,7 @@ Label, .label {
 
 .menu-harian-card:hover {
     -fx-background-color: rgba(0, 100, 110, 0.68);
-    -fx-border-color: #00fff0;
+    -fx-border-color: #65f8eec1;
     -fx-effect: dropshadow(gaussian, #5ae4dbf5, 12, 0.5, 0, 0);
 }
 
@@ -403,11 +412,13 @@ Label, .label {
     -fx-font-size: 15px;
     -fx-padding: 12 26;
     -fx-background-radius: 30;
-    -fx-border-color: rgba(0, 255, 240, 0.7);
+    -fx-border-color: rgba(98, 244, 234, 0.74);
     -fx-border-width: 2;
     -fx-border-radius: 30;
 }
 
+/* ===== FOOD ANALYZER FINAL FIX  ===== */
+/* ===== FOOD ANALYZER — FINAL PREMIUM DARK MODE ===== */
 
 .glass-card {
     -fx-background-color: rgba(255,255,255,0.1);
@@ -461,8 +472,8 @@ Label, .label {
 }
 .btn-back:hover { -fx-background-color: rgba(0,255,240,0.15); }
 
-.btn-danger { -fx-background-color: #d74e3fc8; -fx-text-fill: white; -fx-padding: 10 30; -fx-background-radius: 30; }
-.btn-warning { -fx-background-color: #f39d12c5; -fx-text-fill: white; -fx-padding: 10 30; -fx-background-radius: 30; }
+.btn-danger { -fx-background-color: #d74e3f; -fx-text-fill: white; -fx-padding: 10 30; -fx-background-radius: 30; }
+.btn-warning { -fx-background-color: #f39c12; -fx-text-fill: white; -fx-padding: 10 30; -fx-background-radius: 30; }
 
 .accent-count { -fx-text-fill: #00fff0; -fx-font-size: 20px; -fx-font-weight: bold; }
 .hint-text { -fx-text-fill: #a0e0e0; -fx-font-size: 14px; }
@@ -471,14 +482,14 @@ Label, .label {
 .table-premium {
     -fx-background-color: rgba(15, 35, 60, 0.95);
     -fx-background-radius: 18;
-    -fx-border-color: #00fff0;
+    -fx-border-color: #63f1e7b4;
     -fx-border-width: 2;
 }
 .table-premium .column-header-background {
     -fx-background-color: #006d6a;
 }
 .table-premium .column-header .label {
-    -fx-text-fill: #006d6a;
+    -fx-text-fill: #8ae0dd;
     -fx-font-weight: bold;
     -fx-font-size: 15px;
 }
@@ -609,4 +620,9 @@ Label, .label {
 
 .hero-content {
     -fx-z-index: 10;           /* hero text selalu paling atas */
+}
+.table-view .column-header-background .label,
+.table-view .column-header .label {
+    -fx-text-fill: #0B7078 !important;
+    -fx-effect: dropshadow(gaussian,  #b0e0e0,18, 0.5, 0, 0);
 }

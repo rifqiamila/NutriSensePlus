@@ -35,13 +35,13 @@
         <Label text="Pilih Kategori:" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
         <ComboBox fx:id="kategoriComboBox" prefWidth="250"/>
         <Label text="* Berdasarkan Peraturan Menteri Kesehatan RI" 
-               style="-fx-text-fill: #e74c3c; -fx-font-size: 11px; -fx-font-style: italic;"/>
+               style="-fx-text-fill: #e74c3c !important; -fx-font-size: 11px; -fx-font-style: italic;"/>
     </HBox>
    
     <!-- Information Cards -->
     <HBox spacing="15" alignment="TOP_CENTER">
         <VBox style="-fx-background-color: #2eababe7; -fx-background-radius: 8; -fx-padding: 15; -fx-pref-width: 200;">
-            <Label text="💡 Tips Gizi Seimbang" style="-fx-font-weight: bold; -fx-text-fill: #2980b9;"/>
+            <Label text="💡 Tips Gizi Seimbang" style="-fx-font-weight: bold; -fx-text-fill: #d4be52ff !important;"/>
             <Label text="• Konsumsi beragam makanan" style="-fx-font-size: 12px; -fx-text-fill: #2c3e50;"/>
             <Label text="• Batasi gula, garam, lemak" style="-fx-font-size: 12px; -fx-text-fill: #2c3e50;"/>
             <Label text="• Minum air cukup" style="-fx-font-size: 12px; -fx-text-fill: #2c3e50;"/>
@@ -49,7 +49,7 @@
         </VBox>
       
         <VBox style="-fx-background-color: #2eababe7; -fx-background-radius: 8; -fx-padding: 15; -fx-pref-width: 200;">
-            <Label text="⚡ Penting Diketahui" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+            <Label text="⚡ Penting Diketahui" style="-fx-font-weight: bold; -fx-text-fill: #e03e3ee2 !important;"/>
             <Label text="• AKG adalah angka kecukupan rata-rata" style="-fx-font-size: 12px; -fx-text-fill: #2c3e50;"/>
             <Label text="• Kebutuhan individu dapat berbeda" style="-fx-font-size: 12px; -fx-text-fill: #2c3e50;"/>
             <Label text="• Konsultasi ahli gizi jika perlu" style="-fx-font-size: 12px; -fx-text-fill: #2c3e50;"/>

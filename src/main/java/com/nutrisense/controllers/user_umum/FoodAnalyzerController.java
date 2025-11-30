@@ -166,10 +166,10 @@ public class FoodAnalyzerController implements Initializable {
         beratCol.setCellValueFactory(cellData -> new SimpleStringProperty(String.format("%.1f", cellData.getValue().getBerat())));
         beratCol.setPrefWidth(100);
         
-        TableColumn<FoodEntry, Button> aksiCol = new TableColumn<>("Aksi");
+        TableColumn<FoodEntry, Button> aksiCol = new TableColumn<>("Batalkan");
         aksiCol.setCellValueFactory(cellData -> {
-            Button deleteBtn = new Button("X");
-            deleteBtn.setStyle("-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand; -fx-font-family: 'Segoe UI Emoji';");
+            Button deleteBtn = new Button("❌");
+            deleteBtn.setStyle("-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill:red !important;-fx-cursor: hand; -fx-font-family: 'Segoe UI Emoji';");
             deleteBtn.setOnAction(e -> {
                 FoodEntry entry = cellData.getValue();
                 selectedFoods.remove(entry);
@@ -178,17 +178,7 @@ public class FoodAnalyzerController implements Initializable {
             return new SimpleObjectProperty<>(deleteBtn);
         });
         aksiCol.setPrefWidth(80);
-        namaCol.setStyle("-fx-text-fill: #00807E; -fx-font-weight: bold; -fx-font-size: 14px;");
-        beratCol.setStyle("-fx-text-fill: #00807E; -fx-font-weight: bold; -fx-font-size: 14px;");
-        aksiCol.setStyle("-fx-text-fill: #00807E; -fx-font-weight: bold; -fx-font-size: 14px;");
-        
-        foodsTableView.skinProperty().addListener((obs, oldSkin, newSkin) -> {
-            if (newSkin != null) {
-                foodsTableView.lookupAll(".column-header .label").forEach(node -> {
-                    node.setStyle("-fx-text-fill: #00807E; -fx-font-weight: bold; -fx-font-size: 14px;");
-                });
-            }
-        });
+        foodsTableView.getColumns().addAll(namaCol, beratCol, aksiCol);
     }
 
     private void setupEventHandlers() {
