@@ -47,7 +47,6 @@
             <Label text="• Minum air cukup" style="-fx-font-size: 12px; -fx-text-fill: #2c3e50;"/>
             <Label text="• Aktivitas fisik teratur" style="-fx-font-size: 12px; -fx-text-fill: #2c3e50;"/>
         </VBox>
-      
         <VBox style="-fx-background-color: #2eababe7; -fx-background-radius: 8; -fx-padding: 15; -fx-pref-width: 200;">
             <Label text="⚡ Penting Diketahui" style="-fx-font-weight: bold; -fx-text-fill: #e03e3ee2 !important;"/>
             <Label text="• AKG adalah angka kecukupan rata-rata" style="-fx-font-size: 12px; -fx-text-fill: #2c3e50;"/>
@@ -55,7 +54,6 @@
             <Label text="• Konsultasi ahli gizi jika perlu" style="-fx-font-size: 12px; -fx-text-fill: #2c3e50;"/>
         </VBox>
     </HBox>
-   
     <!-- Table Section -->
     <VBox spacing="10">
         <Label text="Tabel Angka Kecukupan Gizi Harian" 

@@ -24,15 +24,12 @@
     -fx-max-width: 700;
 }
 
-/* HERO TEXT — ELEGAN GLOW (BUKAN ALAY) */
-
 .hero-title {
     -fx-text-fill: #ffffff;
     -fx-font-size: 52px;
     -fx-font-weight: 800;
     -fx-font-family: "Segoe UI", "Helvetica", "Arial", sans-serif;
-    
-    /* Glow super halus & mahal — putih + sedikit cyan */
+
     -fx-effect: dropshadow(gaussian, rgba(200, 255, 255, 0.9), 40, 1, 0, 0);
 }
 
@@ -478,7 +475,6 @@ Label, .label {
 .accent-count { -fx-text-fill: #00fff0; -fx-font-size: 20px; -fx-font-weight: bold; }
 .hint-text { -fx-text-fill: #a0e0e0; -fx-font-size: 14px; }
 
-/* TABEL PREMIUM */
 .table-premium {
     -fx-background-color: rgba(15, 35, 60, 0.95);
     -fx-background-radius: 18;
@@ -514,16 +510,16 @@ Label, .label {
 .nutrisi-big-card {
     -fx-background-color: rgba(20, 35, 55, 0.92);
     -fx-background-radius: 22;
-    -fx-padding: 28 32;                    /* dari 35 → 28 32 = lebih ramping */
+    -fx-padding: 28 32;                   
     -fx-border-color: #00fff0;
     -fx-border-width: 1.8;
     -fx-border-radius: 22;
     -fx-effect: dropshadow(gaussian, rgba(0, 255, 240, 0.4), 20, 0.4, 0, 8);
-    -fx-max-width: 420;                    /* biar gak melebar */
+    -fx-max-width: 420;                   
 }
 
 .nut-big-value {
-    -fx-font-size: 28px;      /* dari 30px jadi 28px = pas banget */
+    -fx-font-size: 28px;      
     -fx-font-weight: 850;
 }
 
