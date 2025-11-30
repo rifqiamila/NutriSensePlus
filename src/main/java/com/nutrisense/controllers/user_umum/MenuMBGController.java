@@ -154,36 +154,40 @@ public class MenuMBGController implements Initializable {
         }
     }
 
-    private VBox buatCardDapur(DapurWrapper dapur) {
-        VBox card = new VBox(14);
-        card.setPadding(new Insets(20));
-        card.setStyle("-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; " +
-                    "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 15, 0, 0, 6);");
-        card.setOnMouseClicked(e -> showDetailDapur(dapur));
-        card.setOnMouseEntered(e -> card.setStyle(card.getStyle() + "-fx-background-color: #f8f9fa;"));
-        card.setOnMouseExited(e -> card.setStyle(card.getStyle().replace("-fx-background-color: #f8f9fa;", "")));
+private VBox buatCardDapur(DapurWrapper dapur) {
+    VBox card = new VBox(14);
+    card.setPadding(new Insets(24));
+    
+    // HAPUS SEMUA INLINE STYLE PUTIH!!! GANTI PAKE STYLECLASS AJA
+    card.getStyleClass().add("dapur-card");
+    
+    // Hover effect pake CSS doang (lebih smooth)
+    card.setOnMouseEntered(e -> card.getStyleClass().add("dapur-card-hover"));
+    card.setOnMouseExited(e -> card.getStyleClass().remove("dapur-card-hover"));
+    card.setOnMouseClicked(e -> showDetailDapur(dapur));
 
-        String namaDapur = dapur.namaDapur != null ? dapur.namaDapur : "Dapur MBG";
+    String namaDapur = dapur.namaDapur != null ? dapur.namaDapur : "Dapur MBG";
 
-        Label lblDapur = new Label(namaDapur);
-        lblDapur.setStyle("-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;");
+    Label lblDapur = new Label(namaDapur);
+    lblDapur.getStyleClass().add("dapur-title");  // pake class, bukan inline
 
-        Label lblSekolah = new Label(sekolahListToString(dapur.sekolah));
-        lblSekolah.setStyle("-fx-font-size: 14px; -fx-text-fill: #7f8c8d;");
+    Label lblSekolah = new Label(sekolahListToString(dapur.sekolah));
+    lblSekolah.getStyleClass().add("dapur-sekolah");
 
-        HBox infoBox = new HBox(15);
-        Label hariCount = new Label(dapur.menu7Hari.size() + " hari menu");
-        hariCount.setStyle("-fx-font-weight: bold; -fx-text-fill: #27ae60; -fx-background-color: #d5f4e6; -fx-padding: 6 12; -fx-background-radius: 20;");
+    HBox infoBox = new HBox(20);
+    infoBox.setAlignment(Pos.CENTER_LEFT);
 
-        Label status = new Label("Published");
-        status.setStyle("-fx-font-weight: bold; -fx-text-fill: #27ae60; -fx-background-color: #d5f4e6; -fx-padding: 6 12; -fx-background-radius: 20;");
+    Label hariCount = new Label(dapur.menu7Hari.size() + " hari menu");
+    hariCount.getStyleClass().add("dapur-button");
 
-        infoBox.getChildren().addAll(hariCount, status);
-        infoBox.setAlignment(Pos.CENTER_LEFT);
+    Label status = new Label("Published");
+    status.getStyleClass().add("dapur-button");
 
-        card.getChildren().addAll(lblDapur, lblSekolah, infoBox);
-        return card;
-    }
+    infoBox.getChildren().addAll(hariCount, status);
+
+    card.getChildren().addAll(lblDapur, lblSekolah, infoBox);
+    return card;
+}
 
     private String sekolahListToString(Object sekolahObj) {
         if (sekolahObj == null) return "Sekolah Tidak Diketahui";
@@ -196,63 +200,59 @@ public class MenuMBGController implements Initializable {
         return "Sekolah Tidak Diketahui";
     }
 
-    private void showDetailDapur(DapurWrapper dapur) {
-        placeholder.setVisible(false);
-        dapurListContainer.getChildren().clear();
+   private void showDetailDapur(DapurWrapper dapur) {
+    placeholder.setVisible(false);
+    dapurListContainer.getChildren().clear();
 
-        String namaDapur = dapur.namaDapur != null ? dapur.namaDapur : "Dapur MBG";
-        String semuaSekolah = sekolahListToString(dapur.sekolah);
+    String namaDapur = dapur.namaDapur != null ? dapur.namaDapur : "Dapur MBG";
+    String semuaSekolah = sekolahListToString(dapur.sekolah);
 
-        // HEADER MEWAH
-        Label title = new Label("Menu 7 Hari Minggu Ini");
-        title.setStyle("-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;");
+    // HEADER GLOWING
+    Label title = new Label("Menu 7 Hari Minggu Ini");
+    title.getStyleClass().add("detail-title");
 
-        Label dapurName = new Label(namaDapur);
-        dapurName.setStyle("-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #27ae60;");
+    Label dapurName = new Label(namaDapur);
+    dapurName.getStyleClass().add("dapur-name");
 
-        Label sekolahLabel = new Label(semuaSekolah);
-        sekolahLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #7f8c8d; -fx-padding: 5 0 20 0;");
+    Label sekolahLabel = new Label(semuaSekolah);
+    sekolahLabel.getStyleClass().add("sekolah-label");
 
-        VBox header = new VBox(8, title, dapurName, sekolahLabel);
-        header.setAlignment(Pos.CENTER);
-        header.setPadding(new Insets(20, 0, 30, 0));
+    VBox header = new VBox(10, title, dapurName, sekolahLabel);
+    header.setAlignment(Pos.CENTER);
+    header.setPadding(new Insets(30, 0, 40, 0));
 
-        // KONTEN MENU
-        VBox content = new VBox(20);
-        content.setPadding(new Insets(10, 30, 30, 30));
+    // KONTEN MENU — GUNAKAN CLASS, BUKAN INLINE STYLE!!!
+    VBox content = new VBox(22);
+    content.setPadding(new Insets(10, 40, 40, 40));
 
-        for (DapurWrapper.MenuHarian hari : dapur.menu7Hari) {
-            VBox hariBox = new VBox(10);
-            hariBox.setStyle("-fx-background-color: #f8f9fa; -fx-background-radius: 16; -fx-padding: 20; -fx-border-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 3);");
+    for (DapurWrapper.MenuHarian hari : dapur.menu7Hari) {
+        VBox hariBox = new VBox(14);
+        hariBox.getStyleClass().add("menu-harian-card");  // INI YANG PENTING!!!
 
-            // Hari & Tanggal
-            Label hariLabel = new Label(hari.hari + "  •  " + formatTanggal(hari.tanggal));
-            hariLabel.setStyle("-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;");
+        Label hariLabel = new Label(hari.hari + "  •  " + formatTanggal(hari.tanggal));
+        hariLabel.getStyleClass().add("hari-title");
 
-            // Daftar menu
-            VBox menuList = new VBox(6);
-            for (String menu : hari.menu) {
-                Label item = new Label("•  " + menu);
-                item.setStyle("-fx-font-size: 15px; -fx-text-fill: #34495e;");
-                menuList.getChildren().add(item);
-            }
-
-            // Gizi — warna hijau mewah
-            Label gizi = new Label(String.format("Kalori: %,d kcal  •  Protein: %.1fg  •  Lemak: %.1fg  •  Karbo: %.1fg  •  Serat: %.1fg",
-                    hari.gizi.kalori, hari.gizi.protein, hari.gizi.lemak, hari.gizi.karbohidrat, hari.gizi.serat));
-            gizi.setStyle("-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #27ae60; -fx-background-color: #d5f4e6; -fx-padding: 10; -fx-background-radius: 12;");
-
-            hariBox.getChildren().addAll(hariLabel, menuList, gizi);
-            content.getChildren().add(hariBox);
+        VBox menuList = new VBox(8);
+        for (String menu : hari.menu) {
+            Label item = new Label("•  " + menu);
+            item.getStyleClass().add("menu-item");
+            menuList.getChildren().add(item);
         }
 
-        // Tambah scroll kalau panjang
-        ScrollPane scroll = new ScrollPane(content);
-        scroll.setFitToWidth(true);
-        scroll.setStyle("-fx-background: transparent; -fx-background-color: transparent;");
+        Label gizi = new Label(String.format("Kalori: %,d kcal • Protein: %.1fg • Lemak: %.1fg • Karbo: %.1fg • Serat: %.1fg",
+                hari.gizi.kalori, hari.gizi.protein, hari.gizi.lemak, hari.gizi.karbohidrat, hari.gizi.serat));
+        gizi.getStyleClass().add("nutrisi-chip");
 
-        dapurListContainer.getChildren().addAll(header, scroll);
+        hariBox.getChildren().addAll(hariLabel, menuList, gizi);
+        content.getChildren().add(hariBox);
     }
+
+    ScrollPane scroll = new ScrollPane(content);
+    scroll.setFitToWidth(true);
+    scroll.setStyle("-fx-background: transparent; -fx-background-color: transparent;");
+
+    dapurListContainer.getChildren().addAll(header, scroll);
+}
 
     private String formatTanggal(String iso) {
         try {

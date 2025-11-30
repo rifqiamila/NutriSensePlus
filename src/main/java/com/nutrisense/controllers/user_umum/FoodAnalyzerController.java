@@ -151,36 +151,89 @@ public class FoodAnalyzerController implements Initializable {
         return null;
     }
 
+    // private void setupTableView() {
+    //     foodsTableView.setItems(selectedFoods);
+        
+    //     // Clear existing columns
+    //     foodsTableView.getColumns().clear();
+        
+    //     // Setup columns
+    //     TableColumn<FoodEntry, String> namaCol = new TableColumn<>("Makanan");
+    //     namaCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNama()));
+    //     namaCol.setPrefWidth(200);
+        
+    //     TableColumn<FoodEntry, String> beratCol = new TableColumn<>("Berat (g)");
+    //     beratCol.setCellValueFactory(cellData -> new SimpleStringProperty(String.format("%.1f", cellData.getValue().getBerat())));
+    //     beratCol.setPrefWidth(100);
+        
+    //     TableColumn<FoodEntry, Button> aksiCol = new TableColumn<>("Aksi");
+    //     aksiCol.setCellValueFactory(cellData -> {
+    //         Button deleteBtn = new Button("❌");
+    //         deleteBtn.setStyle("-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand; -fx-font-family: 'Segoe UI Emoji';");
+    //         deleteBtn.setOnAction(e -> {
+    //             FoodEntry entry = cellData.getValue();
+    //             selectedFoods.remove(entry);
+    //             updateSelectedCount();
+    //         });
+    //         return new SimpleObjectProperty<>(deleteBtn);
+    //     });
+    //     aksiCol.setPrefWidth(80);
+    //     namaCol.setStyle("-fx-text-fill: #00807E; -fx-font-weight: bold; -fx-font-size: 14px;");
+    //     beratCol.setStyle("-fx-text-fill: #00807E; -fx-font-weight: bold; -fx-font-size: 14px;");
+    //     aksiCol.setStyle("-fx-text-fill: #00807E; -fx-font-weight: bold; -fx-font-size: 14px;");
+        
+    //     foodsTableView.skinProperty().addListener((obs, oldSkin, newSkin) -> {
+    //         if (newSkin != null) {
+    //             foodsTableView.lookupAll(".column-header .label").forEach(node -> {
+    //                 node.setStyle("-fx-text-fill: #00807E; -fx-font-weight: bold; -fx-font-size: 14px;");
+    //             });
+    //         }
+    //     });
+    // }
+
     private void setupTableView() {
-        foodsTableView.setItems(selectedFoods);
-        
-        // Clear existing columns
-        foodsTableView.getColumns().clear();
-        
-        // Setup columns
-        TableColumn<FoodEntry, String> namaCol = new TableColumn<>("Makanan");
-        namaCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNama()));
-        namaCol.setPrefWidth(200);
-        
-        TableColumn<FoodEntry, String> beratCol = new TableColumn<>("Berat (g)");
-        beratCol.setCellValueFactory(cellData -> new SimpleStringProperty(String.format("%.1f", cellData.getValue().getBerat())));
-        beratCol.setPrefWidth(100);
-        
-        TableColumn<FoodEntry, Button> aksiCol = new TableColumn<>("Aksi");
-        aksiCol.setCellValueFactory(cellData -> {
-            Button deleteBtn = new Button("❌");
-            deleteBtn.setStyle("-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand; -fx-font-family: 'Segoe UI Emoji';");
-            deleteBtn.setOnAction(e -> {
-                FoodEntry entry = cellData.getValue();
-                selectedFoods.remove(entry);
-                updateSelectedCount();
-            });
-            return new SimpleObjectProperty<>(deleteBtn);
+    foodsTableView.setItems(selectedFoods);
+    foodsTableView.getColumns().clear();
+
+    TableColumn<FoodEntry, String> namaCol = new TableColumn<>("Makanan");
+    namaCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNama()));
+    namaCol.setPrefWidth(220);
+
+    TableColumn<FoodEntry, String> beratCol = new TableColumn<>("Berat (g)");
+    beratCol.setCellValueFactory(cellData -> new SimpleStringProperty(String.format("%.1f", cellData.getValue().getBerat())));
+    beratCol.setPrefWidth(100);
+
+    TableColumn<FoodEntry, Button> aksiCol = new TableColumn<>("Aksi");
+    aksiCol.setCellValueFactory(cellData -> {
+        Button deleteBtn = new Button("❌");
+        deleteBtn.setStyle("""
+            -fx-background-color: #ffebee;
+            -fx-text-fill: #ed1414ff;
+            -fx-font-weight: bold;
+            -fx-font-size: 16px;
+            -fx-background-radius: 8;
+            -fx-padding: 4 10;
+            -fx-cursor: hand;
+            -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0, 0, 1);
+            """);
+        deleteBtn.setOnAction(e -> {
+            selectedFoods.remove(cellData.getValue());
+            updateSelectedCount();
         });
-        aksiCol.setPrefWidth(80);
-        
-        foodsTableView.getColumns().addAll(namaCol, beratCol, aksiCol);
-    }
+        return new SimpleObjectProperty<>(deleteBtn);
+    });
+    aksiCol.setPrefWidth(90);
+
+    foodsTableView.getColumns().addAll(namaCol, beratCol, aksiCol);
+
+    foodsTableView.skinProperty().addListener((obs, oldSkin, newSkin) -> {
+        if (newSkin != null) {
+            foodsTableView.lookupAll(".column-header .label").forEach(node -> {
+                node.setStyle("-fx-text-fill: #00807E; -fx-font-weight: bold; -fx-font-size: 14px;");
+            });
+        }
+    });
+}
 
     private void setupEventHandlers() {
         // Enable analyze button when foods are added
@@ -325,7 +378,7 @@ public class FoodAnalyzerController implements Initializable {
 
     private void displayResults(GiziResult result) {
         pieChart.getData().clear();
-        pieChart.setTitle("Komposisi Makronutrien");
+        // pieChart.setTitle("Komposisi Makronutrien");
         pieChart.setLegendVisible(true);
         
         // Create pie chart data (macronutrient distribution)
@@ -348,11 +401,11 @@ public class FoodAnalyzerController implements Initializable {
             // Apply colors after data is added
             for (PieChart.Data data : pieChart.getData()) {
                 if (data.getName().startsWith("Protein")) {
-                    data.getNode().setStyle("-fx-pie-color: #3498db;");
+                    data.getNode().setStyle("-fx-pie-color: #9b59b6;");
                 } else if (data.getName().startsWith("Karbohidrat")) {
-                    data.getNode().setStyle("-fx-pie-color: #2ecc71;");
+                    data.getNode().setStyle("-fx-pie-color: #3498db;");
                 } else if (data.getName().startsWith("Lemak")) {
-                    data.getNode().setStyle("-fx-pie-color: #e74c3c;");
+                    data.getNode().setStyle("-fx-pie-color: #e67e22;");
                 }
             }
         } else {
@@ -361,7 +414,7 @@ public class FoodAnalyzerController implements Initializable {
             pieChart.getData().add(noData);
         }
     }
-
+              
     private void displayNutritionDetails(GiziResult result) {
         kaloriLabel.setText(String.format("%.1f kkal", result.getTotalKalori()));
         proteinLabel.setText(String.format("%.1f g", result.getTotalProtein()));
@@ -400,7 +453,7 @@ public class FoodAnalyzerController implements Initializable {
 
     private void addAlert(String message) {
         Label alert = new Label("• " + message);
-        alert.setStyle("-fx-text-fill: #856404; -fx-font-size: 12px; -fx-wrap-text: true;");
+        alert.setStyle("-fx-text-fill: #856404; -fx-font-size: 15px; -fx-wrap-text: true;");
         alert.setMaxWidth(400);
         alertsContainer.getChildren().add(alert);
     }

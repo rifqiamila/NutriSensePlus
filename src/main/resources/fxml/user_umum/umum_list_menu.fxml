@@ -8,10 +8,13 @@
 <ScrollPane xmlns="http://javafx.com/javafx/8"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.nutrisense.controllers.user_umum.MenuMBGController"
-            fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED">
+            fitToWidth="true"
+            styleClass="home-container"
+            stylesheets="@/css/home.css"
+            hbarPolicy="NEVER" vbarPolicy="AS_NEEDED">
 
     <content>
-        <VBox spacing="20" style="-fx-background-color: #f8f9fa;">
+        <VBox spacing="20" styleClass="home-container">
             <padding>
                 <Insets top="20" right="30" bottom="30" left="30"/>
             </padding>
@@ -19,8 +22,8 @@
             <!-- Header -->
             <VBox spacing="8">
                 <HBox alignment="CENTER_LEFT" spacing="15">
-                    <Button text="Kembali" onAction="#onBack"
-                            style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                    <!-- <Button text="Kembali" onAction="#onBack"
+                            style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-font-weight: bold;"/> -->
                     <Label text="Daftar Menu MBG Sekolah" style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
                 </HBox>
                 <Label text="Lihat menu mbg selama 7 hari terakhir dari dapur sekolah" style="-fx-text-fill: #7f8c8d;"/>

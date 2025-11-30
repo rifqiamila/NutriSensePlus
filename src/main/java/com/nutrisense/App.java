@@ -19,7 +19,10 @@ public class App extends Application {
         Scene scene = new Scene(root);
         MainController controller = loader.getController();
 
-        scene.getStylesheets().add(getClass().getResource("/css/nutrisense.css").toExternalForm());
+        // Load CSS yang bener coy!
+        scene.getStylesheets().clear(); // bersihin dulu biar ga double
+        scene.getStylesheets().add(getClass().getResource("/css/home.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/css/sidebar.css").toExternalForm());
         stage.setTitle("NutriSense+");
         stage.setScene(scene);
 

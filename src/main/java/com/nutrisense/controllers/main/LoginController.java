@@ -44,7 +44,7 @@ public class LoginController {
         String username = usernameField.getText().trim();
         String password = passwordField.getText();
         
-        System.out.println("🔐 Attempting login: " + username); // 🔥 DEBUG
+        System.out.println("🔐 Attempting login: " + username);
         
         if (username.isEmpty() || password.isEmpty()) {
             showError("Username dan password harus diisi");

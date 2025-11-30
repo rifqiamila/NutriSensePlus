@@ -6,16 +6,16 @@
 
 /* Table Styling */
 .table-view {
-    -fx-border-color: #bdc3c7;
+    -fx-border-color: #1A596E;
     -fx-border-radius: 5;
     -fx-background-radius: 5;
 }
 
 .table-view .column-header {
-    -fx-background-color: #3498db;
+    -fx-background-color: #00807E;
     -fx-text-fill: white;
     -fx-font-weight: bold;
-    -fx-border-color: #2980b9;
+    -fx-border-color: #006966;
 }
 
 .table-view .column-header .label {
@@ -24,7 +24,7 @@
 }
 
 .table-view .table-row-cell:even {
-    -fx-background-color: #f8f9fa;
+    -fx-background-color: #f0f7f7;
 }
 
 .table-view .table-row-cell:odd {
@@ -32,7 +32,7 @@
 }
 
 .table-view .table-row-cell:selected {
-    -fx-background-color: #3498db;
+    -fx-background-color: #1A596E;
     -fx-text-fill: white;
 }
 
@@ -44,64 +44,67 @@
 /* ComboBox Styling */
 .combo-box {
     -fx-background-color: white;
-    -fx-border-color: #bdc3c7;
+    -fx-border-color: #1A596E;
     -fx-border-radius: 4;
     -fx-padding: 5;
 }
 
 .combo-box:hover {
-    -fx-border-color: #3498db;
+    -fx-border-color: #00807E;
 }
 
 /* Button Styling */
 .button {
+    -fx-background-color: #00807E;
+    -fx-text-fill: white;
     -fx-background-radius: 4;
     -fx-font-weight: bold;
     -fx-cursor: hand;
 }
 
 .button:hover {
-    -fx-opacity: 0.9;
+    -fx-background-color: #006966;
+    -fx-opacity: 1;
 }
 
 /* Label Styling */
 .label {
-    -fx-text-fill: #2c3e50;
+    -fx-text-fill: #2B4063;
 }
 
 /* ScrollBar Styling */
 .scroll-bar:vertical {
-    -fx-background-color: #ecf0f1;
+    -fx-background-color: #e6f0f0;
 }
 
 .scroll-bar:vertical .thumb {
-    -fx-background-color: #bdc3c7;
+    -fx-background-color: #1A596E;
     -fx-background-radius: 5;
 }
 
 .scroll-bar:vertical .thumb:hover {
-    -fx-background-color: #95a5a6;
+    -fx-background-color: #0B7078;
 }
 
 /* Separator Styling */
 .separator {
-    -fx-background-color: #bdc3c7;
+    -fx-background-color: #1A596E;
 }
 
 /* Info Card Styling */
 .info-card {
-    -fx-background-color: #e8f4fd;
+    -fx-background-color: #e8f4f4;
     -fx-background-radius: 8;
-    -fx-border-color: #3498db;
+    -fx-border-color: #00807E;
     -fx-border-radius: 8;
     -fx-border-width: 1;
     -fx-padding: 15;
 }
 
 .warning-card {
-    -fx-background-color: #fff3cd;
+    -fx-background-color: #f5e8ff;
     -fx-background-radius: 8;
-    -fx-border-color: #ffeaa7;
+    -fx-border-color: #512663;
     -fx-border-radius: 8;
     -fx-border-width: 1;
     -fx-padding: 15;

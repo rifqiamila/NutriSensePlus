@@ -10,15 +10,18 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.TextAlignment?>
 
+<!-- HANYA TAMBAH styleClass="home-container" DI SINI (INI YANG BIKIN GRADASI MUNcul) -->
 <ScrollPane xmlns="http://javafx.com/javafx/8" 
            xmlns:fx="http://javafx.com/fxml/1"
            fx:controller="com.nutrisense.controllers.user_umum.HomeController"
+           styleClass="home-container"
            stylesheets="@/css/home.css"
            fitToWidth="true"
            hbarPolicy="NEVER"
            vbarPolicy="AS_NEEDED">
     
     <content>
+        <!-- HANYA TAMBAH styleClass="home-container" DI SINI JUGA (biar double kuat) -->
         <VBox styleClass="home-container" spacing="0">
             
             <!-- ===== HERO SECTION ===== -->
@@ -79,7 +82,7 @@
             </VBox>
 
             <!-- ===== FEATURES SECTION ===== -->
-            <VBox styleClass="section features-section" spacing="30">
+            <VBox styleClass="section" spacing="30">
                 <Label text="Fitur Unggulan" styleClass="section-title" />
                 
                 <HBox styleClass="features-grid" spacing="15">
@@ -143,13 +146,13 @@
             </StackPane>
 
             <!-- ===== FINAL CTA SECTION ===== -->
-            <VBox styleClass="section final-cta-section" spacing="20">
+            <VBox styleClass="section final-cta-section" spacing="20" alignment="CENTER">
                 <Label text="Siap Mengoptimalkan Gizi di Sekolah Anda?" styleClass="cta-title" />
                 <Label text="Bergabung dengan NutriSense+ untuk memastikan setiap hidangan aman dan bergizi seimbang" 
                        styleClass="cta-subtitle" 
                        wrapText="true" 
                        textAlignment="CENTER" />
-                <HBox spacing="15">
+                <HBox spacing="15" alignment="CENTER">
                     <Button text="Mulai Sekarang" styleClass="cta-primary" />
                     <Button text="Pelajari Lebih Lanjut" styleClass="cta-secondary" />
                 </HBox>
@@ -157,4 +160,4 @@
 
         </VBox>
     </content>
-</ScrollPane> 
+</ScrollPane>

@@ -1,79 +1,149 @@
-/* ===== RAIL SIDEBAR STYLES ===== */
 .rail-sidebar {
-    -fx-background-color: #ffffff;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
-    -fx-transition: all 0.3s ease;
+    -fx-background-color: rgba(8, 22, 40, 0.78);   /* lebih gelap & matte */
+    -fx-background-radius: 0 20 20 0;
+    -fx-border-color: rgba(0, 255, 240, 0.25);      /* cyan tipis banget */
+    -fx-border-width: 0 1.2 0 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 255, 240, 0.18), 16, 0.25, 0, 0);
 }
 
 .rail-sidebar.expanded {
-    -fx-pref-width: 200px;
+    -fx-pref-width: 240px;
+    -fx-background-color: rgba(8, 22, 40, 0.85);
+    -fx-effect: dropshadow(gaussian, rgba(0, 255, 240, 0.22), 20, 0.3, 0, 0);
 }
 
+/* Header dengan neon line */
 .rail-header {
-    -fx-background-color: #2c3e50;
-    -fx-alignment: CENTER;
-    -fx-padding: 0 0 0 15;
+    -fx-background-color: transparent;
+    -fx-padding: 20 0 20 15;
+    -fx-alignment: CENTER_LEFT;
+    -fx-border-color: transparent transparent #00ffee91 transparent;
+    -fx-border-width: 0 0 2 0;
 }
 
 .rail-toggle-btn {
-    -fx-background-color: transparent;
-    -fx-text-fill: white;
-    -fx-font-size: 20px;
-    -fx-font-weight: bold;
-    -fx-cursor: hand;
-    -fx-padding: 8 12;
-    -fx-border-radius: 4;
+    -fx-background-color: rgba(0, 255, 240, 0.12);
+    -fx-text-fill: #00fff0;
+    -fx-font-size: 25px;
+    -fx-padding: 10 14;
+    -fx-background-radius: 30;
+    -fx-border-color: rgba(0, 255, 240, 0.4);
+    -fx-border-width: 1.2;
+    -fx-effect: none;                    /* HILANGIN GLOW DISINI */
 }
 
 .rail-toggle-btn:hover {
-    -fx-background-color: rgba(255,255,255,0.1);
+    -fx-background-color: rgba(0, 255, 240, 0.22);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
 }
 
 .rail-menu-items {
     -fx-padding: 15 0;
 }
-
 .rail-item {
-    -fx-padding: 12 15;
-    -fx-alignment: CENTER_LEFT;
-    -fx-spacing: 15;
+    -fx-padding: 16 0;
+    -fx-alignment: CENTER;
+    -fx-spacing: 0;
     -fx-cursor: hand;
-    -fx-border-color: transparent;
-    -fx-border-width: 0 0 0 3;
+    -fx-background-radius: 0 50 50 0;
+    -fx-transition: all 0.3s ease;
 }
-
 .rail-item:hover {
-    -fx-background-color: #f8f9fa;
-    -fx-border-color: #3498db;
+    -fx-background-color: rgba(0, 255, 240, 0.09);
 }
 
 .rail-item.active {
-    -fx-background-color: #e3f2fd;
-    -fx-border-color: #2196f3;
+    -fx-background-color: rgba(0, 255, 240, 0.14);
+    -fx-border-color: rgba(0, 255, 240, 0.5);
+    -fx-border-width: 0 2.5 0 0;
 }
 
+/* Icon & text */
 .rail-icon {
-    -fx-font-size: 18px;
-    -fx-min-width: 24px;
-    -fx-alignment: CENTER;
+    -fx-font-size: 25px;
+    -fx-text-fill: #00fff0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 255, 240, 0.4), 8, 0.4, 0, 0); 
+    -fx-opacity: 1 !important;
 }
 
 .rail-text {
-    -fx-font-size: 13px;
-    -fx-font-weight: 600;
-    -fx-text-fill: #2c3e50;
     -fx-opacity: 0;
-    -fx-transition: opacity 0.2s ease;
+    -fx-max-width: 0;              
+    -fx-padding: 0;
+    -fx-transition: opacity 0.25s ease, max-width 0.25s ease;
+}
+
+.rail-sidebar.expanded .rail-item {
+    -fx-padding: 16 20;
+    -fx-alignment: CENTER_LEFT;
+    -fx-spacing: 16;
 }
 
 .rail-sidebar.expanded .rail-text {
     -fx-opacity: 1;
+    -fx-max-width: 200;
 }
 
-/* Tooltip style untuk collapsed state */
+/* Active indicator bar kiri (neon line) */
+.rail-item.active::before {
+    content: "";
+    -fx-background-color: #00fff0;
+    -fx-pref-width: 4;
+    -fx-pref-height: 40;
+    -fx-effect: dropshadow(gaussian, #00fff0, 15, 0.8, 0, 0);
+}
+
+/* Tooltip saat collapsed */
 .rail-item .tooltip {
-    -fx-font-size: 12px;
-    -fx-background-color: #2c3e50;
-    -fx-text-fill: white;
-    -fx-padding: 8 12;
+    -fx-background-color: rgba(0, 50, 70, 0.95);
+    -fx-text-fill: #ccfffa;
+    -fx-font-weight: 600;
+    -fx-padding: 8 14;
+    -fx-background-radius: 10;
+}
+
+/* LOGO HEADER — MUNCUL SAAT EXPANDED */
+.logo-text {
+    -fx-opacity: 0;
+    -fx-transition: opacity 0.3s ease;
+}
+
+.rail-sidebar.expanded .logo-text {
+    -fx-opacity: 1;
+}
+
+/* Biar header lebih tinggi & rapi */
+.rail-header {
+    -fx-pref-height: 90;
+    -fx-padding: 20 16;
+}
+
+/* Tulisan "Menu" — sembunyi pas collapsed, muncul halus pas expand */
+.menu-title {
+    -fx-opacity: 0;
+    -fx-translate-x: -20;
+    -fx-transition: opacity 0.4s ease 0.1s, translate-x 0.4s ease;
+}
+
+.rail-sidebar.expanded .menu-title {
+    -fx-opacity: 1;
+    -fx-translate-x: 0;
+}
+
+.rail-sidebar {
+    -fx-pref-width: 70px;
+    -fx-transition: pref-width 0.35s ease;
+}
+
+.rail-sidebar.expanded {
+    -fx-pref-width: 240px;
+}
+
+.main-layout .padding {
+    -fx-padding: 0 0 0 70; /* collapsed */
+}
+
+.main-layout .rail-sidebar.expanded ~ .padding {
+    -fx-padding: 0 0 0 240; /* expanded */
 }

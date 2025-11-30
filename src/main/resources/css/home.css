@@ -1,7 +1,7 @@
 /* ===== HOME PAGE STYLES ===== */
 
 .home-container {
-    -fx-background-color: #f8fafc;
+    -fx-background: linear-gradient(to bottom, #00807E 0%, #0B7078 20%, #1A596E 45%, #2B4063 70%, #342758 90%, #512663 100%);
 }
 
 /* ===== HERO SECTION ===== */
@@ -11,7 +11,7 @@
 }
 
 .hero-bg {
-    -fx-fill: linear-gradient(to bottom right, #667eea, #764ba2);
+    -fx-fill: linear-gradient(135deg, #00807E 0%, #0B7078 40%, #1A596E 70%, #342758 100%);
     -fx-arc-width: 40;
     -fx-arc-height: 40;
     -fx-width: 90%;
@@ -24,38 +24,46 @@
     -fx-max-width: 700;
 }
 
+/* HERO TEXT — ELEGAN GLOW (BUKAN ALAY) */
+
 .hero-title {
-    -fx-text-fill: white;
-    -fx-font-size: 48px;
-    -fx-font-weight: bold;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 2);
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 52px;
+    -fx-font-weight: 800;
+    -fx-font-family: "Segoe UI", "Helvetica", "Arial", sans-serif;
+    
+    -fx-effect: dropshadow(gaussian, rgba(200, 255, 255, 0.9), 40, 1, 0, 0);
 }
 
 .hero-tagline {
-    -fx-text-fill: #e2e8f0;
-    -fx-font-size: 24px;
+    -fx-text-fill: #c8eeec;
+    -fx-font-size: 26px;
     -fx-font-weight: 600;
+    
+    -fx-effect: dropshadow(gaussian, rgba(200, 255, 255, 0.5), 12, 0.5, 0, 0);
 }
 
 .hero-subtitle {
-    -fx-text-fill: #cbd5e0;
-    -fx-font-size: 16px;
-    -fx-line-spacing: 1.5;
+    -fx-text-fill: #b0e0e0;
+    -fx-font-size: 17px;
+    -fx-line-spacing: 4;
+    
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.3), 6, 0.4, 0, 0);
 }
 
 .cta-primary {
-    -fx-background-color: #fbbf24;
-    -fx-text-fill: #1a202c;
+    -fx-background-color: #00807E;
+    -fx-text-fill: white;
     -fx-font-size: 16px;
     -fx-font-weight: bold;
-    -fx-padding: 12 24;
-    -fx-background-radius: 8;
+    -fx-padding: 14 32;
+    -fx-background-radius: 50;
     -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 2, 2);
+    -fx-effect: dropshadow(gaussian, #00807E, 15, 0.6, 0, 0);
 }
 
 .cta-primary:hover {
-    -fx-background-color: #f59e0b;
+    -fx-background-color: #006966;
     -fx-scale-x: 1.05;
     -fx-scale-y: 1.05;
 }
@@ -67,7 +75,7 @@
 }
 
 .section-title {
-    -fx-text-fill: #2d3748;
+    -fx-text-fill: white;
     -fx-font-size: 32px;
     -fx-font-weight: bold;
     -fx-padding: 0 0 20 0;
@@ -79,14 +87,14 @@
 }
 
 .problem-card {
-    -fx-background-color: white;
+    -fx-background-color: rgba(255,255,255,0.12);
     -fx-padding: 30 25;
     -fx-spacing: 15;
     -fx-pref-width: 280;
     -fx-alignment: CENTER_LEFT;
     -fx-background-radius: 12;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 2, 4);
-    -fx-border-color: #e2e8f0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 15, 0, 4, 8);
+    -fx-border-color: rgba(255,255,255,0.2);
     -fx-border-width: 1;
     -fx-border-radius: 12;
 }
@@ -97,19 +105,19 @@
 }
 
 .card-title {
-    -fx-text-fill: #2d3748;
+    -fx-text-fill: white;
     -fx-font-size: 18px;
     -fx-font-weight: bold;
 }
 
 .card-desc {
-    -fx-text-fill: #718096;
+    -fx-text-fill: #c0e8e8;
     -fx-font-size: 14px;
     -fx-line-spacing: 1.4;
 }
 
 .solution-text {
-    -fx-text-fill: #48bb78;
+    -fx-text-fill: #00807E;
     -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-padding: 10 0 0 0;
@@ -117,7 +125,7 @@
 
 /* ===== FEATURES SECTION ===== */
 .features-section {
-    -fx-background-color: white;
+    -fx-background-color: transparent;
 }
 
 .features-grid {
@@ -126,20 +134,20 @@
 }
 
 .feature-card {
-    -fx-background-color: #f7fafc;
+    -fx-background-color: rgba(255,255,255,0.1);
     -fx-padding: 25 20;
     -fx-spacing: 12;
     -fx-pref-width: 250;
     -fx-alignment: CENTER;
     -fx-background-radius: 10;
-    -fx-border-color: #e2e8f0;
+    -fx-border-color: rgba(255,255,255,0.15);
     -fx-border-width: 1;
     -fx-border-radius: 10;
 }
 
 .feature-card:hover {
-    -fx-background-color: #edf2f7;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 2, 3);
+    -fx-background-color: rgba(255,255,255,0.18);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 12, 0, 4, 6);
 }
 
 .feature-icon {
@@ -147,14 +155,14 @@
 }
 
 .feature-title {
-    -fx-text-fill: #2d3748;
+    -fx-text-fill: white;
     -fx-font-size: 16px;
     -fx-font-weight: bold;
     -fx-text-alignment: CENTER;
 }
 
 .feature-desc {
-    -fx-text-fill: #718096;
+    -fx-text-fill: #b8e6e6;
     -fx-font-size: 13px;
     -fx-line-spacing: 1.3;
     -fx-text-alignment: CENTER;
@@ -167,7 +175,7 @@
 }
 
 .stats-bg {
-    -fx-fill: linear-gradient(to right, #4fd1c5, #38b2ac);
+    -fx-fill: linear-gradient(to right, #1A596E, #342758);
     -fx-width: 80%;
     -fx-height: 100%;
     -fx-arc-width: 20;
@@ -187,18 +195,17 @@
     -fx-text-fill: white;
     -fx-font-size: 42px;
     -fx-font-weight: bold;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 2, 2);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 3, 3);
 }
 
 .stat-label {
-    -fx-text-fill: #e6fffa;
+    -fx-text-fill: #e0f7fa;
     -fx-font-size: 16px;
     -fx-font-weight: 600;
 }
 
-/* ===== FINAL CTA SECTION ===== */
 .final-cta-section {
-    -fx-background-color: #2d3748;
+    -fx-background-color: #512663;
     -fx-alignment: CENTER;
 }
 
@@ -209,29 +216,28 @@
 }
 
 .cta-subtitle {
-    -fx-text-fill: #cbd5e0;
+    -fx-text-fill: #d0c8e8;
     -fx-font-size: 16px;
     -fx-max-width: 500;
 }
 
 .cta-secondary {
     -fx-background-color: transparent;
-    -fx-text-fill: #fbbf24;
+    -fx-text-fill: #00807E;
     -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-padding: 10 20;
     -fx-background-radius: 6;
-    -fx-border-color: #fbbf24;
+    -fx-border-color: #00807E;
     -fx-border-width: 2;
     -fx-border-radius: 6;
     -fx-cursor: hand;
 }
 
 .cta-secondary:hover {
-    -fx-background-color: rgba(251, 191, 36, 0.1);
+    -fx-background-color: rgba(0,128,126,0.15);
 }
 
-/* Fix scrolling and layout */
 ScrollPane {
     -fx-background-color: transparent;
     -fx-border-width: 0;
@@ -243,6 +249,364 @@ ScrollPane .viewport {
 }
 
 .home-container {
-    -fx-background-color: #f8fafc;
+    -fx-background: linear-gradient(to bottom, #00807E 0%, #512663 100%);
     -fx-min-width: 100%;
+}
+
+/* ===== FIX KONTRAS GLOBAL — TAMBAHIN DI BAWAH SEMUA ===== */
+Label, .label {
+    -fx-text-fill: #f0f8ff !important;   
+    -fx-font-weight: 600;
+}
+
+.hero-title, .section-title, .cta-title {
+    -fx-text-fill: white !important;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 8, 0.3, 0, 2);
+}
+
+/* Teks kecil tetap jelas */
+.card-title, .feature-title, .stat-label {
+    -fx-text-fill: #e0f7fa !important;
+}
+
+/* Teks deskripsi */
+.card-desc, .feature-desc, .hero-subtitle, .cta-subtitle {
+    -fx-text-fill: #b0e0e6 !important;
+}
+
+/* Tombol kembali, combo box, table header */
+.button, .combo-box, .table-view .column-header .label {
+    -fx-text-fill: white !important;
+}
+
+/* Table row text */
+.table-row-cell {
+    -fx-text-fill: #2c3e50 !important;
+}
+.table-row-cell:selected {
+    -fx-text-fill: white !important;
+}
+
+/* Fix combo box dropdown */
+.combo-box .list-cell {
+    -fx-text-fill: #2c3e50;
+}
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-text-fill: white;
+}
+
+/* ===== FIX CARD DAFTAR MENU MBG — LANGSUNG JADI GLOWING PREMIUM ===== */
+.dapur-card {
+    -fx-background-color: rgba(255, 255, 255, 0.13) !important;
+    -fx-background-radius: 20;
+    -fx-padding: 24;
+    -fx-spacing: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6),12, 0.5, 0, 0);
+    -fx-border-color: rgba(0, 255, 240, 0.25);
+    -fx-border-width: 1.5;
+    -fx-border-radius: 20;
+    -fx-pref-width: 580;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.dapur-card:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.20) !important;
+    -fx-effect: dropshadow(gaussian, #00fff0, 12, 0.5, 0, 0);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+    -fx-transition: all 0.3s ease;
+}
+
+/* Judul dapur */
+.dapur-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white !important;
+}
+
+/* Teks sekolah */
+.dapur-sekolah {
+    -fx-font-size: 14px;
+    -fx-text-fill: #a0f7f4 !important;
+}
+
+/* Tombol di card */
+.dapur-card .button {
+    -fx-background-color: rgba(0, 200, 190, 0.25) !important;
+    -fx-text-fill: #b0fffa !important;
+    -fx-font-weight: bold;
+    -fx-background-radius: 30;
+    -fx-padding: 10 24;
+    -fx-border-color: rgba(0, 255, 240, 0.5);
+    -fx-border-width: 1.5;
+    -fx-border-radius: 30;
+    -fx-font-size: 13px;
+}
+
+.dapur-card .button:hover {
+    -fx-background-color: rgba(0, 255, 240, 0.4) !important;
+    -fx-effect: dropshadow(gaussian, #0f5e59, 12, 0.5, 0, 0);
+}
+
+/* ===== DETAIL MENU 7 HARI — VERSI FINAL GELAP GLOWING PREMIUM ===== */
+.detail-title {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, #67e1d9e8,12, 0.5, 0, 0);
+}
+
+.dapur-name {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #7af5ed;
+}
+
+.sekolah-label {
+    -fx-font-size: 17px;
+    -fx-text-fill: #a0f7f4;
+    -fx-padding: 10 0 0 0;
+}
+
+.menu-harian-card {
+    -fx-background-color: rgba(15, 35, 50, 0.72);
+    -fx-background-radius: 26;
+    -fx-padding: 30;
+    -fx-spacing: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.8), 30, 0, 8, 16);
+    -fx-border-color: rgba(0, 255, 240, 0.45);
+    -fx-border-width: 2;
+    -fx-border-radius: 26;
+}
+
+.menu-harian-card:hover {
+    -fx-background-color: rgba(0, 100, 110, 0.68);
+    -fx-border-color: #00fff0;
+    -fx-effect: dropshadow(gaussian, #5ae4dbf5, 12, 0.5, 0, 0);
+}
+
+.hari-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.menu-item {
+    -fx-font-size: 16px;
+    -fx-text-fill: #b8fffa;
+}
+
+.nutrisi-chip {
+    -fx-background-color: rgba(0, 220, 200, 0.38);
+    -fx-text-fill: #b0fffa;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+    -fx-padding: 12 26;
+    -fx-background-radius: 30;
+    -fx-border-color: rgba(0, 255, 240, 0.7);
+    -fx-border-width: 2;
+    -fx-border-radius: 30;
+}
+
+
+.glass-card {
+    -fx-background-color: rgba(255,255,255,0.1);
+    -fx-background-radius: 20;
+    -fx-padding: 30;
+    -fx-border-color: rgba(0,255,240,0.3);
+    -fx-border-width: 1.5;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 20, 0, 0, 10);
+}
+
+.combo-premium, .text-field-premium {
+    -fx-background-color: rgba(255,255,255,0.12);
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: rgba(255,255,255,0.6);
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-font-size: 15px;
+    -fx-padding: 12;
+}
+
+.btn-primary {
+    -fx-background-color: #00d4aa;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 12 40;
+    -fx-background-radius: 30;
+    -fx-font-size: 15px;
+}
+.btn-primary:hover { -fx-background-color: #00b894; -fx-scale-x: 1.05; }
+
+.btn-analyze-big {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+    -fx-padding: 18 70;
+    -fx-background-radius: 50;
+}
+.btn-analyze-big:hover { -fx-background-color: #2980b9; -fx-scale-x: 1.08; }
+.btn-analyze-big:disabled { -fx-opacity: 0.5; }
+
+.btn-back {
+    -fx-background-color: transparent;
+    -fx-text-fill: #00fff0;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-padding: 16 50;
+    -fx-border-color: #00fff0;
+    -fx-border-width: 2;
+    -fx-background-radius: 50;
+}
+.btn-back:hover { -fx-background-color: rgba(0,255,240,0.15); }
+
+.btn-danger { -fx-background-color: #d74e3fc8; -fx-text-fill: white; -fx-padding: 10 30; -fx-background-radius: 30; }
+.btn-warning { -fx-background-color: #f39d12c5; -fx-text-fill: white; -fx-padding: 10 30; -fx-background-radius: 30; }
+
+.accent-count { -fx-text-fill: #00fff0; -fx-font-size: 20px; -fx-font-weight: bold; }
+.hint-text { -fx-text-fill: #a0e0e0; -fx-font-size: 14px; }
+
+/* TABEL PREMIUM */
+.table-premium {
+    -fx-background-color: rgba(15, 35, 60, 0.95);
+    -fx-background-radius: 18;
+    -fx-border-color: #00fff0;
+    -fx-border-width: 2;
+}
+.table-premium .column-header-background {
+    -fx-background-color: #006d6a;
+}
+.table-premium .column-header .label {
+    -fx-text-fill: #006d6a;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
+.table-premium .table-cell {
+    -fx-text-fill:#006d6a;
+    -fx-font-size: 15.5px;
+    -fx-padding: 12;
+}
+
+.table-premium .table-row-cell:selected {
+    -fx-background-color: rgba(0, 212, 170, 0.4);
+}
+
+/* PIE CHART GLOWING */
+.pie-glowing .chart-pie-label {
+    -fx-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+/* NUTRISI CARD */
+.nutrisi-big-card {
+    -fx-background-color: rgba(20, 35, 55, 0.92);
+    -fx-background-radius: 22;
+    -fx-padding: 28 32;                    /* dari 35 → 28 32 = lebih ramping */
+    -fx-border-color: #00fff0;
+    -fx-border-width: 1.8;
+    -fx-border-radius: 22;
+    -fx-effect: dropshadow(gaussian, rgba(0, 255, 240, 0.4), 20, 0.4, 0, 8);
+    -fx-max-width: 420;                    /* biar gak melebar */
+}
+
+.nut-big-value {
+    -fx-font-size: 28px;      /* dari 30px jadi 28px = pas banget */
+    -fx-font-weight: 850;
+}
+
+.nut-label {
+    -fx-font-size: 17px;      /* dari 20px jadi 17px */
+    -fx-text-fill: #b0e0e0;
+}
+.result-title { -fx-font-size: 36px; -fx-font-weight: 900; -fx-text-fill: white; }
+/* Ukuran nilai nutrisi — PAS, GAK GEDE BANGET, GAK KECIL BANGET */
+.nut-value-medium {
+    -fx-font-size: 26px;    
+    -fx-font-weight: 800;
+}
+
+/* Biar pie chart legend gak numpuk */
+.pie-glowing .chart-legend {
+    -fx-background-color: rgba(10, 25, 45, 0.92) !important;
+    -fx-background-radius: 16;
+    -fx-padding: 14 20;                    /* dikecilin dari 25 30 */
+    -fx-border-color: rgba(0, 255, 240, 0.4);
+    -fx-border-width: 1.5;
+    -fx-border-radius: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 12, 0, 0, 4);
+    -fx-max-width: 300;                    /* biar gak lebar banget */
+    -fx-font-size: 15px;
+}
+.pie-glowing .chart-legend-item {
+    -fx-text-fill: white;
+    -fx-font-size: 25 px;                   /* dari 30px / 17px jadi 16px = pas */
+    -fx-font-weight: 600;
+    -fx-padding: 6 0;
+}
+.pie-glowing .chart-legend-item-symbol {
+    -fx-background-radius: 6;
+}
+/* ALERT — TEKS LEBIH GEDE, TAPI TETAP CANTIK & PROPORSIONAL */
+.alert-box {
+    -fx-background-color: rgba(255, 70, 70, 0.22);
+    -fx-background-radius: 18;
+    -fx-padding: 24 36;                  /* agak dibesarin biar lega */
+    -fx-border-color: #ff6b6b;
+    -fx-border-width: 2.2;
+    -fx-border-radius: 18;
+    -fx-effect: dropshadow(gaussian, rgba(255,0,0,0.4), 16, 0.4, 0, 6);
+    -fx-max-width: 800;
+}
+
+.alert-box .alert-title {
+    -fx-font-size: 26px;                 /* dari typo 280px jadi 26px */
+    -fx-font-weight: 900;
+    -fx-text-fill: #ff9999;
+    -fx-padding: 0 0 16 0;
+}
+
+.alert-box .label {
+    -fx-text-fill: #ffeeee;
+    -fx-font-size: 25px;                 /* dari 25px jadi 18px = gede, jelas, gak berisik */
+    -fx-font-weight: 800;
+    -fx-padding: 10 0;
+    -fx-line-spacing: 3;
+}
+.alert-title { -fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #ffcccc; }
+
+.nutrisi-card-final {
+    -fx-background-color: rgba(255,255,255,0.1);
+    -fx-background-radius: 20;
+    -fx-padding: 24 32;
+    -fx-border-color: rgba(0,255,240,0.3);
+    -fx-border-width: 1.8;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 20, 0, 0, 10);
+}
+
+.nut-label-small {
+    -fx-font-size: 16px;
+    -fx-text-fill: #b0e0e0;
+    -fx-font-weight: 600;
+}
+
+.nut-value-final {
+    -fx-font-size: 26px;          
+    -fx-font-weight: 800;
+}
+.page-header-logo {
+    -fx-padding: 30 0 20 40;
+    -fx-spacing: 16;
+    -fx-background-color: transparent;
+    -fx-z-index: 10; /* biar selalu di atas */
+}
+
+.page-brand-header {
+    -fx-background-color: transparent;
+    -fx-z-index: 5;            /* logo di atas background, tapi hero content lebih atas */
+}
+
+.hero-content {
+    -fx-z-index: 10;           /* hero text selalu paling atas */
 }

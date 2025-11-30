@@ -23,16 +23,26 @@
               prefWidth="70.0"
               AnchorPane.topAnchor="0.0" 
               AnchorPane.bottomAnchor="0.0"
-              AnchorPane.leftAnchor="0.0">
+              AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0">
 
-            <!-- Header dengan toggle button -->
-            <HBox styleClass="rail-header" prefHeight="60.0">
+            <!-- HEADER DENGAN TOMBOL TOGGLE + TULISAN "Menu" (muncul pas expand) -->
+            <HBox styleClass="rail-header" prefHeight="70.0" alignment="CENTER_LEFT" spacing="12">
                 <children>
+                    <!-- Tombol Toggle -->
                     <Button fx:id="btnToggle" 
                             text="≡" 
                             styleClass="rail-toggle-btn"
                             onAction="#handleToggleClick"/>
+
+                    <!-- TULISAN "Menu" — MUNCUL CUMA PAS EXPAND -->
+                    <Label text="Menu" 
+                        styleClass="menu-title"
+                        style="-fx-text-fill: #00fff0; -fx-font-size: 16px; -fx-font-weight: 800;"/>
                 </children>
+                <padding>
+                    <Insets left="20" right="20"/>
+                </padding>
             </HBox>
 
             <!-- Menu Items -->
@@ -84,19 +94,6 @@
                         <children>
                             <Label text="📋" styleClass="rail-icon" />
                             <Label text="Menu MBG" styleClass="rail-text" />
-                        </children>
-                        <padding>
-                            <Insets top="10.0" right="10.0" bottom="10.0" left="10.0" />
-                        </padding>
-                    </HBox>
-
-                    <HBox fx:id="menuLogin"
-                          styleClass="rail-item" 
-                          accessibleText="/fxml/main/login.fxml"
-                          onMouseClicked="#onMenuClicked">
-                        <children>
-                            <Label text="🔑" styleClass="rail-icon" />
-                            <Label text="Login" styleClass="rail-text" />
                         </children>
                         <padding>
                             <Insets top="10.0" right="10.0" bottom="10.0" left="10.0" />

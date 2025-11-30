@@ -5,16 +5,9 @@
 <BorderPane xmlns="http://javafx.com/javafx/8"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.nutrisense.controllers.main.MainController"
-            stylesheets="@/css/sidebar.css">
+            styleClass="home-container"
+            stylesheets="@/css/home.css">
 
-    <!-- Sidebar akan dimasukkan ke LEFT -->
-    <left>
-        <AnchorPane fx:id="sidebarContainer" prefWidth="70" />
-    </left>
-
-    <!-- Konten halaman akan dimasukkan ke CENTER -->
-    <center>
-        <AnchorPane fx:id="contentContainer" />
-    </center>
-
+    <left><AnchorPane fx:id="sidebarContainer" prefWidth="70"/></left>
+    <center><AnchorPane fx:id="contentContainer"/></center>
 </BorderPane>
